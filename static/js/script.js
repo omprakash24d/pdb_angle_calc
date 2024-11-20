@@ -4,6 +4,7 @@ const resultsDiv = document.getElementById('results');
 const resultsBody = document.getElementById('resultsBody');
 const loadingDiv = document.getElementById('loading');
 const errorDiv = document.getElementById('error');
+const fileErrorDiv = document.getElementById('fileError');  // New error div for file validation
 
 let uploadedFilename = '';  // To store the uploaded file's base name
 
@@ -15,8 +16,26 @@ function clearResults() {
     resultsBody.innerHTML = '';
 }
 
+// Validate the file type (only .pdb files are allowed)
+function validateFileType() {
+    const fileName = fileInput.files[0]?.name || '';
+    if (!fileName.endsWith('.pdb')) {
+        fileErrorDiv.style.display = 'block';  // Show error if file type is not .pdb
+        fileInput.value = '';  // Clear file input
+        return false;
+    } else {
+        fileErrorDiv.style.display = 'none';  // Hide error if valid file
+        return true;
+    }
+}
+
 async function handleFormSubmit(e) {
     e.preventDefault();
+
+    // Validate file type before proceeding
+    if (!validateFileType()) {
+        return;  // Exit if file is invalid
+    }
 
     toggleVisibility(resultsDiv, false);
     toggleVisibility(errorDiv, false);
@@ -66,5 +85,7 @@ function download(filetype) {
     const downloadUrl = `/download/${filetype}/${uploadedFilename}`;
     window.location.href = downloadUrl;  // Trigger the file download
 }
+
+fileInput.addEventListener('change', validateFileType);  // Event listener for file input change
 
 form.addEventListener('submit', handleFormSubmit);

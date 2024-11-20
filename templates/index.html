@@ -7,7 +7,7 @@
     <!-- SEO Meta Tags -->
     <meta
       name="description"
-      content="Upload a PDB file to calculate Phi and Psi angles. View results instantly without page reload. Supports multiple formats: CSV, PDF, Excel, and TXT."
+      content="Upload a PDB file to calculate Phi and Psi angles. View results instantly without page reload. Supports multiple formats: CSV, PDF, and TXT."
     />
     <meta
       name="keywords"
@@ -19,7 +19,7 @@
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="PDB Angle Calculator - Bioinformatics Tool"
+      content="Dihydral Angle Calculator from PDB File- Bioinformatics Tool"
     />
     <meta
       property="og:description"
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="PDB Angle Calculator - Bioinformatics Tool"
+      content="Dihydral Angle Calculator - Bioinformatics Tool"
     />
     <meta
       name="twitter:description"
@@ -61,7 +61,7 @@
         },
         "publisher": {
           "@type": "Organization",
-          "name": "Your Organization Name"
+          "name": "Om Prakash"
         },
         "potentialAction": {
           "@type": "Action",
@@ -70,14 +70,20 @@
       }
     </script>
 
-    <title>PDB Angle Calculator</title>
+    <title>Dihydral Angle Calculator</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/fonts/fontawesome-free-regular-400.woff2"
+      type="image/x-icon"
+    />
 
     <!-- External CSS -->
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/styles.css') }}"
     />
-
     <!-- Bootstrap Icons -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
@@ -92,13 +98,13 @@
 
   <body>
     <!-- Header Section -->
-    <header class="header-section">
+    <header class="header-section text-white py-4">
       <div class="container">
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-dark">
-          <a class="navbar-brand" href="https://pdb.indhinditech.com/">
-            PDB Angle Calculator
-          </a>
+          <a class="navbar-brand" href="https://pdb.indhinditech.com/"
+            >Dihydral Angle Calculator</a
+          >
           <button
             class="navbar-toggler"
             type="button"
@@ -113,21 +119,38 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="https://pdb.indhinditech.com/"
+                  >About Us</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#download-pdb">Download PDB</a>
+                <a class="nav-link" href="https://www.rcsb.org/" target="_blank"
+                  >Download PDB</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#documentation">Documentation</a>
+                <a
+                  class="nav-link"
+                  href="https://indhinditech.com/contact-us/"
+                  target="_blank"
+                  >Contact Us</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="https://github.com/omprakash24d/pdb_angle_calc/tree/main"
+                  target="_blank"
+                  >Documentation</a
+                >
               </li>
             </ul>
           </div>
         </nav>
 
-        <!-- Tagline Section -->
-        <div class="header-content text-center mt-4">
-          <p class="lead text-white mt-4">
+        <!-- Tagline Section with Paragraph Added -->
+        <div class="header-content text-center mt-5">
+          <p class="lead mb-3">
             Effortlessly calculate Phi and Psi angles from your PDB files and
             download the results in various formats.
           </p>
@@ -137,150 +160,138 @@
 
     <!-- Main Content Section -->
     <main class="container my-5">
-      <section class="container-fluid py-5" id="uploadSection">
+      <!-- Upload Section -->
+      <section id="uploadSection" class="container-fluid py-5">
         <div class="row justify-content-center">
           <div class="col-md-8 col-lg-6">
             <!-- Form Container -->
             <form id="uploadForm" class="p-4 shadow-lg rounded bg-white">
-              <!-- File Input -->
               <div class="mb-4">
-                <label for="fileInput" class="form-label fw-bold fs-5 text-secondary">
-                  Select Your PDB File:
-                </label>
-                <input
-                  type="file"
-                  name="file"
-                  accept=".pdb"
-                  class="form-control border-primary rounded-pill"
-                  id="fileInput"
-                  required
-                />
-                <small class="form-text text-muted d-block mt-2">
-                  Only `.pdb` files are supported. Max size: 10MB.
-                </small>
+                <label
+                  for="fileInput"
+                  class="form-label fw-bold fs-5 text-secondary"
+                  >Select Your PDB File:</label
+                >
+                <div class="input-group">
+                  <input
+                    type="file"
+                    name="file"
+                    accept=".pdb"
+                    class="form-control border-primary rounded-pill py-3"
+                    id="fileInput"
+                    required
+                  />
+                </div>
+                <small class="form-text text-muted d-block mt-2"
+                  >Only `.pdb` files are supported. Max size: 10MB.</small
+                >
+                <div
+                  id="fileError"
+                  class="text-danger mt-2"
+                  style="display: none"
+                >
+                  <small>Invalid file type. Please upload a `.pdb` file.</small>
+                </div>
               </div>
-      
-              <!-- File Upload Button -->
+
               <div class="text-center">
                 <button
                   type="submit"
                   class="btn btn-primary rounded-pill px-5 py-3 fs-5 shadow-sm position-relative"
                 >
                   <i class="bi bi-cloud-upload-fill"></i> Upload and Calculate
-                  
                 </button>
               </div>
             </form>
           </div>
         </div>
       </section>
-      
 
-          <!-- Enhanced Loading Indicator -->
-          <section id="loading" class="text-center my-5" style="display: none">
-            <div
-              class="spinner-border text-primary"
-              role="status"
-              style="width: 3rem; height: 3rem"
+      <!-- Loading Indicator -->
+      <section id="loading" class="text-center my-5" style="display: none">
+        <div
+          class="spinner-border text-primary"
+          role="status"
+          style="width: 3rem; height: 3rem"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-3 fs-4 text-secondary">Processing, please wait...</p>
+        <p class="text-muted fs-5">
+          Your file is being processed. This may take a moment.
+        </p>
+      </section>
+
+      <!-- Results Section -->
+      <section id="results" class="mt-5 w-100" style="display: none">
+        <h2 class="text-center text-primary mb-4">Results of PDB Analysis</h2>
+        <div
+          id="resultsTable"
+          class="table-responsive border rounded-3 shadow-lg bg-light"
+          style="max-height: 450px; overflow-y: auto"
+        >
+          <table class="table table-striped table-hover">
+            <thead class="table-dark sticky-top">
+              <tr>
+                <th>PDB Code</th>
+                <th>Chain ID</th>
+                <th>Residue</th>
+                <th>Residue ID</th>
+                <th>Phi (°)</th>
+                <th>Psi (°)</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody"></tbody>
+          </table>
+        </div>
+
+        <!-- Download Options -->
+        <div class="text-center mt-5">
+          <h4 class="mb-4 text-muted">Download Results As:</h4>
+          <div class="btn-group" role="group" aria-label="Download Options">
+            <button
+              class="btn btn-success rounded-pill px-4 py-2 shadow-sm"
+              onclick="download('csv')"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Download as CSV"
             >
-              <span class="visually-hidden">Loading...</span>
-            </div>
-            <p class="mt-3 fs-4 text-secondary">Processing, please wait...</p>
-            <p class="text-muted fs-5">
-              Your file is being processed. This may take a moment.
-            </p>
-          </section>
-
-          <!-- Results Section -->
-          <section id="results" class="mt-5 w-100" style="display: none;">
-            <h3 class="text-center text-primary mb-4">Results</h3>
-          
-            <!-- Results Table -->
-            <div
-              id="resultsTable"
-              class="table-responsive border rounded-3 shadow-sm"
-              style="max-height: 400px; overflow-y: auto;"
+              <i class="bi bi-file-earmark-spreadsheet me-2"></i> CSV
+            </button>
+            <button
+              class="btn btn-warning rounded-pill px-4 py-2 shadow-sm"
+              onclick="download('txt')"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Download as TXT"
             >
-              <table class="table table-striped table-hover">
-                <thead class="table-dark sticky-top">
-                  <tr>
-                    <th>PDB Code</th>
-                    <th>Chain ID</th>
-                    <th>Residue</th>
-                    <th>Residue ID</th>
-                    <th>Phi (°)</th>
-                    <th>Psi (°)</th>
-                  </tr>
-                </thead>
-                <tbody id="resultsBody"></tbody>
-              </table>
-            </div>
-          
-            <!-- Download Options -->
-            <div class="text-center mt-5">
-              <h4 class="mb-4 text-muted">Download Results As:</h4>
-              <div class="btn-group" role="group" aria-label="Download Options">
-                <!-- CSV Button -->
-                <button
-                  class="btn btn-success rounded-pill px-4 py-2 shadow-sm"
-                  onclick="download('csv')"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="Download as CSV"
-                >
-                  <i class="bi bi-file-earmark-spreadsheet me-2"></i> CSV
-                </button>
-          
-                <!-- TXT Button -->
-                <button
-                  class="btn btn-warning rounded-pill px-4 py-2 shadow-sm"
-                  onclick="download('txt')"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="Download as TXT"
-                >
-                  <i class="bi bi-file-earmark-text me-2"></i> TXT
-                </button>
-          
-                <!-- PDF Button -->
-                <button
-                  class="btn btn-danger rounded-pill px-4 py-2 shadow-sm"
-                  onclick="download('pdf')"
-                  data-bs-toggle="tooltip"
-                  data-bs-placement="top"
-                  title="Download as PDF"
-                >
-                  <i class="bi bi-file-earmark-pdf me-2"></i> PDF
-                </button>
-              </div>
-            </div>
-          </section>
-          
-          
-          
-          <!-- Bootstrap Tooltip Initialization (to display tooltips) -->
-          <script>
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-              return new bootstrap.Tooltip(tooltipTriggerEl)
-            })
-          </script>
-          
-
-          <!-- Error Message -->
-          <section
-            id="error"
-            class="alert alert-danger mt-3"
-            style="display: none"
-          ></section>
+              <i class="bi bi-file-earmark-text me-2"></i> TXT
+            </button>
+            <button
+              class="btn btn-danger rounded-pill px-4 py-2 shadow-sm"
+              onclick="download('pdf')"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Download as PDF"
+            >
+              <i class="bi bi-file-earmark-pdf me-2"></i> PDF
+            </button>
+          </div>
         </div>
       </section>
+
+      <!-- Error Message -->
+      <section
+        id="error"
+        class="alert alert-danger mt-3"
+        style="display: none"
+      ></section>
     </main>
 
     <!-- Footer Section -->
     <footer class="bg-dark text-white py-3 mt-5">
       <div class="container text-center">
-        <p>&copy; 2024 PDB Angle Calculator | All Rights Reserved</p>
+        <p>&copy; 2024 Dihydral Angle Calculator | All Rights Reserved</p>
         <p>
           Designed and Developed by
           <a

@@ -12,6 +12,7 @@
   --border-color: #ddd;
   --hover-color: #0056b3;
   --white: #fff;
+  --bg-color: #1a1a2e; /* Added dark background color for consistency */
 }
 
 /* Body */
@@ -25,24 +26,63 @@ body {
 
 /* Header */
 header {
-  background-color: var(--secondary-color);
-  color: var(--white);
-  padding: 3rem 0;
+  background-color: var(--bg-color); /* Dark Blue background */
+  color: #fff;
+  padding: 0.5rem 0; /* Reduced padding for compactness */
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 
-header h1 {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+
+header .nav-link {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
 }
 
-header p {
-  font-size: 1.3rem;
-  line-height: 1.6;
+
+@media (max-width: 768px) {
+  header .navbar {
+    padding: 1rem;
+  }
+
+  header .navbar-brand {
+    font-size: 2rem;
+  }
+
+  header .navbar-nav .nav-link {
+    font-size: 1rem;
+  }
+
+  header .header-content .lead {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  header .navbar {
+    padding: 0.8rem;
+  }
+
+  header .navbar-brand {
+    font-size: 1.8rem;
+  }
+
+  header .navbar-nav .nav-link {
+    font-size: 0.9rem;
+  }
+
+  header .header-content .lead {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
 }
 
 /* Card */
@@ -149,9 +189,10 @@ header p {
 
 /* Results Section */
 #resultsTable {
-  max-height: 350px;
+  max-height: 450px;
   overflow-y: auto;
-  border-radius: 10px;
+  border-radius: 15px;
+  background-color: #f9f9f9;
 }
 
 .table {
@@ -160,7 +201,8 @@ header p {
   font-size: 1rem;
 }
 
-.table th, .table td {
+.table th,
+.table td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid var(--border-color);
@@ -169,6 +211,7 @@ header p {
 .table th {
   background-color: var(--primary-color);
   color: var(--white);
+  font-weight: bold;
 }
 
 .table-striped tbody tr:nth-child(odd) {
@@ -181,6 +224,16 @@ header p {
 
 .table tbody tr:hover {
   background-color: var(--highlight-color);
+}
+
+/* Results Section Title */
+#results h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
 }
 
 /* Download Buttons */
@@ -210,12 +263,6 @@ header p {
   border-color: var(--success-color);
 }
 
-#results .btn-info {
-  background-color: var(--info-color);
-  color: var(--white);
-  border-color: var(--info-color);
-}
-
 #results .btn-warning {
   background-color: var(--warning-color);
   color: var(--white);
@@ -230,10 +277,6 @@ header p {
 
 #results .btn-success:hover {
   background-color: #218838;
-}
-
-#results .btn-info:hover {
-  background-color: #138496;
 }
 
 #results .btn-warning:hover {
@@ -256,7 +299,7 @@ header p {
 
 /* Footer */
 footer {
-  background-color: var(--secondary-color);
+  background-color: var(--bg-color);
   color: var(--white);
   padding: 1.5rem;
   text-align: center;
