@@ -1,0 +1,288 @@
+/* General Styles */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #343a40;
+    --highlight-color: #f4f7fc;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+    --light-gray: #f8f9fa;
+    --dark-gray: #6c757d;
+    --border-color: #ddd;
+    --hover-color: #0056b3;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--highlight-color);
+  }
+  
+  /* Header */
+  header {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  header p {
+    font-size: 1.1rem;
+  }
+  
+  /* Card Styles */
+  .card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .card-body {
+    padding: 3rem;
+  }
+  
+  /* Upload Form */
+  #uploadForm {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: var(--light-gray);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+  }
+  
+  #uploadForm .card-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+  }
+  
+  #uploadForm .form-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--dark-gray);
+    margin-bottom: 10px;
+  }
+  
+  #fileInput {
+    font-size: 1rem;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  #fileInput:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  }
+  
+  #fileInput:hover {
+    border-color: var(--primary-color);
+  }
+  
+  #uploadForm .form-text {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    margin-top: 10px;
+  }
+  
+  #uploadForm button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+  
+  #uploadForm button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  }
+  
+  #uploadForm button:active {
+    background-color: #004085;
+    transform: translateY(2px);
+  }
+  
+  #uploadForm:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Spinner Loading Style */
+  #loading {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+  }
+  
+  #loading .spinner-border {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  /* Error Message Styling */
+  #error {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 8px;
+  }
+  
+  /* Results Table Styles */
+  #resultsTable {
+    margin-top: 30px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+  .table td {
+    background-color: var(--light-gray);
+  }
+  
+  .table-striped tbody tr:nth-child(odd) {
+    background-color: #f1f3f5;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  /* Sticky Header */
+  thead.sticky-top {
+    position: sticky;
+    top: 0;
+    background-color: var(--secondary-color);
+    z-index: 10;
+  }
+  
+  /* Download Buttons */
+  #results .btn {
+    margin: 10px;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #results .btn:hover {
+    transform: translateY(-4px);
+  }
+  
+  #results .btn:active {
+    transform: translateY(2px);
+  }
+  
+  #results .btn-success {
+    background-color: var(--success-color);
+    color: white;
+    border-color: var(--success-color);
+  }
+  
+  #results .btn-success:hover {
+    background-color: #218838;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+  }
+  
+  #results .btn-info {
+    background-color: var(--info-color);
+    color: white;
+    border-color: var(--info-color);
+  }
+  
+  #results .btn-info:hover {
+    background-color: #138496;
+    box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);
+  }
+  
+  #results .btn-warning {
+    background-color: var(--warning-color);
+    color: white;
+    border-color: var(--warning-color);
+  }
+  
+  #results .btn-warning:hover {
+    background-color: #e0a800;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+  }
+  
+  #results .btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+    border-color: var(--danger-color);
+  }
+  
+  #results .btn-danger:hover {
+    background-color: #c82333;
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+  }
+  
+  /* Button with Gradient Background */
+  #results .btn-gradient {
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 6px rgba(255, 126, 95, 0.3);
+  }
+  
+  #results .btn-gradient:hover {
+    background: linear-gradient(45deg, #feb47b, #ff7e5f);
+    box-shadow: 0 4px 12px rgba(255, 126, 95, 0.5);
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  footer p {
+    margin: 0.5rem 0;
+  }
+  
