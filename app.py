@@ -5,7 +5,7 @@ import math
 import pandas as pd
 from fpdf import FPDF
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static", template_folder="templates")
 UPLOAD_FOLDER = 'uploads'
 RESULT_FOLDER = 'results'
 
@@ -64,6 +64,11 @@ def convert_to_pdf(df, filepath):
     pdf.output(filepath)
     return filepath
 
+@app.errorhandler(Exception)
+def handle_exception(e):
+    """Handles unexpected errors by returning a JSON error message."""
+    return jsonify({"error": str(e)}), 500
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -113,5 +118,4 @@ def download_file(filetype, filename):
         return send_file(pdf_path, as_attachment=True)
     else:
         return jsonify({'error': 'Invalid file type'}), 400
-
 

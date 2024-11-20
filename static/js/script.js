@@ -5,21 +5,17 @@ const resultsBody = document.getElementById('resultsBody');
 const loadingDiv = document.getElementById('loading');
 const errorDiv = document.getElementById('error');
 
-// Show/Hide elements utility
 function toggleVisibility(element, isVisible) {
     element.style.display = isVisible ? 'block' : 'none';
 }
 
-// Clear the results body
 function clearResults() {
     resultsBody.innerHTML = '';
 }
 
-// Handle form submission
 async function handleFormSubmit(e) {
     e.preventDefault();
 
-    // Reset states
     toggleVisibility(resultsDiv, false);
     toggleVisibility(errorDiv, false);
     clearResults();
@@ -29,14 +25,16 @@ async function handleFormSubmit(e) {
     formData.append('file', fileInput.files[0]);
 
     try {
-        const data = await uploadFile(formData);
+        const response = await fetch('/upload', { method: 'POST', body: formData });
+        const responseBody = await response.json();
+
         toggleVisibility(loadingDiv, false);
 
-        if (data.length > 0) {
-            populateResults(data);
+        if (response.ok) {
+            populateResults(responseBody);
             toggleVisibility(resultsDiv, true);
         } else {
-            throw new Error('No valid results found.');
+            throw new Error(responseBody.error || 'An error occurred.');
         }
     } catch (error) {
         toggleVisibility(loadingDiv, false);
@@ -45,22 +43,6 @@ async function handleFormSubmit(e) {
     }
 }
 
-// Upload file function
-async function uploadFile(formData) {
-    const response = await fetch('/upload', {
-        method: 'POST',
-        body: formData,
-    });
-
-    if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Something went wrong');
-    }
-
-    return response.json();
-}
-
-// Populate the results table
 function populateResults(data) {
     data.forEach(row => {
         const tr = document.createElement('tr');
@@ -76,11 +58,4 @@ function populateResults(data) {
     });
 }
 
-// Download file function
-function download(filetype) {
-    const filename = `${fileInput.files[0].name.split('.')[0]}_angles.csv`;
-    window.location.href = `/download/${filetype}/${filename}`;
-}
-
-// Event listener
 form.addEventListener('submit', handleFormSubmit);
