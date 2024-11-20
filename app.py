@@ -1,14 +1,18 @@
+import os
+import tempfile
 from flask import Flask, render_template, request, jsonify, send_file
 import Bio.PDB
-import os
 import math
 import pandas as pd
 from fpdf import FPDF
 
-app = Flask(__name__, static_folder="static", template_folder="templates")
-UPLOAD_FOLDER = 'uploads'
-RESULT_FOLDER = 'results'
+app = Flask(__name__)
 
+# Use Vercel's /tmp directory for file uploads
+UPLOAD_FOLDER = '/tmp/uploads'
+RESULT_FOLDER = '/tmp/results'
+
+# Create the directories if they don't exist
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(RESULT_FOLDER, exist_ok=True)
 
@@ -64,11 +68,6 @@ def convert_to_pdf(df, filepath):
     pdf.output(filepath)
     return filepath
 
-@app.errorhandler(Exception)
-def handle_exception(e):
-    """Handles unexpected errors by returning a JSON error message."""
-    return jsonify({"error": str(e)}), 500
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -96,7 +95,7 @@ def upload_file():
 @app.route('/download/<string:filetype>/<string:filename>')
 def download_file(filetype, filename):
     filepath = os.path.join(RESULT_FOLDER, filename)
-    
+
     try:
         df = pd.read_csv(filepath)
     except Exception as e:
@@ -118,4 +117,5 @@ def download_file(filetype, filename):
         return send_file(pdf_path, as_attachment=True)
     else:
         return jsonify({'error': 'Invalid file type'}), 400
+
 
