@@ -234,11 +234,11 @@ header .header-content p {
 
 /* Form Styling */
 #uploadForm {
-  max-width:300px;
+  max-width:500px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 20px;
   background-color: var(--light-gray);
-  border-radius: 8px; /* Rounded corners */
+  border-radius: 10 px; /* Rounded corners */
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
@@ -254,14 +254,14 @@ header .header-content p {
   padding: 14px 32px;
   font-size: 1.2rem;
   font-weight: 600;
-  border-radius: 50px;
+  border-radius: 2px;
   background-color: var(--primary-color);
   color: var(--white);
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
   border: none;
-  margin-top: 20px;
+  margin-top: px;
 }
 
 #uploadForm button:hover {
