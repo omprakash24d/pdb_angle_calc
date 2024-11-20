@@ -34,82 +34,101 @@ header {
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  z-index: 1000; /* Ensures the header stays on top */
 }
 
-header .nav-link {
-  font-size: 1rem;
+header .navbar {
+  padding: 0.5rem 0;
+}
+
+header .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+header .navbar-nav .nav-link {
+  font-size: 0.8rem;
   font-weight: 500;
   color: #fff;
   padding: 0.5rem 1rem;
   transition: all 0.3s ease;
+  text-transform: uppercase;
 }
 
-/* Remove border-radius from header for cleaner look */
-header, .navbar, .navbar-nav {
-  border-radius: 0;
+header .navbar-nav .nav-link:hover {
+  color: var(--primary-color);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-/* Header Responsive */
-@media (max-width: 768px) {
-  header {
-    padding: 1rem 0.5rem; /* Adjust header padding for mobile */
-  }
+header .navbar-nav .nav-link.active {
+  color: var(--primary-color);
+}
 
-  header .navbar {
-    padding: 0.8rem 0;
-  }
+/* Header Content Styling */
+header .header-content {
+  margin-top: 50px;
+  padding: 0 15px;
+}
 
-  header .navbar-brand {
-    font-size: 1.5rem;
-  }
+header .header-content h1 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
 
-  header .navbar-nav .nav-link {
-    font-size: 0.9rem;
-    padding: 0.5rem;
-  }
-
-  header .header-content h1 {
-    font-size: 2rem; /* Adjust font size for mobile */
-  }
-
+header .header-content p {
+  font-size: 1.2rem; /* Slightly larger text for better readability */
+  color: var(--light-gray); /* Keeping the light gray color */
+  font-weight: 400; /* Adjusted for a bit more emphasis */
+  line-height: 1.5; /* Improved line spacing for better readability */
+  letter-spacing: 0.5px; /* Small letter spacing for a cleaner look */
+  text-transform: capitalize; /* Capitalizes the first letter of each word */
+  margin-top: 10px; /* Adds space above the paragraph */
+  margin-bottom: 10px; /* Adds space below the paragraph */
+}
+@media (max-width: 600px) {
   header .header-content p {
-    font-size: 1rem;
+    font-size: 1rem; /* Smaller font size on mobile */
+    text-align: center; /* Center the text on smaller screens */
   }
 }
 
-@media (max-width: 576px) {
-  header {
-    padding: 1rem 0.5rem;
-  }
 
-  header .navbar {
-    padding: 0.5rem 0;
-  }
+header .navbar-toggler {
+  border: none;
+}
 
+@media (max-width: 768px) {
   header .navbar-brand {
-    font-size: 1.2rem;
+    font-size: 1.8rem;
   }
-
   header .navbar-nav .nav-link {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
+    padding: 0.75rem;
   }
 }
+
 
 /* Card */
 .card {
-  border-radius: 0; /* Removed border radius */
+  border-radius: 8px; /* Slightly rounded corners */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--white); /* Ensures card has a white background */
 }
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .card-body {
   padding: 2rem; /* Adjusted padding for better mobile spacing */
   background-color: var(--white);
+  border-radius: 8px; /* Ensure card content has rounded edges */
+  transition: background-color 0.3s ease;
 }
 
 /* Form Styling */
@@ -118,10 +137,15 @@ header, .navbar, .navbar-nav {
   margin: 0 auto;
   padding: 30px;
   background-color: var(--light-gray);
-  border-radius: 0; /* Removed border-radius */
+  border-radius: 8px; /* Rounded corners */
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
+  font-family: 'Arial', sans-serif; /* Sets the font for the form */
+}
+
+#uploadForm:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Button Styles */
@@ -136,6 +160,7 @@ header, .navbar, .navbar-nav {
   transition: all 0.3s ease;
   width: 100%;
   border: none;
+  margin-top: 20px;
 }
 
 #uploadForm button:hover {
@@ -153,44 +178,81 @@ header, .navbar, .navbar-nav {
 #loading {
   font-size: 1.2rem;
   text-align: center;
+  color: var(--dark-gray);
 }
 
 .spinner-border {
   width: 3rem;
   height: 3rem;
+  border: 4px solid var(--primary-color); /* Spinner color adjustment */
 }
 
 #loading p {
   margin-top: 20px;
   font-size: 1rem;
   color: var(--dark-gray);
+  font-weight: 300;
 }
+
+/* Responsiveness - Mobile */
+@media (max-width: 600px) {
+  .card-body {
+    padding: 1.5rem; /* Adjust padding on mobile */
+  }
+
+  #uploadForm {
+    max-width: 100%; /* Make form full-width on small screens */
+    padding: 20px;
+    margin: 0 15px; /* Adds margin on mobile for spacing */
+  }
+
+  #uploadForm button {
+    font-size: 1rem; /* Smaller button font size on mobile */
+    padding: 12px 25px; /* Adjust padding */
+  }
+
+  #loading {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+  }
+
+  .spinner-border {
+    width: 2rem; /* Adjust spinner size for smaller screens */
+    height: 2rem;
+  }
+}
+
 
 /* Results Section */
 #resultsTable {
   max-height: 450px;
   overflow-y: auto;
-  border-radius: 0; /* Removed border-radius */
+  border-radius: 8px; /* Added slight border-radius for better styling */
   background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+  margin-top: 20px; /* Added top margin for spacing */
+  padding: 15px; /* Added padding inside the container */
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
   font-size: 1rem;
+  color: #333; /* Set a dark gray text color for better readability */
 }
 
 .table th,
 .table td {
-  padding: 12px;
+  padding: 15px;
   text-align: left;
   border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.3s ease; /* Added transition for smooth hover effect */
 }
 
 .table th {
   background-color: var(--primary-color);
   color: var(--white);
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .table-striped tbody tr:nth-child(odd) {
@@ -199,6 +261,7 @@ header, .navbar, .navbar-nav {
 
 .table td {
   background-color: var(--light-gray);
+  color: var(--dark-gray); /* Set text color to dark gray for contrast */
 }
 
 .table tbody tr:hover {
@@ -207,13 +270,32 @@ header, .navbar, .navbar-nav {
 
 /* Results Section Title */
 #results h2 {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2.2rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #1a1a2e;
+  color: var(--dark-blue); /* Dark blue color for a professional look */
   margin-bottom: 1.5rem;
+  text-align: center; /* Center align the title */
 }
+
+/* Responsiveness - Mobile */
+@media (max-width: 600px) {
+  #resultsTable {
+    max-height: 350px; /* Reduce table height for smaller screens */
+  }
+
+  .table th,
+  .table td {
+    padding: 10px; /* Reduce padding on mobile for better fit */
+    font-size: 0.9rem; /* Adjust font size */
+  }
+
+  #results h2 {
+    font-size: 1.8rem; /* Adjust title font size on mobile */
+  }
+}
+
 
 /* Download Buttons */
 #results .btn {
@@ -258,21 +340,80 @@ header, .navbar, .navbar-nav {
 footer {
   background-color: var(--bg-color);
   color: var(--white);
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
   text-align: center;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid var(--border-color); /* Added border for a clean separation */
 }
 
+/* Footer Hover Effect */
 footer:hover {
   background-color: var(--primary-color);
+  transform: translateY(-5px);
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.15); /* Darker shadow for hover effect */
 }
 
+/* Footer Text Styling */
 footer p {
   margin: 0.5rem 0;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  color: var(--light-gray); /* Subtle light gray for footer text */
 }
 
-/* Responsive */
+/* Footer Content Layout */
+footer .footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Footer Links Styling */
+footer .footer-content a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem; /* Added padding for better clickable area */
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.1); /* Light background on links */
+}
+
+/* Footer Link Hover Effect */
+footer .footer-content a:hover {
+  color: var(--secondary-color);
+  background-color: rgba(255, 255, 255, 0.2); /* Highlight effect on hover */
+}
+
+/* Footer Responsive Design */
+@media (max-width: 768px) {
+  footer {
+    padding: 1.5rem 1rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+
+  footer .footer-content {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  footer .footer-content a {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.5rem; /* Increased padding on smaller screens */
+  }
+}
+
+/* Global Responsive Tweaks */
 @media (max-width: 768px) {
   .card-body {
     padding: 2rem;
