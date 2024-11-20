@@ -5,6 +5,8 @@ const resultsBody = document.getElementById('resultsBody');
 const loadingDiv = document.getElementById('loading');
 const errorDiv = document.getElementById('error');
 
+let uploadedFilename = '';  // To store the uploaded file's base name
+
 function toggleVisibility(element, isVisible) {
     element.style.display = isVisible ? 'block' : 'none';
 }
@@ -31,6 +33,7 @@ async function handleFormSubmit(e) {
         toggleVisibility(loadingDiv, false);
 
         if (response.ok) {
+            uploadedFilename = responseBody[0]['PDB Code'] + '_angles.csv';  // Set the filename for download
             populateResults(responseBody);
             toggleVisibility(resultsDiv, true);
         } else {
@@ -56,6 +59,12 @@ function populateResults(data) {
         `;
         resultsBody.appendChild(tr);
     });
+}
+
+// Download function to handle the file type and trigger download
+function download(filetype) {
+    const downloadUrl = `/download/${filetype}/${uploadedFilename}`;
+    window.location.href = downloadUrl;  // Trigger the file download
 }
 
 form.addEventListener('submit', handleFormSubmit);

@@ -117,5 +117,3 @@ def download_file(filetype, filename):
         return send_file(pdf_path, as_attachment=True)
     else:
         return jsonify({'error': 'Invalid file type'}), 400
-
-
