@@ -28,66 +28,76 @@ body {
 header {
   background-color: var(--bg-color); /* Dark Blue background */
   color: #fff;
-  padding: 0.5rem 0; /* Reduced padding for compactness */
+  padding: 1rem 0; /* Adjusted padding for better spacing */
   text-align: center;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
   transition: all 0.3s ease;
 }
 
-
 header .nav-link {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #fff;
   padding: 0.5rem 1rem;
   transition: all 0.3s ease;
 }
 
-
-@media (max-width: 768px) {
-  header .navbar {
-    padding: 1rem;
-  }
-
-  header .navbar-brand {
-    font-size: 2rem;
-  }
-
-  header .navbar-nav .nav-link {
-    font-size: 1rem;
-  }
-
-  header .header-content .lead {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-  }
+/* Remove border-radius from header for cleaner look */
+header, .navbar, .navbar-nav {
+  border-radius: 0;
 }
 
-@media (max-width: 576px) {
+/* Header Responsive */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem 0.5rem; /* Adjust header padding for mobile */
+  }
+
   header .navbar {
-    padding: 0.8rem;
+    padding: 0.8rem 0;
   }
 
   header .navbar-brand {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   header .navbar-nav .nav-link {
     font-size: 0.9rem;
+    padding: 0.5rem;
   }
 
-  header .header-content .lead {
+  header .header-content h1 {
+    font-size: 2rem; /* Adjust font size for mobile */
+  }
+
+  header .header-content p {
     font-size: 1rem;
-    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  header {
+    padding: 1rem 0.5rem;
+  }
+
+  header .navbar {
+    padding: 0.5rem 0;
+  }
+
+  header .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  header .navbar-nav .nav-link {
+    font-size: 0.8rem;
   }
 }
 
 /* Card */
 .card {
-  border-radius: 15px;
+  border-radius: 0; /* Removed border radius */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -98,7 +108,7 @@ header .nav-link {
 }
 
 .card-body {
-  padding: 3rem;
+  padding: 2rem; /* Adjusted padding for better mobile spacing */
   background-color: var(--white);
 }
 
@@ -106,46 +116,15 @@ header .nav-link {
 #uploadForm {
   max-width: 700px;
   margin: 0 auto;
-  padding: 35px;
+  padding: 30px;
   background-color: var(--light-gray);
-  border-radius: 15px;
+  border-radius: 0; /* Removed border-radius */
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
 }
 
-#uploadForm h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  margin-bottom: 25px;
-}
-
-#uploadForm .form-label {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--dark-gray);
-  margin-bottom: 12px;
-}
-
-#fileInput {
-  font-size: 1.1rem;
-  padding: 16px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  width: 100%;
-  transition: all 0.3s ease;
-}
-
-#fileInput:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-}
-
-#fileInput:hover {
-  border-color: var(--primary-color);
-}
-
+/* Button Styles */
 #uploadForm button {
   padding: 14px 32px;
   font-size: 1.2rem;
@@ -191,7 +170,7 @@ header .nav-link {
 #resultsTable {
   max-height: 450px;
   overflow-y: auto;
-  border-radius: 15px;
+  border-radius: 0; /* Removed border-radius */
   background-color: #f9f9f9;
 }
 
@@ -273,28 +252,6 @@ header .nav-link {
   background-color: var(--danger-color);
   color: var(--white);
   border-color: var(--danger-color);
-}
-
-#results .btn-success:hover {
-  background-color: #218838;
-}
-
-#results .btn-warning:hover {
-  background-color: #e0a800;
-}
-
-#results .btn-danger:hover {
-  background-color: #c82333;
-}
-
-/* Error Message */
-#error {
-  padding: 15px;
-  background-color: #f8d7da;
-  color: #721c24;
-  border-radius: 8px;
-  font-size: 1rem;
-  display: none;
 }
 
 /* Footer */
