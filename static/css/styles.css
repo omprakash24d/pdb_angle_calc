@@ -28,7 +28,7 @@ body {
 header {
   background-color: var(--bg-color); /* Dark Blue background */
   color: #fff;
-  padding: 1rem 0; /* Adjusted padding for better spacing */
+  padding: 1rem; /* Adjusted padding for better spacing */
   text-align: center;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -37,8 +37,14 @@ header {
   z-index: 1000; /* Ensures the header stays on top */
 }
 
+/* Navbar Styling */
 header .navbar {
   padding: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap; /* Ensures navbar doesn't overflow */
 }
 
 header .navbar-brand {
@@ -46,10 +52,29 @@ header .navbar-brand {
   font-weight: bold;
   letter-spacing: 1px;
   color: var(--white);
+  flex-grow: 1; /* Ensures it takes available space */
+  padding: 0.5rem 0;
+  white-space: nowrap; /* Prevents text from wrapping */
+  text-align: left;
+  position: relative;
 }
 
+header .navbar-toggler {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: none;
+  z-index: 2;
+}
+
+header .navbar-toggler-icon {
+  width: 30px; /* Make the hamburger icon a bit larger */
+  height: 30px;
+}
+
+/* Navbar Links */
 header .navbar-nav .nav-link {
-  font-size: 0.8rem;
+  font-size: 0.9rem; /* Slightly smaller font size */
   font-weight: 500;
   color: #fff;
   padding: 0.5rem 1rem;
@@ -57,6 +82,7 @@ header .navbar-nav .nav-link {
   text-transform: uppercase;
 }
 
+/* Navbar Link Hover Effects */
 header .navbar-nav .nav-link:hover {
   color: var(--primary-color);
   background-color: rgba(0, 0, 0, 0.2);
@@ -68,45 +94,120 @@ header .navbar-nav .nav-link.active {
 
 /* Header Content Styling */
 header .header-content {
-  margin-top: 50px;
+  margin-top: 30px;
   padding: 0 15px;
 }
 
 header .header-content h1 {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 header .header-content p {
-  font-size: 1.2rem; /* Slightly larger text for better readability */
-  color: var(--light-gray); /* Keeping the light gray color */
-  font-weight: 400; /* Adjusted for a bit more emphasis */
-  line-height: 1.5; /* Improved line spacing for better readability */
-  letter-spacing: 0.5px; /* Small letter spacing for a cleaner look */
-  text-transform: capitalize; /* Capitalizes the first letter of each word */
-  margin-top: 10px; /* Adds space above the paragraph */
-  margin-bottom: 10px; /* Adds space below the paragraph */
+  font-size: 1rem; /* Slightly smaller but still readable text */
+  color: var(--light-gray); /* Light gray color for the paragraph */
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
 }
+
+/* Mobile Specific Adjustments */
 @media (max-width: 600px) {
-  header .header-content p {
-    font-size: 1rem; /* Smaller font size on mobile */
-    text-align: center; /* Center the text on smaller screens */
+  header {
+    padding: 1rem; /* Adjusted padding for small screens */
   }
-}
 
+  header .navbar {
+    flex-direction: column; /* Stack navbar items vertically on small screens */
+    align-items: center; /* Align items to the center */
+    justify-content: center; /* Ensure the navbar items stay centered */
+    position: relative; /* Make sure navbar is properly aligned */
+  }
 
-header .navbar-toggler {
-  border: none;
-}
-
-@media (max-width: 768px) {
   header .navbar-brand {
-    font-size: 1.8rem;
+    font-size: 1.3rem; /* Smaller navbar brand text on mobile */
+    padding: 0.3rem 0;
+    text-align: center; /* Align brand text to the center */
+    order: -1; /* Ensure the brand stays on top when toggler is clicked */
   }
+
+  header .navbar-nav {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    align-items: center;
+    width: 100%; /* Ensure links take up full width */
+    padding-left: 0; /* Remove default padding */
+    margin-top: 10px; /* Space between the brand and links */
+  }
+
   header .navbar-nav .nav-link {
-    font-size: 1.1rem;
-    padding: 0.75rem;
+    font-size: 1rem; /* Adjust font size for readability */
+    padding: 0.7rem 1rem; /* Adjust padding for spacing */
+  }
+
+  /* Toggler Adjustments */
+  .navbar-toggler {
+    position: absolute;
+    right: 20px; /* Align to the right side */
+    top: 10px; /* Space between brand and toggler */
+    border: none;
+    z-index: 1; /* Ensure toggler stays on top */
+  }
+
+  .navbar-toggler-icon {
+    width: 30px; /* Make the hamburger icon a bit larger */
+    height: 30px;
+  }
+
+  /* Ensure that the links only appear when toggler is clicked */
+  .navbar-collapse {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Prevent navbar from pushing below the content */
+  .navbar-collapse.collapse {
+    display: none;
+  }
+}
+
+/* Additional Refinement for Even Smaller Screens (iPhone 13) */
+@media (max-width: 375px) {
+  header .navbar-brand {
+    font-size: 1.2rem; /* Further reduce brand text size for tiny screens */
+  }
+
+  header .navbar-nav .nav-link {
+    font-size: 0.9rem; /* Reduce font size further for very small screens */
+    padding: 0.6rem 0.8rem; /* Adjust padding to fit better */
+  }
+
+  header .header-content h1 {
+    font-size: 1.4rem; /* Slightly reduce header title size */
+  }
+
+  header .header-content p {
+    font-size: 0.9rem; /* Further reduce paragraph font size */
+  }
+
+  /* Adjust navbar to fit better */
+  .navbar-nav {
+    padding: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  header .navbar-nav .nav-link {
+    text-align: center; /* Ensure links are centered on narrow screens */
   }
 }
 
@@ -133,7 +234,7 @@ header .navbar-toggler {
 
 /* Form Styling */
 #uploadForm {
-  max-width: 700px;
+  max-width:300px;
   margin: 0 auto;
   padding: 30px;
   background-color: var(--light-gray);
