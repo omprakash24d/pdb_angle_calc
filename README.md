@@ -2,7 +2,7 @@
 ![Dihedral Angle Calculator](static/images/og-image.png)
 
 ## Overview
-The PDB Dihedral Angle Calculator is a web-based tool that calculates the Phi (Φ) and Psi (Ψ) dihedral angles for all residues in a protein structure provided in a .pdb file. The application allows users to view the results in a table and download them in various formats such as CSV, Excel, PDF, and TXT.
+The Dihedral Angle Calculator from PDB File is a web-based tool that calculates the Phi (Φ) and Psi (Ψ) dihedral angles for all residues in a protein structure provided in a .pdb file. The application allows users to view the results in a table and download them in various formats such as CSV, Excel, PDF, and TXT.
 
 ## Features
 - Upload .pdb files for processing.
@@ -36,6 +36,8 @@ python wsgi.py
 Open your browser and navigate to:
 ```bash
 http://127.0.0.1:5000
+https://pdb.indhinditech.com/
+https://pdb-angle-calc.vercel.app
 ```
 # Usage Guide
 
