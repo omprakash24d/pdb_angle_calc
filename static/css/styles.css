@@ -12,7 +12,7 @@
   --border-color: #ddd;
   --hover-color: #0056b3;
   --white: #fff;
-  --bg-color: #1a1a2e; /* Added dark background color for consistency */
+  --bg-color: #1a1a2e; /* Dark background for consistency */
 }
 
 /* Body */
@@ -26,15 +26,13 @@ body {
 
 /* Header */
 header {
-  background-color: var(--bg-color); /* Dark Blue background */
+  background-color: var(--bg-color);
   color: #fff;
-  padding: 1rem; /* Adjusted padding for better spacing */
+  padding: 1rem;
   text-align: center;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  z-index: 1000; /* Ensures the header stays on top */
+  z-index: 1000;
 }
 
 /* Navbar Styling */
@@ -43,20 +41,16 @@ header .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  flex-wrap: wrap; /* Ensures navbar doesn't overflow */
+  flex-wrap: wrap;
 }
 
 header .navbar-brand {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  letter-spacing: 1px;
   color: var(--white);
-  flex-grow: 1; /* Ensures it takes available space */
-  padding: 0.5rem 0;
-  white-space: nowrap; /* Prevents text from wrapping */
+  flex-grow: 1;
   text-align: left;
-  position: relative;
+  white-space: nowrap;
 }
 
 header .navbar-toggler {
@@ -64,17 +58,16 @@ header .navbar-toggler {
   right: 10px;
   top: 10px;
   border: none;
-  z-index: 2;
 }
 
 header .navbar-toggler-icon {
-  width: 30px; /* Make the hamburger icon a bit larger */
+  width: 30px;
   height: 30px;
 }
 
 /* Navbar Links */
 header .navbar-nav .nav-link {
-  font-size: 0.9rem; /* Slightly smaller font size */
+  font-size: 0.9rem;
   font-weight: 500;
   color: #fff;
   padding: 0.5rem 1rem;
@@ -82,7 +75,6 @@ header .navbar-nav .nav-link {
   text-transform: uppercase;
 }
 
-/* Navbar Link Hover Effects */
 header .navbar-nav .nav-link:hover {
   color: var(--primary-color);
   background-color: rgba(0, 0, 0, 0.2);
@@ -95,154 +87,34 @@ header .navbar-nav .nav-link.active {
 /* Header Content Styling */
 header .header-content {
   margin-top: 30px;
-  padding: 0 15px;
 }
 
 header .header-content h1 {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  text-align: center;
 }
 
 header .header-content p {
-  font-size: 1rem; /* Slightly smaller but still readable text */
-  color: var(--light-gray); /* Light gray color for the paragraph */
+  font-size: 1rem;
+  color: var(--light-gray);
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.5px;
-  text-transform: capitalize;
   margin-top: 10px;
   margin-bottom: 20px;
-  text-align: center;
-}
-
-/* Mobile Specific Adjustments */
-@media (max-width: 600px) {
-  header {
-    padding: 1rem; /* Adjusted padding for small screens */
-  }
-
-  header .navbar {
-    flex-direction: column; /* Stack navbar items vertically on small screens */
-    align-items: center; /* Align items to the center */
-    justify-content: center; /* Ensure the navbar items stay centered */
-    position: relative; /* Make sure navbar is properly aligned */
-  }
-
-  header .navbar-brand {
-    font-size: 1.3rem; /* Smaller navbar brand text on mobile */
-    padding: 0.3rem 0;
-    text-align: center; /* Align brand text to the center */
-    order: -1; /* Ensure the brand stays on top when toggler is clicked */
-  }
-
-  header .navbar-nav {
-    display: flex;
-    flex-direction: column; /* Stack links vertically */
-    align-items: center;
-    width: 100%; /* Ensure links take up full width */
-    padding-left: 0; /* Remove default padding */
-    margin-top: 10px; /* Space between the brand and links */
-  }
-
-  header .navbar-nav .nav-link {
-    font-size: 1rem; /* Adjust font size for readability */
-    padding: 0.7rem 1rem; /* Adjust padding for spacing */
-  }
-
-  /* Toggler Adjustments */
-  .navbar-toggler {
-    position: absolute;
-    right: 20px; /* Align to the right side */
-    top: 10px; /* Space between brand and toggler */
-    border: none;
-    z-index: 1; /* Ensure toggler stays on top */
-  }
-
-  .navbar-toggler-icon {
-    width: 30px; /* Make the hamburger icon a bit larger */
-    height: 30px;
-  }
-
-  /* Ensure that the links only appear when toggler is clicked */
-  .navbar-collapse {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* Prevent navbar from pushing below the content */
-  .navbar-collapse.collapse {
-    display: none;
-  }
-}
-
-/* Additional Refinement for Even Smaller Screens (iPhone 13) */
-@media (max-width: 375px) {
-  header .navbar-brand {
-    font-size: 1.2rem; /* Further reduce brand text size for tiny screens */
-  }
-
-  header .navbar-nav .nav-link {
-    font-size: 0.9rem; /* Reduce font size further for very small screens */
-    padding: 0.6rem 0.8rem; /* Adjust padding to fit better */
-  }
-
-  header .header-content h1 {
-    font-size: 1.4rem; /* Slightly reduce header title size */
-  }
-
-  header .header-content p {
-    font-size: 0.9rem; /* Further reduce paragraph font size */
-  }
-
-  /* Adjust navbar to fit better */
-  .navbar-nav {
-    padding: 0;
-    text-align: center;
-    width: 100%;
-  }
-
-  header .navbar-nav .nav-link {
-    text-align: center; /* Ensure links are centered on narrow screens */
-  }
-}
-
-
-/* Card */
-.card {
-  border-radius: 8px; /* Slightly rounded corners */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: var(--white); /* Ensures card has a white background */
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-.card-body {
-  padding: 2rem; /* Adjusted padding for better mobile spacing */
-  background-color: var(--white);
-  border-radius: 8px; /* Ensure card content has rounded edges */
-  transition: background-color 0.3s ease;
 }
 
 /* Form Styling */
 #uploadForm {
-  max-width:500px;
+  max-width: 500px;
   margin: 0 auto;
   padding: 20px;
   background-color: var(--light-gray);
-  border-radius: 10 px; /* Rounded corners */
+  border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
-  font-family: 'Arial', sans-serif; /* Sets the font for the form */
 }
 
 #uploadForm:hover {
@@ -261,7 +133,6 @@ header .header-content p {
   transition: all 0.3s ease;
   width: 100%;
   border: none;
-  margin-top: px;
 }
 
 #uploadForm button:hover {
@@ -275,278 +146,165 @@ header .header-content p {
   transform: translateY(3px);
 }
 
-/* Loading */
-#loading {
-  font-size: 1.2rem;
-  text-align: center;
-  color: var(--dark-gray);
+/* Custom hover effect */
+.hover-zoom:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3); /* Subtle shadow on hover */
 }
 
+/* Custom hover effect for file input label */
+.input-group label:hover {
+  background-color: #f8f9fa; /* Light background on hover */
+  border-color: #007bff; /* Border color change on hover */
+  cursor: pointer; /* Makes the cursor a pointer to indicate it's clickable */
+}
+
+.hover-zoom:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Optional: Add a subtle animation to the spinner */
 .spinner-border {
-  width: 3rem;
-  height: 3rem;
-  border: 4px solid var(--primary-color); /* Spinner color adjustment */
+  animation: spin 1s linear infinite;
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Optional: Custom styling for text */
 #loading p {
-  margin-top: 20px;
-  font-size: 1rem;
-  color: var(--dark-gray);
-  font-weight: 300;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Responsiveness - Mobile */
-@media (max-width: 600px) {
-  .card-body {
-    padding: 1.5rem; /* Adjust padding on mobile */
-  }
-
-  #uploadForm {
-    max-width: 100%; /* Make form full-width on small screens */
-    padding: 20px;
-    margin: 0 15px; /* Adds margin on mobile for spacing */
-  }
-
-  #uploadForm button {
-    font-size: 1rem; /* Smaller button font size on mobile */
-    padding: 12px 25px; /* Adjust padding */
-  }
-
-  #loading {
-    font-size: 1rem; /* Adjust font size for smaller screens */
-  }
-
-  .spinner-border {
-    width: 2rem; /* Adjust spinner size for smaller screens */
-    height: 2rem;
-  }
-}
-
-
-/* Results Section */
-#resultsTable {
-  max-height: 450px;
-  overflow-y: auto;
-  border-radius: 8px; /* Added slight border-radius for better styling */
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
-  margin-top: 20px; /* Added top margin for spacing */
-  padding: 15px; /* Added padding inside the container */
-}
-
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 1rem;
-  color: #333; /* Set a dark gray text color for better readability */
-}
-
-.table th,
-.table td {
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid var(--border-color);
-  transition: background-color 0.3s ease; /* Added transition for smooth hover effect */
-}
-
-.table th {
-  background-color: var(--primary-color);
-  color: var(--white);
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.table-striped tbody tr:nth-child(odd) {
-  background-color: #f1f3f5;
-}
-
-.table td {
-  background-color: var(--light-gray);
-  color: var(--dark-gray); /* Set text color to dark gray for contrast */
-}
-
-.table tbody tr:hover {
-  background-color: var(--highlight-color);
-}
-
-/* Results Section Title */
-#results h2 {
-  font-size: 2.2rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--dark-blue); /* Dark blue color for a professional look */
-  margin-bottom: 1.5rem;
-  text-align: center; /* Center align the title */
-}
-
-/* Responsiveness - Mobile */
-@media (max-width: 600px) {
-  #resultsTable {
-    max-height: 350px; /* Reduce table height for smaller screens */
-  }
-
-  .table th,
-  .table td {
-    padding: 10px; /* Reduce padding on mobile for better fit */
-    font-size: 0.9rem; /* Adjust font size */
-  }
-
-  #results h2 {
-    font-size: 1.8rem; /* Adjust title font size on mobile */
-  }
-}
-
-
-/* Download Buttons */
-#results .btn {
-  margin: 12px;
-  padding: 14px 30px;
-  font-size: 1.2rem;
-  border-radius: 50px;
-  border: 2px solid transparent;
-  cursor: pointer;
+/* Hover Zoom Effect for Buttons */
+.hover-zoom:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  position: relative;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
 }
 
-#results .btn:hover {
-  transform: translateY(-5px);
+/* Button hover effect */
+.hover-zoom:hover {
+  transform: scale(1.1); /* Subtle zoom effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#results .btn:active {
-  transform: translateY(3px);
+/* Button active effect */
+.hover-zoom:active {
+  transform: scale(1); /* Slight reduction on click */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-#results .btn-success {
-  background-color: var(--success-color);
-  color: var(--white);
-  border-color: var(--success-color);
+/* Button icon styling */
+.btn i {
+  font-size: 1.1rem; /* Slightly bigger icon for a balanced look */
 }
 
-#results .btn-warning {
-  background-color: var(--warning-color);
-  color: var(--white);
-  border-color: var(--warning-color);
+/* Spacing between buttons */
+.btn-group .btn {
+  margin: 0 10px; /* Adds horizontal spacing between buttons */
 }
 
-#results .btn-danger {
-  background-color: var(--danger-color);
-  color: var(--white);
-  border-color: var(--danger-color);
+/* Optionally, you can add custom button colors if needed */
+.btn-outline-success {
+  color: #28a745;
+  border-color: #28a745;
 }
 
-/* Footer */
-footer {
-  background-color: var(--bg-color);
-  color: var(--white);
-  padding: 2rem 1.5rem;
-  text-align: center;
+.btn-outline-warning {
+  color: #ffc107;
+  border-color: #ffc107;
+}
+
+.btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+/* Custom Error Styling */
+#error {
   font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 10;
-  border-top: 1px solid var(--border-color); /* Added border for a clean separation */
+  padding: 15px;
+  max-width: 500px; /* Limits the width */
+  margin: 0 auto; /* Centers the alert */
+  border-radius: 8px; /* Rounded corners for the alert box */
 }
 
-/* Footer Hover Effect */
-footer:hover {
-  background-color: var(--primary-color);
-  transform: translateY(-5px);
-  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.15); /* Darker shadow for hover effect */
+/* For making the alert text a little more readable */
+#error strong {
+  font-weight: 600; /* Slightly bolder "Error!" text */
 }
 
-/* Footer Text Styling */
+/* Footer Styles */
+footer {
+  background-color: #1a1a2e; /* Dark background */
+  color: #fff;
+  padding: 2rem 0; /* Reduced padding for a more compact footer */
+  margin-top: 5rem;
+}
+
+footer .container {
+  text-align: center;
+}
+
 footer p {
-  margin: 0.5rem 0;
-  line-height: 1.6;
-  font-size: 0.9rem;
-  color: var(--light-gray); /* Subtle light gray for footer text */
+  margin-bottom: 0.5rem;
+  font-size: 1rem; /* Slightly smaller text for a more refined look */
 }
 
-/* Footer Content Layout */
-footer .footer-content {
-  display: flex;
-  flex-wrap: wrap;
+footer .social-icons {
+  display: inline-flex;
   justify-content: center;
-  align-items: center;
-  gap: 1rem;
   margin-top: 1rem;
 }
 
-/* Footer Links Styling */
-footer .footer-content a {
-  color: var(--white);
-  text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-  padding: 0.5rem 1rem; /* Added padding for better clickable area */
-  border-radius: 25px;
-  background-color: rgba(255, 255, 255, 0.1); /* Light background on links */
+footer .social-icon {
+  margin: 0 10px; /* Adjusted margin for a more balanced look */
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Footer Link Hover Effect */
-footer .footer-content a:hover {
-  color: var(--secondary-color);
-  background-color: rgba(255, 255, 255, 0.2); /* Highlight effect on hover */
+footer .social-icon:hover {
+  color: var(--primary-color); /* Hover effect with primary color */
+  transform: translateY(-3px); /* Slight raise on hover */
 }
 
-/* Footer Responsive Design */
-@media (max-width: 768px) {
-  footer {
-    padding: 1.5rem 1rem;
+footer .social-icon:active {
+  transform: translateY(2px); /* Slight drop when clicked */
+}
+
+/* Hover underline effect for the developer's name */
+.hover-underline:hover {
+  text-decoration: underline;
+}
+
+/* Optional media query for smaller screens */
+@media (max-width: 576px) {
+  footer .social-icons {
+    flex-direction: column; /* Stack icons vertically on small screens */
   }
 
-  footer p {
-    font-size: 0.8rem;
-  }
-
-  footer .footer-content {
+  /* Make the navbar links more responsive */
+  header .navbar-nav {
+    display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: flex-start;
   }
 
-  footer .footer-content a {
-    font-size: 0.9rem;
-    padding: 0.5rem 1.5rem; /* Increased padding on smaller screens */
+  header .navbar-nav .nav-link {
+    padding: 0.8rem 1.2rem;
+    text-align: left;
   }
 }
 
-/* Global Responsive Tweaks */
-@media (max-width: 768px) {
-  .card-body {
-    padding: 2rem;
-  }
-
-  .header-content h1 {
-    font-size: 2.5rem;
-  }
-
-  .header-content p {
-    font-size: 1rem;
-  }
-
-  form {
-    padding: 2rem;
-  }
-
-  .btn-group .btn {
-    font-size: 1rem;
-    padding: 10px 20px;
-  }
-
-  #uploadForm button {
-    font-size: 1rem;
-    padding: 10px 20px;
-  }
-
-  #resultsTable {
-    font-size: 0.9rem;
-  }
-
-  footer p {
-    font-size: 0.9rem;
-  }
+/* Accessibility: Adding aria-labels for improved screen reader support */
+#uploadForm button[aria-label="submit"] {
+  background-color: var(--primary-color);
 }
+
+header .navbar-nav .nav-link[aria-label="home"] {
+  font-size: 1rem;
+}
+

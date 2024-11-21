@@ -4,43 +4,52 @@ const resultsDiv = document.getElementById('results');
 const resultsBody = document.getElementById('resultsBody');
 const loadingDiv = document.getElementById('loading');
 const errorDiv = document.getElementById('error');
-const fileErrorDiv = document.getElementById('fileError');  // New error div for file validation
+const fileErrorDiv = document.getElementById('fileError');  // Error div for file validation
 
 let uploadedFilename = '';  // To store the uploaded file's base name
 
-function toggleVisibility(element, isVisible) {
-    element.style.display = isVisible ? 'block' : 'none';
+function toggleVisibility(elements, isVisible) {
+    elements.forEach(element => {
+        element.style.display = isVisible ? 'block' : 'none';
+    });
 }
 
 function clearResults() {
     resultsBody.innerHTML = '';
 }
 
-// Validate the file type (only .pdb files are allowed)
 function validateFileType() {
-    const fileName = fileInput.files[0]?.name || '';
-    if (!fileName.endsWith('.pdb')) {
+    const file = fileInput.files[0];
+    if (file && !file.name.toLowerCase().endsWith('.pdb')) {
         fileErrorDiv.style.display = 'block';  // Show error if file type is not .pdb
         fileInput.value = '';  // Clear file input
         return false;
-    } else {
-        fileErrorDiv.style.display = 'none';  // Hide error if valid file
-        return true;
     }
+    fileErrorDiv.style.display = 'none';  // Hide error if valid file
+    return true;
+}
+
+function validateFileSize() {
+    const file = fileInput.files[0];
+    const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB max size
+    if (file && file.size > MAX_FILE_SIZE) {
+        errorDiv.textContent = 'File size exceeds the maximum allowed size of 10MB.';
+        toggleVisibility([errorDiv], true);
+        fileInput.value = '';  // Clear file input
+        return false;
+    }
+    return true;
 }
 
 async function handleFormSubmit(e) {
     e.preventDefault();
 
-    // Validate file type before proceeding
-    if (!validateFileType()) {
-        return;  // Exit if file is invalid
-    }
+    // Validate file before proceeding
+    if (!validateFileType() || !validateFileSize()) return;
 
-    toggleVisibility(resultsDiv, false);
-    toggleVisibility(errorDiv, false);
+    toggleVisibility([resultsDiv, errorDiv], false);
     clearResults();
-    toggleVisibility(loadingDiv, true);
+    toggleVisibility([loadingDiv], true);
 
     const formData = new FormData();
     formData.append('file', fileInput.files[0]);
@@ -49,43 +58,47 @@ async function handleFormSubmit(e) {
         const response = await fetch('/upload', { method: 'POST', body: formData });
         const responseBody = await response.json();
 
-        toggleVisibility(loadingDiv, false);
+        toggleVisibility([loadingDiv], false);
 
         if (response.ok) {
-            uploadedFilename = responseBody[0]['PDB Code'] + '_angles.csv';  // Set the filename for download
+            uploadedFilename = `${responseBody[0]['PDB Code']}_angles.csv`;  // Set filename for download
             populateResults(responseBody);
-            toggleVisibility(resultsDiv, true);
+            toggleVisibility([resultsDiv], true);
         } else {
-            throw new Error(responseBody.error || 'An error occurred.');
+            throw new Error(responseBody.error || 'An error occurred while processing the file.');
         }
     } catch (error) {
-        toggleVisibility(loadingDiv, false);
+        toggleVisibility([loadingDiv], false);
         errorDiv.textContent = error.message;
-        toggleVisibility(errorDiv, true);
+        toggleVisibility([errorDiv], true);
     }
 }
 
 function populateResults(data) {
-    data.forEach(row => {
+    const rows = data.map(({ 'PDB Code': pdbCode, 'Chain ID': chainID, 'Residue': residue, 'Residue ID': residueID, 'Phi (°)': phi, 'Psi (°)': psi }) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-            <td>${row['PDB Code']}</td>
-            <td>${row['Chain ID']}</td>
-            <td>${row['Residue']}</td>
-            <td>${row['Residue ID']}</td>
-            <td>${row['Phi (°)']}</td>
-            <td>${row['Psi (°)']}</td>
+            <td>${pdbCode}</td>
+            <td>${chainID}</td>
+            <td>${residue}</td>
+            <td>${residueID}</td>
+            <td>${phi}</td>
+            <td>${psi}</td>
         `;
-        resultsBody.appendChild(tr);
+        return tr;
     });
+    resultsBody.append(...rows);
 }
 
-// Download function to handle the file type and trigger download
+// Download function to handle file download
 function download(filetype) {
     const downloadUrl = `/download/${filetype}/${uploadedFilename}`;
     window.location.href = downloadUrl;  // Trigger the file download
 }
 
-fileInput.addEventListener('change', validateFileType);  // Event listener for file input change
+fileInput.addEventListener('change', () => {
+    validateFileType(); 
+    validateFileSize();
+});  // Event listener for file input change
 
 form.addEventListener('submit', handleFormSubmit);
