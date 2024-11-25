@@ -126,120 +126,192 @@
 
   <body>
     <!-- Header Section -->
-    <header class="header-section text-white py-4 bg-dark">
+    <header class="header-section bg-dark text-white py-3">
       <div class="container">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-          <a class="navbar-brand" href="https://pdb.indhinditech.com/"
-            >Dihedral Angle Calculator</a
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+          <a
+            class="navbar-brand fw-bold fs-4"
+            href="https://pdb.indhinditech.com/"
           >
+            <i class="fas fa-dna me-1"></i> Dihedral Angle Calculator
+          </a>
           <button
-            class="navbar-toggler"
+            class="navbar-toggler border-0 p-2"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"
             aria-controls="navbarNav"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            style="
+              background-color: transparent;
+              transition: transform 0.3s ease;
+            "
+            onmouseover="this.style.transform='scale(1.1)';"
+            onmouseout="this.style.transform='scale(1)';"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span
+              class="navbar-toggler-icon"
+              style="
+                background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%27http://www.w3.org/2000/svg%27 viewBox%3D%270 0 30 30%27%3E%3Cpath stroke%3D%27white%27 stroke-width%3D%272%27 d%3D%27M4 7h22M4 15h22M4 23h22%27/%3E%3C/svg%3E');
+                width: 25px;
+                height: 25px;
+              "
+            ></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="https://pdb.indhinditech.com/"
-                  >Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="https://www.rcsb.org/" target="_blank"
-                  >Download PDB</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="https://indhinditech.com/contact-us/"
-                  target="_blank"
-                  >Contact Us</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link"
-                  href="https://github.com/omprakash24d/pdb_angle_calc/blob/main/README.md"
-                  target="_blank"
-                  >Documentation</a
-                >
-              </li>
-            </ul>
-          </div>
-        </nav>
 
-        <!-- Header Content -->
-        <div class="text-center mt-3">
-          <div class="header-content">
-            <p class="lead mb-0">
-              Effortlessly calculate Phi and Psi angles from your PDB files and
-              download the results in various formats.
-            </p>
-          </div>
-        </div>
-      </div>
+          <div
+  class="collapse navbar-collapse justify-content-end"
+  id="navbarNav"
+>
+  <ul class="navbar-nav align-items-center">
+    <!-- Home -->
+    <li class="nav-item">
+      <a
+        class="nav-link text-uppercase px-3 text-white fw-bold"
+        href="https://pdb.indhinditech.com/"
+        style="transition: color 0.3s ease, transform 0.3s ease;"
+        onmouseover="this.style.color='#007bff'; this.style.transform='scale(1.1)';"
+        onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
+      >
+        Home
+      </a>
+    </li>
+
+    <!-- Download PDB -->
+    <li class="nav-item">
+      <a
+        class="nav-link text-uppercase px-3 text-white fw-bold"
+        href="https://www.rcsb.org/"
+        target="_blank"
+        style="transition: color 0.3s ease, transform 0.3s ease;"
+        onmouseover="this.style.color='#28a745'; this.style.transform='scale(1.1)';"
+        onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
+      >
+        Download PDB
+      </a>
+    </li>
+
+    <!-- Contact Us -->
+    <li class="nav-item">
+      <a
+        class="nav-link text-uppercase px-3 text-white fw-bold"
+        href="https://indhinditech.com/contact-us/"
+        target="_blank"
+        style="transition: color 0.3s ease, transform 0.3s ease;"
+        onmouseover="this.style.color='#ff5722'; this.style.transform='scale(1.1)';"
+        onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
+      >
+        Contact Us
+      </a>
+    </li>
+
+    <!-- Documentation -->
+    <li class="nav-item">
+      <a
+        class="nav-link text-uppercase px-3 text-white fw-bold"
+        href="https://github.com/omprakash24d/pdb_angle_calc/blob/main/README.md"
+        target="_blank"
+        style="transition: color 0.3s ease, transform 0.3s ease;"
+        onmouseover="this.style.color='#6c63ff'; this.style.transform='scale(1.1)';"
+        onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
+      >
+        Documentation
+      </a>
+    </li>
+  </ul>
+</div>
+
     </header>
 
-    <!-- Main Content Section -->
-    <main class="container my-1">
+    <main class="container-fluid my-1">
+      <!-- Overview Section -->
+      <section class="py-4" id="overview">
+        <div class="container">
+          <div class="row g-5">
+            <div class="col-12">
+              <h3 class="mb-4 text-dark fw-bold">About the Tool</h3>
+              <p class="text-muted">
+                The <strong>Dihedral Angle Calculator</strong> is a web-based
+                tool designed to calculate <strong>Phi (Φ)</strong> and
+                <strong>Psi (Ψ)</strong> dihedral angles for all residues in a
+                protein structure from a <code>.pdb</code> file. View results in
+                an interactive table or download them in CSV, Excel, PDF, and
+                TXT formats.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Upload Section -->
-      <section id="uploadSection" class="container-fluid py-5">
-        <div class="row justify-content-center">
-          <div class="col-12 col-md-8 col-lg-6">
-            <form id="uploadForm" class="p-4 shadow-lg rounded bg-white">
-              <div class="mb-4">
-                <label
-                  for="fileInput"
-                  class="form-label text-secondary fw-semibold fs-5 mb-3 d-block"
-                >
-                  <i class="bi bi-file-earmark-earbuds text-primary me-2"></i>
-                  Select Your PDB File:
-                </label>
+      <section
+        id="uploadSection"
+        class="py-1 d-flex justify-content-center align-items-center"
+      >
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+              <form id="uploadForm" class="p-4 shadow-lg rounded-4 bg-white">
+                <h4 class="text-center mb-4 text-primary fw-bold">
+                  Upload Your File
+                </h4>
 
                 <!-- File Input -->
-                <div class="input-group">
-                  <input
-                    type="file"
-                    name="file"
-                    accept=".pdb"
-                    class="form-control border-primary rounded-pill py-3"
-                    id="fileInput"
-                    required
-                  />
-                </div>
-                <small class="form-text text-muted d-block mt-2"
-                  >Only `.pdb` files are supported. Max size: 10MB.</small
-                >
+                <div class="mb-4">
+                  <label for="fileInput" class="form-label fw-semibold">
+                    <i class="bi bi-file-earmark-earbuds text-primary me-2"></i>
+                    Select Your PDB File:
+                  </label>
+                  <div class="input-group">
+                    <input
+                      type="file"
+                      name="file"
+                      accept=".pdb"
+                      class="form-control rounded-pill"
+                      id="fileInput"
+                      required
+                    />
+                  </div>
+                  <small class="form-text text-muted mt-1"
+                    >Only <code>.pdb</code> files are supported (Max size:
+                    10MB).</small
+                  >
 
-                <!-- Error Message -->
-                <div
-                  id="fileError"
-                  class="text-danger mt-2"
-                  style="display: none"
-                >
-                  <small>Invalid file type. Please upload a `.pdb` file.</small>
+                  <!-- Error Message -->
+                  <div
+                    id="fileError"
+                    class="text-danger mt-2"
+                    style="display: none"
+                  >
+                    <small
+                      >Invalid file type. Please upload a `.pdb` file.</small
+                    >
+                  </div>
                 </div>
-              </div>
 
-              <!-- Submit Button -->
-              <div class="text-center my-4">
-                <button
-                  type="submit"
-                  class="btn btn-primary rounded-pill px-5 py-3 fs-5 shadow-sm position-relative hover-zoom"
-                >
-                  <i class="bi bi-cloud-upload-fill me-2"></i> Upload and
-                  Calculate
-                </button>
-              </div>
-            </form>
+                <!-- Submit Button -->
+                <div class="d-flex justify-content-center mt-4">
+                  <button
+                    type="submit"
+                    class="btn btn-primary rounded-pill fs-5 shadow hover-translate w-100 w-md-auto"
+                    style="
+                      background: linear-gradient(45deg, #007bff, #0056b3);
+                      border: none;
+                      color: #fff;
+                      transition: transform 0.2s ease, box-shadow 0.2s ease;
+                      padding: 0.75rem 2rem; /* Adjust padding for smaller devices */
+                    "
+                    onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 123, 255, 0.4)'; this.style.transform='translateY(-3px)';"
+                    onmouseout="this.style.boxShadow='0 4px 10px rgba(0, 123, 255, 0.2)'; this.style.transform='translateY(0)';"
+                  >
+                    <i class="bi bi-cloud-upload-fill me-2"></i> Upload and
+                    Calculate
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </section>
@@ -325,45 +397,235 @@
           aria-label="Close"
         ></button>
       </section>
+
+      <!-- Features Section -->
+      <section class="py-5" id="features">
+        <div class="container">
+          <h2 class="text-center mb-5 fw-bold text-dark">Key Features</h2>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="col">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body d-flex align-items-start">
+                  <i class="bi bi-upload fs-1 text-primary me-3"></i>
+                  <div>
+                    <h5 class="fw-semibold">Upload PDB Files</h5>
+                    <p class="text-muted mb-0">
+                      Upload <code>.pdb</code> files for processing.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body d-flex align-items-start">
+                  <i class="bi bi-cpu fs-1 text-primary me-3"></i>
+                  <div>
+                    <h5 class="fw-semibold">Angle Calculation</h5>
+                    <p class="text-muted mb-0">
+                      Calculate <strong>Phi</strong> and
+                      <strong>Psi</strong> angles for all residues.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body d-flex align-items-start">
+                  <i class="bi bi-table fs-1 text-primary me-3"></i>
+                  <div>
+                    <h5 class="fw-semibold">Interactive Table</h5>
+                    <p class="text-muted mb-0">
+                      View results in an interactive, scrollable table.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body d-flex align-items-start">
+                  <i class="bi bi-download fs-1 text-primary me-3"></i>
+                  <div>
+                    <h5 class="fw-semibold">Download Options</h5>
+                    <p class="text-muted mb-0">
+                      Results available in CSV, Excel, PDF, and TXT formats.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body d-flex align-items-start">
+                  <i class="bi bi-phone fs-1 text-primary me-3"></i>
+                  <div>
+                    <h5 class="fw-semibold">Responsive Design</h5>
+                    <p class="text-muted mb-0">
+                      Fully responsive and user-friendly interface.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card h-100 shadow-sm border-0">
+                <div class="card-body d-flex align-items-start">
+                  <i class="bi bi-exclamation-circle fs-1 text-danger me-3"></i>
+                  <div>
+                    <h5 class="fw-semibold">Error Handling</h5>
+                    <p class="text-muted mb-0">
+                      Graceful handling of invalid uploads and errors.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <!--===== Dihedral =====-->
+    <section class="about section py-1 bg-white" id="about">
+      <div class="container">
+        <div class="row g-5">
+          <!-- Content Section -->
+          <div class="col-lg-12">
+            <h3 class="about__subtitle mb-3 text-black fw-bold">
+              What is Dihedral Angle?
+            </h3>
+            <p class="text-black">
+              A dihedral angle of a protein is the internal angle of the
+              polypeptide backbone at which two adjacent planes meet. The
+              conformation of the backbone can be described by two dihedral
+              angles per residue, because the backbone residing between two
+              juxtaposing Cα atoms are all in a single plane.
+            </p>
+            <p class="text-black">
+              These angles are called φ (phi), which involves the backbone
+              atoms C-N-Cα-C, and ψ (psi), which involves the backbone atoms
+              N-Cα-C-N. The dihedral angles of amino acid residues have
+              restricted values due to steric hindrance between the carbonyl
+              oxygen, the hydrogen of the NH group, the hydrogen on the Cα
+              carbon, and the side chain atoms.
+            </p>
+            <!-- Image with Caption -->
+            <div class="text-center my-4">
+              <img
+                src="/static/images/dihydral.png"
+                alt="Dihedral angles of amino acid residues"
+                class="img-fluid rounded shadow-lg zoom-effect"
+              />
+              <p class="mt-3 text-black fw-semibold">
+                Dihedral angles of amino acid residues
+              </p>
+            </div>
+          </div>
+          <p class="text-black mt-1">
+            A Ramachandran plot is a way to visualize dihedral angles φ
+            against ψ of amino acid residues in protein structure. It shows
+            the correlation of φ and ψ angles in a real polypeptide. The two
+            main allowed regions in the Ramachandran plot around (-60, -50)
+            and (-120, 120) correspond to the two main types of conformations
+            (α helix and β sheet) in a protein. A small region around (60, 60)
+            corresponds to left-handed α helix.
+          </p>
+          <!-- Ramachandran Plot Image with Hover Effect -->
+          <div class="text-center my-4">
+            <img
+              src="/static/images/ramachandran.png"
+              alt="Ramachandran Plot"
+              class="img-fluid rounded shadow-lg zoom-effect"
+            />
+            <p class="mt-3 text-black fw-semibold">Ramachandran Plot</p>
+          </div>
+        </div>
+
+        <!-- Reference Section -->
+        <div class="mt-1">
+          <h3 class="text-black fw-bold">Reference</h3>
+          <p class="text-black">
+            <strong>
+              Andres Liljas, Lars Liljas, Jure Piskur, Göran Lindblom, Poul
+              Nissen, Morten Kjeldgaard:
+            </strong>
+            <i>TEXTBOOK OF STRUCTURAL BIOLOGY</i>, World Scientific, 2009.
+          </p>
+        </div>
+      </div>
+    </section>
     </main>
 
     <!-- Footer Section -->
     <footer class="bg-dark text-white py-4 mt-5">
       <div class="container text-center">
-        <p>&copy; 2024 Dihedral Angle Calculator | All Rights Reserved</p>
-        <p>
+        <p class="mb-1">
+          &copy; 2024 Dihedral Angle Calculator | All Rights Reserved
+        </p>
+
+        <!-- Designer Info -->
+        <p class="mb-2">
           Designed and Developed by
           <a
             href="https://www.instagram.com/omprakash24d/"
             target="_blank"
-            class="text-white font-weight-bold text-decoration-none hover-underline"
+            class="text-white font-weight-bold text-decoration-none"
+            style="transition: color 0.3s ease"
+            onmouseover="this.style.color='#007bff'"
+            onmouseout="this.style.color='white'"
           >
             Om Prakash
           </a>
         </p>
-        <p class="mt-2">
+
+        <!-- University Info -->
+        <p class="mb-4">
           Central University Of South Bihar (Department Of Bioinformatics)
         </p>
-        <div class="social-icons mt-2">
+
+        <!-- Social Media Links -->
+        <div class="social-icons mt-3">
           <a
             href="https://www.instagram.com/omprakash24d/"
             target="_blank"
             class="text-white mx-3 social-icon"
+            style="
+              font-size: 1.5rem;
+              transition: transform 0.3s ease;
+              text-decoration: none;
+            "
+            onmouseover="this.style.transform='scale(1.2)'"
+            onmouseout="this.style.transform='scale(1)'"
           >
-            <i class="fab fa-instagram fa-lg"></i>
+            <i class="fab fa-instagram"></i>
           </a>
           <a
             href="https://www.linkedin.com/in/omprakash24d/"
             target="_blank"
             class="text-white mx-3 social-icon"
+            style="
+              font-size: 1.5rem;
+              transition: transform 0.3s ease;
+              text-decoration: none;
+            "
+            onmouseover="this.style.transform='scale(1.2)'"
+            onmouseout="this.style.transform='scale(1)'"
           >
-            <i class="fab fa-linkedin fa-lg"></i>
+            <i class="fab fa-linkedin"></i>
           </a>
           <a
             href="mailto:omprakash24d@gmail.com"
             class="text-white mx-3 social-icon"
+            style="
+              font-size: 1.5rem;
+              transition: transform 0.3s ease;
+              text-decoration: none;
+            "
+            onmouseover="this.style.transform='scale(1.2)'"
+            onmouseout="this.style.transform='scale(1)'"
           >
-            <i class="fas fa-envelope fa-lg"></i>
+            <i class="fas fa-envelope"></i>
           </a>
         </div>
       </div>

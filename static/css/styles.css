@@ -105,65 +105,6 @@ header .header-content p {
   margin-bottom: 20px;
 }
 
-/* Form Styling */
-#uploadForm {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: var(--light-gray);
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
-}
-
-#uploadForm:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Button Styles */
-#uploadForm button {
-  padding: 14px 32px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  border-radius: 2px;
-  background-color: var(--primary-color);
-  color: var(--white);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
-  border: none;
-}
-
-#uploadForm button:hover {
-  background-color: var(--hover-color);
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
-}
-
-#uploadForm button:active {
-  background-color: #004085;
-  transform: translateY(3px);
-}
-
-/* Custom hover effect */
-.hover-zoom:hover {
-  transform: scale(1.05); /* Slight zoom effect */
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3); /* Subtle shadow on hover */
-}
-
-/* Custom hover effect for file input label */
-.input-group label:hover {
-  background-color: #f8f9fa; /* Light background on hover */
-  border-color: #007bff; /* Border color change on hover */
-  cursor: pointer; /* Makes the cursor a pointer to indicate it's clickable */
-}
-
-.hover-zoom:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease-in-out;
-}
-
 /* Optional: Add a subtle animation to the spinner */
 .spinner-border {
   animation: spin 1s linear infinite;
@@ -238,66 +179,14 @@ header .header-content p {
   font-weight: 600; /* Slightly bolder "Error!" text */
 }
 
-/* Footer Styles */
-footer {
-  background-color: #1a1a2e; /* Dark background */
-  color: #fff;
-  padding: 2rem 0; /* Reduced padding for a more compact footer */
-  margin-top: 5rem;
-}
 
-footer .container {
-  text-align: center;
-}
-
-footer p {
-  margin-bottom: 0.5rem;
-  font-size: 1rem; /* Slightly smaller text for a more refined look */
-}
-
-footer .social-icons {
-  display: inline-flex;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-footer .social-icon {
-  margin: 0 10px; /* Adjusted margin for a more balanced look */
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-footer .social-icon:hover {
-  color: var(--primary-color); /* Hover effect with primary color */
-  transform: translateY(-3px); /* Slight raise on hover */
-}
-
-footer .social-icon:active {
-  transform: translateY(2px); /* Slight drop when clicked */
-}
 
 /* Hover underline effect for the developer's name */
 .hover-underline:hover {
   text-decoration: underline;
 }
 
-/* Optional media query for smaller screens */
-@media (max-width: 576px) {
-  footer .social-icons {
-    flex-direction: column; /* Stack icons vertically on small screens */
-  }
 
-  /* Make the navbar links more responsive */
-  header .navbar-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  header .navbar-nav .nav-link {
-    padding: 0.8rem 1.2rem;
-    text-align: left;
-  }
-}
 
 /* Accessibility: Adding aria-labels for improved screen reader support */
 #uploadForm button[aria-label="submit"] {
@@ -308,3 +197,11 @@ header .navbar-nav .nav-link[aria-label="home"] {
   font-size: 1rem;
 }
 
+.zoom-effect {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.zoom-effect:hover {
+  transform: scale(1.1); /* Slight zoom-in effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+}
