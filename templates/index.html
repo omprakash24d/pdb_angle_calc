@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -17,58 +16,31 @@
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    
     <!-- SEO Meta Tags -->
-    <meta
-      name="description"
-      content="Instantly calculate Phi and Psi angles from your PDB files. View results and download them in CSV, PDF, or TXT formats. A reliable bioinformatics tool for protein structure analysis."
-    />
-    <meta
-      name="keywords"
-      content="PDB, Phi angle, Psi angle, Bioinformatics, Protein Structure, Structural Biology, Protein Data Bank, Dihedral angles, Calculate angles, CSV, TXT, PDF download, Structural analysis, Bioinformatics tools"
-    />
+    <meta name="description" content="Calculate Phi and Psi angles instantly from PDB files with our easy-to-use tool. Download results in CSV, TXT, or PDF formats." />
+    <meta name="keywords" content="PDB, Phi angle, Psi angle, Bioinformatics, Protein Structure, Structural Biology, Protein Data Bank, Dihedral angles, Calculation, CSV, TXT, PDF download" />
     <meta name="author" content="Om Prakash" />
     <meta name="robots" content="index, follow" />
-    <meta
-      name="robots"
-      content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-    />
-
-    <!-- Canonical Link to Prevent Duplicate Content -->
+    <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  
+    <!-- Canonical Link -->
     <link rel="canonical" href="{{ request.url }}" />
-
-    <!-- Open Graph Meta Tags for Social Media -->
+  
+    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Dihedral Angle Calculation for PDB Files | Calculate Phi and Psi Angles"
-    />
-    <meta
-      property="og:description"
-      content="Upload your PDB file and calculate Phi and Psi angles instantly. Download results in CSV, PDF, or TXT formats for further analysis."
-    />
-    <meta
-      property="og:image"
-      content="{{ url_for('static', filename='images/og-image.png', _external=True) }}"
-    />
+    <meta property="og:title" content="Dihedral Angle Calculator | Calculate Phi and Psi Angles from PDB Files" />
+    <meta property="og:description" content="Instantly calculate Phi and Psi angles from your PDB files. View and download results in CSV, TXT, or PDF formats." />
+    <meta property="og:image" content="{{ url_for('static', filename='images/og-image.png', _external=True) }}" />
     <meta property="og:url" content="{{ request.url }}" />
-
+  
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Dihedral Angle Calculator for PDB Files"
-    />
-    <meta
-      name="twitter:description"
-      content="Instantly calculate Phi and Psi angles from your PDB files. Download results in CSV, TXT, or PDF formats."
-    />
-    <meta
-      name="twitter:image"
-      content="{{ url_for('static', filename='images/og-image.png', _external=True) }}"
-    />
-
-    <!-- Structured Data - JSON-LD for Enhanced Search Engine Visibility -->
+    <meta name="twitter:title" content="Dihedral Angle Calculator for PDB Files" />
+    <meta name="twitter:description" content="Instantly calculate Phi and Psi angles from your PDB files. Download results in CSV, TXT, or PDF formats." />
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/og-image.png', _external=True) }}" />
+  
+    <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -91,37 +63,22 @@
         },
         "softwareVersion": "1.0",
         "screenshot": "{{ url_for('static', filename='images/og-image.png', _external=True) }}",
-        "dateCreated": "2024-11-21",
-        "dateModified": "2024-11-21"
+        "dateCreated": "2024-11-25",
+        "dateModified": "2024-11-25"
       }
     </script>
-
-    <!-- Title Tag - SEO Optimized -->
-    <title>
-      Dihedral Angle Calculator | Calculate Phi and Psi Angles from PDB Files
-    </title>
-
+  
+    <!-- Page Title -->
+    <title>Dihedral Angle Calculator | Calculate Phi and Psi Angles from PDB Files</title>
+  
     <!-- Favicon -->
     <link rel="icon" href="/static/images/favicon1.svg" type="image/svg+xml" />
-
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
-
-    <!-- External CSS -->
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/styles.css', _external=True) }}"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+  
+    <!-- External Stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css', _external=True) }}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -165,62 +122,63 @@
   class="collapse navbar-collapse justify-content-end"
   id="navbarNav"
 >
-  <ul class="navbar-nav align-items-center">
-    <!-- Home -->
-    <li class="nav-item">
-      <a
-        class="nav-link text-uppercase px-3 text-white fw-bold"
-        href="https://pdb.indhinditech.com/"
-        style="transition: color 0.3s ease, transform 0.3s ease;"
-        onmouseover="this.style.color='#007bff'; this.style.transform='scale(1.1)';"
-        onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
-      >
-        Home
-      </a>
-    </li>
+<ul class="navbar-nav align-items-center">
+  <!-- Home (Active Tab) -->
+  <li class="nav-item active">
+    <a
+      class="nav-link text-uppercase px-3 text-white fw-bold"
+      href="https://pdb.indhinditech.com/"
+      style="transition: color 0.3s ease, transform 0.3s ease; background-color: #007bff; border-radius: 5px;"
+      onmouseover="this.style.color='#007bff'; this.style.transform='scale(1.1)';"
+      onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
+    >
+      Home
+    </a>
+  </li>
 
-    <!-- Download PDB -->
-    <li class="nav-item">
-      <a
-        class="nav-link text-uppercase px-3 text-white fw-bold"
-        href="https://www.rcsb.org/"
-        target="_blank"
-        style="transition: color 0.3s ease, transform 0.3s ease;"
-        onmouseover="this.style.color='#28a745'; this.style.transform='scale(1.1)';"
-        onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
-      >
-        Download PDB
-      </a>
-    </li>
+  <!-- Download PDB -->
+  <li class="nav-item">
+    <a
+      class="nav-link text-uppercase px-3 text-white fw-bold"
+      href="https://www.rcsb.org/"
+      target="_blank"
+      style="transition: color 0.3s ease, transform 0.3s ease;"
+      onmouseover="this.style.color='#28a745'; this.style.transform='scale(1.1)';"
+      onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
+    >
+      Download PDB
+    </a>
+  </li>
 
-    <!-- Contact Us -->
-    <li class="nav-item">
-      <a
-        class="nav-link text-uppercase px-3 text-white fw-bold"
-        href="https://indhinditech.com/contact-us/"
-        target="_blank"
-        style="transition: color 0.3s ease, transform 0.3s ease;"
-        onmouseover="this.style.color='#ff5722'; this.style.transform='scale(1.1)';"
-        onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
-      >
-        Contact Us
-      </a>
-    </li>
+  <!-- Contact Us -->
+  <li class="nav-item">
+    <a
+      class="nav-link text-uppercase px-3 text-white fw-bold"
+      href="https://indhinditech.com/contact-us/"
+      target="_blank"
+      style="transition: color 0.3s ease, transform 0.3s ease;"
+      onmouseover="this.style.color='#ff5722'; this.style.transform='scale(1.1)';"
+      onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
+    >
+      Contact Us
+    </a>
+  </li>
 
-    <!-- Documentation -->
-    <li class="nav-item">
-      <a
-        class="nav-link text-uppercase px-3 text-white fw-bold"
-        href="https://github.com/omprakash24d/pdb_angle_calc/blob/main/README.md"
-        target="_blank"
-        style="transition: color 0.3s ease, transform 0.3s ease;"
-        onmouseover="this.style.color='#6c63ff'; this.style.transform='scale(1.1)';"
-        onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
-      >
-        Documentation
-      </a>
-    </li>
-  </ul>
+  <!-- Documentation -->
+  <li class="nav-item">
+    <a
+      class="nav-link text-uppercase px-3 text-white fw-bold"
+      href="https://github.com/omprakash24d/pdb_angle_calc/blob/main/README.md"
+      target="_blank"
+      style="transition: color 0.3s ease, transform 0.3s ease;"
+      onmouseover="this.style.color='#6c63ff'; this.style.transform='scale(1.1)';"
+      onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
+    >
+      Documentation
+    </a>
+  </li>
+</ul>
+
 </div>
 
     </header>
@@ -336,50 +294,64 @@
         <h2 class="text-center text-primary mb-4">Results of PDB Analysis</h2>
 
         <!-- Results Table -->
-        <div
-          id="resultsTable"
-          class="table-responsive border rounded-3 shadow-lg bg-light"
-          style="max-height: 450px; overflow-y: auto"
-        >
-          <table class="table table-striped table-hover table-bordered">
-            <thead class="table-dark sticky-top">
-              <tr>
-                <th>PDB Code</th>
-                <th>Chain ID</th>
-                <th>Residue</th>
-                <th>Residue ID</th>
-                <th>Phi (°)</th>
-                <th>Psi (°)</th>
-              </tr>
-            </thead>
-            <tbody id="resultsBody"></tbody>
-          </table>
-        </div>
+<div
+id="resultsTable"
+class="table-responsive border rounded-3 shadow-lg bg-white p-3"
+style="max-height: 450px; overflow-y: auto;"
+>
+<table class="table table-striped table-hover align-middle">
+  <thead class="table-primary sticky-top" style="background: linear-gradient(90deg, #007bff, #00c6ff); color: white; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);">
+    <tr>
+      <th scope="col" class="text-center text-uppercase fw-bold py-3" style="border-bottom: 2px solid #007bff;">PDB Code</th>
+      <th scope="col" class="text-center text-uppercase fw-bold py-3" style="border-bottom: 2px solid #007bff;">Chain ID</th>
+      <th scope="col" class="text-center text-uppercase fw-bold py-3" style="border-bottom: 2px solid #007bff;">Residue</th>
+      <th scope="col" class="text-center text-uppercase fw-bold py-3" style="border-bottom: 2px solid #007bff;">Residue ID</th>
+      <th scope="col" class="text-center text-uppercase fw-bold py-3" style="border-bottom: 2px solid #007bff;">Phi (°)</th>
+      <th scope="col" class="text-center text-uppercase fw-bold py-3" style="border-bottom: 2px solid #007bff;">Psi (°)</th>
+    </tr>
+  </thead>
+  
+  <tbody id="resultsBody" class="table-group-divider">
+    <!-- Dynamic rows will be added here -->
+  </tbody>
+</table>
+</div>
+
 
         <!-- Download Options -->
-        <div class="text-center mt-5">
-          <h4 class="mb-4 text-muted">Download Results As:</h4>
-          <div class="btn-group" role="group" aria-label="Download Options">
-            <button
-              class="btn btn-outline-success rounded-pill px-4 py-2 shadow-sm border-0 hover-zoom mx-2"
-              onclick="download('csv')"
-            >
-              <i class="bi bi-file-earmark-spreadsheet me-2"></i> CSV
-            </button>
-            <button
-              class="btn btn-outline-warning rounded-pill px-4 py-2 shadow-sm border-0 hover-zoom mx-2"
-              onclick="download('txt')"
-            >
-              <i class="bi bi-file-earmark-text me-2"></i> TXT
-            </button>
-            <button
-              class="btn btn-outline-danger rounded-pill px-4 py-2 shadow-sm border-0 hover-zoom mx-2"
-              onclick="download('pdf')"
-            >
-              <i class="bi bi-file-earmark-pdf me-2"></i> PDF
-            </button>
-          </div>
-        </div>
+<div class="text-center mt-5">
+  <h4 class="mb-4 text-secondary fw-bold">Download Results As:</h4>
+  <div class="d-flex flex-wrap justify-content-center gap-3">
+    <button
+      class="btn btn-outline-success rounded-pill px-4 py-3 shadow-sm border-0"
+      style="transition: transform 0.2s ease, box-shadow 0.2s ease;"
+      onclick="download('csv')"
+      onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 4px 12px rgba(40, 167, 69, 0.4)';"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 6px rgba(40, 167, 69, 0.2)';"
+    >
+      <i class="bi bi-file-earmark-spreadsheet me-2"></i> CSV
+    </button>
+    <button
+      class="btn btn-outline-warning rounded-pill px-4 py-3 shadow-sm border-0"
+      style="transition: transform 0.2s ease, box-shadow 0.2s ease;"
+      onclick="download('txt')"
+      onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 4px 12px rgba(255, 193, 7, 0.4)';"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 6px rgba(255, 193, 7, 0.2)';"
+    >
+      <i class="bi bi-file-earmark-text me-2"></i> TXT
+    </button>
+    <button
+      class="btn btn-outline-danger rounded-pill px-4 py-3 shadow-sm border-0"
+      style="transition: transform 0.2s ease, box-shadow 0.2s ease;"
+      onclick="download('pdf')"
+      onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 4px 12px rgba(220, 53, 69, 0.4)';"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 6px rgba(220, 53, 69, 0.2)';"
+    >
+      <i class="bi bi-file-earmark-pdf me-2"></i> PDF
+    </button>
+  </div>
+</div>
+
       </section>
 
       <!-- Error Message -->
@@ -565,19 +537,22 @@
         </p>
 
         <!-- Designer Info -->
-        <p class="mb-2">
-          Designed and Developed by
+        
+        <p class="mb-2 text-center" style="font-size: 1rem; color: #f8f9fa;">
+          <span>Designed and Developed by</span>
           <a
             href="https://www.instagram.com/omprakash24d/"
             target="_blank"
-            class="text-white font-weight-bold text-decoration-none"
-            style="transition: color 0.3s ease"
-            onmouseover="this.style.color='#007bff'"
-            onmouseout="this.style.color='white'"
+            class="text-white fw-bold text-decoration-none"
+            style="transition: transform 0.3s ease, color 0.3s ease; font-size: 1 rem;"
+            onmouseover="this.style.color='#ff5733'; this.style.transform='scale(1.1)';"
+            onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
           >
             Om Prakash
           </a>
         </p>
+        
+        
 
         <!-- University Info -->
         <p class="mb-4">
@@ -585,7 +560,7 @@
         </p>
 
         <!-- Social Media Links -->
-        <div class="social-icons mt-3">
+        <div class="social-icons mt-2">
           <a
             href="https://www.instagram.com/omprakash24d/"
             target="_blank"
