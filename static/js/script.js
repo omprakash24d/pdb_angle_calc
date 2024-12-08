@@ -1,71 +1,130 @@
+// Elements
 const form = document.getElementById('uploadForm');
 const fileInput = document.getElementById('fileInput');
+const pdbIdInput = document.getElementById('pdbIdInput');
 const resultsDiv = document.getElementById('results');
 const resultsBody = document.getElementById('resultsBody');
 const loadingDiv = document.getElementById('loading');
 const errorDiv = document.getElementById('error');
-const fileErrorDiv = document.getElementById('fileError');  // Error div for file validation
+const fileErrorDiv = document.getElementById('fileError');
+const pdbIdErrorDiv = document.getElementById('pdbIdError');
 
-let uploadedFilename = '';  // To store the uploaded file's base name
+let uploadedFilename = '';  // Stores the uploaded file's base name
 
+// Helper to toggle visibility
 function toggleVisibility(elements, isVisible) {
     elements.forEach(element => {
         element.style.display = isVisible ? 'block' : 'none';
     });
 }
 
+// Clears previous results
 function clearResults() {
     resultsBody.innerHTML = '';
 }
 
-function validateFileType() {
-    const file = fileInput.files[0];
+// Validate file type (only .pdb)
+function validateFileType(file) {
     if (file && !file.name.toLowerCase().endsWith('.pdb')) {
-        fileErrorDiv.style.display = 'block';  // Show error if file type is not .pdb
-        fileInput.value = '';  // Clear file input
+        fileErrorDiv.style.display = 'block';
+        fileInput.value = ''; // Clear the file input
         return false;
     }
-    fileErrorDiv.style.display = 'none';  // Hide error if valid file
+    fileErrorDiv.style.display = 'none';
     return true;
 }
 
-function validateFileSize() {
-    const file = fileInput.files[0];
+// Validate file size (10MB max)
+function validateFileSize(file) {
     const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB max size
     if (file && file.size > MAX_FILE_SIZE) {
         errorDiv.textContent = 'File size exceeds the maximum allowed size of 10MB.';
         toggleVisibility([errorDiv], true);
-        fileInput.value = '';  // Clear file input
+        fileInput.value = ''; // Clear the file input
         return false;
     }
     return true;
 }
 
+// Validate PDB ID format (4 alphanumeric characters)
+function validatePdbId() {
+    const pdbId = pdbIdInput.value.trim();
+    const pdbIdPattern = /^[A-Za-z0-9]{4}$/;
+    if (!pdbIdPattern.test(pdbId)) {
+        pdbIdErrorDiv.style.display = 'block';
+        return false;
+    }
+    pdbIdErrorDiv.style.display = 'none';
+    return true;
+}
+
+// Handle input method change (toggle visibility of inputs)
+function handleInputMethodChange() {
+    const isPdbIdSelected = document.getElementById('pdbIdOption').checked;
+    const isFileSelected = document.getElementById('fileOption').checked;
+
+    // Clear error messages when switching methods
+    toggleVisibility([pdbIdErrorDiv, fileErrorDiv, errorDiv], false);
+
+    if (isPdbIdSelected) {
+        fileInput.value = ''; // Clear file input
+        toggleVisibility([document.getElementById('fileInputDiv')], false);
+        toggleVisibility([document.getElementById('pdbIdInputDiv')], true);
+    } else if (isFileSelected) {
+        pdbIdInput.value = ''; // Clear PDB ID input
+        toggleVisibility([document.getElementById('fileInputDiv')], true);
+        toggleVisibility([document.getElementById('pdbIdInputDiv')], false);
+    }
+}
+
+// Handle form submission
 async function handleFormSubmit(e) {
     e.preventDefault();
 
-    // Validate file before proceeding
-    if (!validateFileType() || !validateFileSize()) return;
+    const isPdbIdSelected = pdbIdInput.value.trim() !== '';
+    const isFileSelected = fileInput.files.length > 0;
+
+    // Validate the input fields
+    if (isFileSelected && (!validateFileType(fileInput.files[0]) || !validateFileSize(fileInput.files[0]))) return;
+    if (isPdbIdSelected && !validatePdbId()) return;
 
     toggleVisibility([resultsDiv, errorDiv], false);
     clearResults();
     toggleVisibility([loadingDiv], true);
 
     const formData = new FormData();
-    formData.append('file', fileInput.files[0]);
+    let uploadUrl;
 
     try {
-        const response = await fetch('/upload', { method: 'POST', body: formData });
-        const responseBody = await response.json();
+        if (isPdbIdSelected) {
+            const pdbId = pdbIdInput.value.trim();
+            const response = await fetch(`https://files.rcsb.org/download/${pdbId}.pdb`);
+
+            if (!response.ok) {
+                throw new Error('PDB file not found.');
+            }
+
+            const data = await response.text();
+            const blob = new Blob([data], { type: "text/plain" });
+            formData.append('file', blob, `${pdbId}.pdb`);
+            uploadUrl = '/upload';
+        } else {
+            const file = fileInput.files[0];
+            formData.append('file', file);
+            uploadUrl = '/upload';
+        }
+
+        const uploadResponse = await fetch(uploadUrl, { method: 'POST', body: formData });
+        const uploadResponseBody = await uploadResponse.json();
 
         toggleVisibility([loadingDiv], false);
 
-        if (response.ok) {
-            uploadedFilename = `${responseBody[0]['PDB Code']}_angles.csv`;  // Set filename for download
-            populateResults(responseBody);
+        if (uploadResponse.ok) {
+            uploadedFilename = `${uploadResponseBody[0]['PDB Code']}_angles.csv`;
+            populateResults(uploadResponseBody);
             toggleVisibility([resultsDiv], true);
         } else {
-            throw new Error(responseBody.error || 'An error occurred while processing the file.');
+            throw new Error(uploadResponseBody.error || 'An error occurred while processing the file.');
         }
     } catch (error) {
         toggleVisibility([loadingDiv], false);
@@ -74,6 +133,7 @@ async function handleFormSubmit(e) {
     }
 }
 
+// Populate results in the table after successful upload
 function populateResults(data) {
     const rows = data.map(({ 'PDB Code': pdbCode, 'Chain ID': chainID, 'Residue': residue, 'Residue ID': residueID, 'Phi (°)': phi, 'Psi (°)': psi }) => {
         const tr = document.createElement('tr');
@@ -93,12 +153,22 @@ function populateResults(data) {
 // Download function to handle file download
 function download(filetype) {
     const downloadUrl = `/download/${filetype}/${uploadedFilename}`;
-    window.location.href = downloadUrl;  // Trigger the file download
+    window.location.href = downloadUrl;
 }
 
+// Event listener for file input change to trigger validation
 fileInput.addEventListener('change', () => {
-    validateFileType(); 
-    validateFileSize();
-});  // Event listener for file input change
+    validateFileType(fileInput.files[0]);
+    validateFileSize(fileInput.files[0]);
+});
 
+// Listen for form submit to trigger file upload handling
 form.addEventListener('submit', handleFormSubmit);
+
+// Listen for changes in radio buttons to toggle the input method
+document.querySelectorAll('input[name="inputOption"]').forEach((radio) => {
+    radio.addEventListener('change', handleInputMethodChange);
+});
+
+// Initialize form visibility based on selected radio option
+handleInputMethodChange();

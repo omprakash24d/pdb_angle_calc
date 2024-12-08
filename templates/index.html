@@ -18,28 +18,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Calculate Phi and Psi angles instantly from PDB files with our easy-to-use tool. Download results in CSV, TXT, or PDF formats." />
-    <meta name="keywords" content="PDB, Phi angle, Psi angle, Bioinformatics, Protein Structure, Structural Biology, Protein Data Bank, Dihedral angles, Calculation, CSV, TXT, PDF download" />
-    <meta name="author" content="Om Prakash" />
+    <meta name="description" content="Instantly calculate Phi and Psi angles from PDB files with our user-friendly Dihedral Angle Calculator. Download results in CSV, TXT, or PDF formats." />
+    <meta name="author" content="Om Prakash, Bioinformatics Developer" />
     <meta name="robots" content="index, follow" />
     <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  
+    
     <!-- Canonical Link -->
     <link rel="canonical" href="{{ request.url }}" />
-  
-    <!-- Open Graph Meta Tags -->
+    
+    <!-- Open Graph Meta Tags for Social Media Sharing -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Dihedral Angle Calculator | Calculate Phi and Psi Angles from PDB Files" />
-    <meta property="og:description" content="Instantly calculate Phi and Psi angles from your PDB files. View and download results in CSV, TXT, or PDF formats." />
+    <meta property="og:title" content="Dihedral Angle Calculator - Calculate Phi and Psi Angles from PDB Files" />
+    <meta property="og:description" content="Instantly calculate Phi and Psi angles from your PDB files. View and download results in CSV, TXT, or PDF formats with our easy-to-use tool." />
     <meta property="og:image" content="{{ url_for('static', filename='images/og-image.png', _external=True) }}" />
     <meta property="og:url" content="{{ request.url }}" />
-  
+    <meta property="og:site_name" content="Dihedral Angle Calculator" />
+    <meta property="og:locale" content="en_US" />
+    
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Dihedral Angle Calculator for PDB Files" />
     <meta name="twitter:description" content="Instantly calculate Phi and Psi angles from your PDB files. Download results in CSV, TXT, or PDF formats." />
     <meta name="twitter:image" content="{{ url_for('static', filename='images/og-image.png', _external=True) }}" />
-  
+    <meta name="twitter:site" content="@YourTwitterHandle" /> <!-- Optional: Add your Twitter handle -->
+    
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
       {
@@ -51,28 +53,47 @@
         "image": "{{ url_for('static', filename='images/og-image.png', _external=True) }}",
         "author": {
           "@type": "Person",
-          "name": "Om Prakash"
+          "name": "Om Prakash",
+          "url": "https://indhinditech.com/author/omprakash24d/",
+          "sameAs": "https://www.linkedin.com/in/om-prakash"
         },
         "publisher": {
           "@type": "Organization",
-          "name": "Om Prakash"
+          "name": "Om Prakash Bioinformatics",
+          "url": "https://indhinditech.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "{{ url_for('static', filename='images/logo.png', _external=True) }}"
+          }
         },
         "potentialAction": {
           "@type": "Action",
-          "name": "Upload and Calculate Dihedral Angles from PDB Files"
+          "name": "Upload and Calculate Dihedral Angles from PDB Files",
+          "target": "{{ request.url }}?action=upload"
         },
         "softwareVersion": "1.0",
         "screenshot": "{{ url_for('static', filename='images/og-image.png', _external=True) }}",
         "dateCreated": "2024-11-25",
-        "dateModified": "2024-11-25"
+        "dateModified": "2024-12-07",
+        "applicationCategory": "Bioinformatics Tool",
+        "operatingSystem": "All",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Support",
+          "areaServed": "Worldwide",
+          "availableLanguage": "English"
+        }
       }
     </script>
-  
+    
     <!-- Page Title -->
-    <title>Dihedral Angle Calculator | Calculate Phi and Psi Angles from PDB Files</title>
-  
+    <title>Dihedral Angle Calculator - Calculate Phi and Psi Angles from PDB Files | Bioinformatics Tool</title>
+    
     <!-- Favicon -->
     <link rel="icon" href="/static/images/favicon1.svg" type="image/svg+xml" />
+    <link rel="icon" href="/static/images/favicon1.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png" />
+    
   
     <!-- External Stylesheets -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
@@ -83,109 +104,113 @@
 
   <body>
     <!-- Header Section -->
-    <header class="header-section bg-dark text-white py-3">
-      <div class="container">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-          <a
-            class="navbar-brand fw-bold fs-4"
-            href="https://pdb.indhinditech.com/"
-          >
-            <i class="fas fa-dna me-1"></i> Dihedral Angle Calculator
-          </a>
-          <button
-            class="navbar-toggler border-0 p-2"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-            style="
-              background-color: transparent;
-              transition: transform 0.3s ease;
-            "
-            onmouseover="this.style.transform='scale(1.1)';"
-            onmouseout="this.style.transform='scale(1)';"
-          >
-            <span
-              class="navbar-toggler-icon"
-              style="
-                background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%27http://www.w3.org/2000/svg%27 viewBox%3D%270 0 30 30%27%3E%3Cpath stroke%3D%27white%27 stroke-width%3D%272%27 d%3D%27M4 7h22M4 15h22M4 23h22%27/%3E%3C/svg%3E');
-                width: 25px;
-                height: 25px;
-              "
-            ></span>
-          </button>
-
-          <div
-  class="collapse navbar-collapse justify-content-end"
-  id="navbarNav"
+<header
+class="header-section bg-dark text-white py-3"
+style="position: sticky; top: 0; z-index: 1020; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);"
 >
-<ul class="navbar-nav align-items-center">
-  <!-- Home (Active Tab) -->
-  <li class="nav-item active">
+<div class="container">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
     <a
-      class="nav-link text-uppercase px-3 text-white fw-bold"
+      class="navbar-brand fw-bold fs-4"
       href="https://pdb.indhinditech.com/"
-      style="transition: color 0.3s ease, transform 0.3s ease; background-color: #007bff; border-radius: 5px;"
-      onmouseover="this.style.color='#007bff'; this.style.transform='scale(1.1)';"
-      onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
     >
-      Home
+      <i class="fas fa-dna me-1"></i> Dihedral Angle Calculator
     </a>
-  </li>
-
-  <!-- Download PDB -->
-  <li class="nav-item">
-    <a
-      class="nav-link text-uppercase px-3 text-white fw-bold"
-      href="https://www.rcsb.org/"
-      target="_blank"
-      style="transition: color 0.3s ease, transform 0.3s ease;"
-      onmouseover="this.style.color='#28a745'; this.style.transform='scale(1.1)';"
-      onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
+    <button
+      class="navbar-toggler border-0 p-2"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      style="
+        background-color: transparent;
+        transition: transform 0.3s ease;
+      "
+      onmouseover="this.style.transform='scale(1.1)';"
+      onmouseout="this.style.transform='scale(1)';"
     >
-      Download PDB
-    </a>
-  </li>
+      <span
+        class="navbar-toggler-icon"
+        style="
+          background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%27http://www.w3.org/2000/svg%27 viewBox%3D%270 0 30 30%27%3E%3Cpath stroke%3D%27white%27 stroke-width%3D%272%27 d%3D%27M4 7h22M4 15h22M4 23h22%27/%3E%3C/svg%3E');
+          width: 25px;
+          height: 25px;
+        "
+      ></span>
+    </button>
 
-  <!-- Contact Us -->
-  <li class="nav-item">
-    <a
-      class="nav-link text-uppercase px-3 text-white fw-bold"
-      href="https://indhinditech.com/contact-us/"
-      target="_blank"
-      style="transition: color 0.3s ease, transform 0.3s ease;"
-      onmouseover="this.style.color='#ff5722'; this.style.transform='scale(1.1)';"
-      onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
-    >
-      Contact Us
-    </a>
-  </li>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        <!-- Home (Active Tab) -->
+        <li class="nav-item active">
+          <a
+            class="nav-link text-uppercase px-3 text-white fw-bold"
+            href="https://pdb.indhinditech.com/"
+            style="
+              transition: color 0.3s ease, transform 0.3s ease;
+              background-color: #007bff;
+              border-radius: 5px;
+            "
+            onmouseover="this.style.color='#007bff'; this.style.transform='scale(1.1)';"
+            onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
+          >
+            Home
+          </a>
+        </li>
 
-  <!-- Documentation -->
-  <li class="nav-item">
-    <a
-      class="nav-link text-uppercase px-3 text-white fw-bold"
-      href="https://github.com/omprakash24d/pdb_angle_calc/blob/main/README.md"
-      target="_blank"
-      style="transition: color 0.3s ease, transform 0.3s ease;"
-      onmouseover="this.style.color='#6c63ff'; this.style.transform='scale(1.1)';"
-      onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
-    >
-      Documentation
-    </a>
-  </li>
-</ul>
+        <!-- Download PDB -->
+        <li class="nav-item">
+          <a
+            class="nav-link text-uppercase px-3 text-white fw-bold"
+            href="https://www.rcsb.org/"
+            target="_blank"
+            style="transition: color 0.3s ease, transform 0.3s ease;"
+            onmouseover="this.style.color='#28a745'; this.style.transform='scale(1.1)';"
+            onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
+          >
+            Download PDB
+          </a>
+        </li>
 
+        <!-- Contact Us -->
+        <li class="nav-item">
+          <a
+            class="nav-link text-uppercase px-3 text-white fw-bold"
+            href="https://indhinditech.com/contact-us/"
+            target="_blank"
+            style="transition: color 0.3s ease, transform 0.3s ease;"
+            onmouseover="this.style.color='#ff5722'; this.style.transform='scale(1.1)';"
+            onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
+          >
+            Contact Us
+          </a>
+        </li>
+
+        <!-- Documentation -->
+        <li class="nav-item">
+          <a
+            class="nav-link text-uppercase px-3 text-white fw-bold"
+            href="https://github.com/omprakash24d/pdb_angle_calc/blob/main/README.md"
+            target="_blank"
+            style="transition: color 0.3s ease, transform 0.3s ease;"
+            onmouseover="this.style.color='#6c63ff'; this.style.transform='scale(1.1)';"
+            onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
+          >
+            Documentation
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </div>
-
-    </header>
+</header>
 
     <main class="container-fluid my-1">
       <!-- Overview Section -->
-      <section class="py-4" id="overview">
+      <section class="py-1" id="overview">
         <div class="container">
           <div class="row g-5">
             <div class="col-12">
@@ -194,7 +219,7 @@
                 The <strong>Dihedral Angle Calculator</strong> is a web-based
                 tool designed to calculate <strong>Phi (Φ)</strong> and
                 <strong>Psi (Ψ)</strong> dihedral angles for all residues in a
-                protein structure from a <code>.pdb</code> file. View results in
+                protein structure from a <code>.pdb</code> file or its PDB ID. View results in
                 an interactive table or download them in CSV, Excel, PDF, and
                 TXT formats.
               </p>
@@ -204,75 +229,125 @@
       </section>
 
       <!-- Upload Section -->
-      <section
-        id="uploadSection"
-        class="py-1 d-flex justify-content-center align-items-center"
-      >
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6">
-              <form id="uploadForm" class="p-4 shadow-lg rounded-4 bg-white">
-                <h4 class="text-center mb-4 text-primary fw-bold">
-                  Upload Your File
-                </h4>
+<section id="uploadSection" class="d-flex justify-content-center align-items-center py-4">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <form id="uploadForm" class="p-4 shadow-lg rounded-4 bg-white">
+          <h4 class="text-center mb-4 text-primary fw-bold">Select Your Option</h4>
 
-                <!-- File Input -->
-                <div class="mb-4">
-                  <label for="fileInput" class="form-label fw-semibold">
-                    <i class="bi bi-file-earmark-earbuds text-primary me-2"></i>
-                    Select Your PDB File:
-                  </label>
-                  <div class="input-group">
-                    <input
-                      type="file"
-                      name="file"
-                      accept=".pdb"
-                      class="form-control rounded-pill"
-                      id="fileInput"
-                      required
-                    />
-                  </div>
-                  <small class="form-text text-muted mt-1"
-                    >Only <code>.pdb</code> files are supported (Max size:
-                    10MB).</small
-                  >
-
-                  <!-- Error Message -->
-                  <div
-                    id="fileError"
-                    class="text-danger mt-2"
-                    style="display: none"
-                  >
-                    <small
-                      >Invalid file type. Please upload a `.pdb` file.</small
-                    >
-                  </div>
-                </div>
-
-                <!-- Submit Button -->
-                <div class="d-flex justify-content-center mt-4">
-                  <button
-                    type="submit"
-                    class="btn btn-primary rounded-pill fs-5 shadow hover-translate w-100 w-md-auto"
-                    style="
-                      background: linear-gradient(45deg, #007bff, #0056b3);
-                      border: none;
-                      color: #fff;
-                      transition: transform 0.2s ease, box-shadow 0.2s ease;
-                      padding: 0.75rem 2rem; /* Adjust padding for smaller devices */
-                    "
-                    onmouseover="this.style.boxShadow='0 8px 20px rgba(0, 123, 255, 0.4)'; this.style.transform='translateY(-3px)';"
-                    onmouseout="this.style.boxShadow='0 4px 10px rgba(0, 123, 255, 0.2)'; this.style.transform='translateY(0)';"
-                  >
-                    <i class="bi bi-cloud-upload-fill me-2"></i> Upload and
-                    Calculate
-                  </button>
-                </div>
-              </form>
+          <!-- Toggle Options: PDB ID or File Upload -->
+          <div class="mb-4">
+            <label class="form-label fw-semibold text-primary">Choose an option:</label>
+            <div class="d-flex align-items-center justify-content-start">
+              <div class="form-check me-4">
+                <input class="form-check-input custom-radio" type="radio" name="inputOption" id="pdbIdOption" value="pdb_id" checked onchange="toggleOptions()"/>
+                <label class="form-check-label" for="pdbIdOption">
+                  <span class="fw-semibold">Enter PDB ID</span>
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input custom-radio" type="radio" name="inputOption" id="fileOption" value="file" onchange="toggleOptions()"/>
+                <label class="form-check-label" for="fileOption">
+                  <span class="fw-semibold">Upload PDB File</span>
+                </label>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+
+          <!-- PDB ID Input (hidden by default) -->
+          <div class="mb-4" id="pdbIdInputDiv">
+            <label for="pdbIdInput" class="form-label fw-semibold text-primary">
+              <i class="bi bi-file-earmark-earbuds text-primary me-2"></i>Enter Your 4-Digit PDB ID:
+            </label>
+            <div class="input-group">
+              <input
+                type="text"
+                name="pdb_id"
+                class="form-control rounded-pill shadow-sm border-primary"
+                id="pdbIdInput"
+                placeholder="e.g. 1ajq"
+                maxlength="4"
+                pattern="[A-Za-z0-9]{4}"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Enter a 4-character PDB ID (e.g., 1ajq)"
+              />
+            </div>
+            <small class="form-text text-muted mt-1">Enter the 4-character PDB ID (e.g., 1ajq).</small>
+
+            <!-- Error Message -->
+            <div id="pdbIdError" class="text-danger mt-2" style="display: none">
+              <small><i class="bi bi-x-circle me-1"></i>Invalid PDB ID. Please enter a 4-character PDB ID.</small>
+            </div>
+          </div>
+
+          <!-- File Input (hidden by default) -->
+          <div class="mb-4" id="fileInputDiv">
+            <label for="fileInput" class="form-label fw-semibold">
+              <i class="bi bi-file-earmark-earbuds text-primary me-2"></i>Select Your PDB File:
+            </label>
+            <div class="input-group">
+              <input
+                type="file"
+                name="file"
+                accept=".pdb"
+                class="form-control custom-file-input rounded-pill"
+                id="fileInput"
+              />
+            </div>
+            <small class="form-text text-muted mt-1">Only <code>.pdb</code> files are supported (Max size: 10MB).</small>
+
+            <!-- Error Message -->
+            <div id="fileError" class="text-danger mt-2" style="display: none">
+              <small>Invalid file type. Please upload a `.pdb` file.</small>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="d-flex justify-content-center mt-4">
+            <button
+              type="submit"
+              class="btn btn-gradient rounded-pill fs-5 shadow-lg w-100 w-md-auto"
+              style="background: linear-gradient(135deg, #007bff, #0056b3); border: none; color: #fff; padding: 0.75rem 2rem; font-weight: bold; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;"
+              onmouseover="this.style.boxShadow='0 12px 25px rgba(0, 123, 255, 0.5)'; this.style.transform='translateY(-5px)'; this.style.backgroundColor='#0069d9';"
+              onmouseout="this.style.boxShadow='0 6px 15px rgba(0, 123, 255, 0.3)'; this.style.transform='translateY(0)'; this.style.backgroundColor='';"
+            >
+              <i class="bi bi-cloud-upload-fill me-2"></i>Upload and Calculate
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript to toggle the visibility -->
+<script>
+  // Function to toggle visibility of input fields based on selected radio button
+  function toggleOptions() {
+    const pdbIdOption = document.getElementById('pdbIdOption');
+    const fileOption = document.getElementById('fileOption');
+    
+    const pdbIdInputDiv = document.getElementById('pdbIdInputDiv');
+    const fileInputDiv = document.getElementById('fileInputDiv');
+    
+    if (pdbIdOption.checked) {
+      pdbIdInputDiv.style.display = 'block';
+      fileInputDiv.style.display = 'none';
+    } else if (fileOption.checked) {
+      pdbIdInputDiv.style.display = 'none';
+      fileInputDiv.style.display = 'block';
+    }
+  }
+
+  // Initial call to set the default state
+  toggleOptions();
+</script>
+
+      
+
 
       <!-- Loading Indicator -->
       <section id="loading" class="text-center my-5" style="display: none">
@@ -371,18 +446,18 @@ style="max-height: 450px; overflow-y: auto;"
       </section>
 
       <!-- Features Section -->
-      <section class="py-5" id="features">
+      <section class="py-3" id="features">
         <div class="container">
-          <h2 class="text-center mb-5 fw-bold text-dark">Key Features</h2>
+          <h2 class="text-center mb-3 fw-bold text-dark">Key Features</h2>
           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <div class="col">
               <div class="card h-100 shadow-sm border-0">
                 <div class="card-body d-flex align-items-start">
                   <i class="bi bi-upload fs-1 text-primary me-3"></i>
                   <div>
-                    <h5 class="fw-semibold">Upload PDB Files</h5>
+                    <h5 class="fw-semibold">Upload or Enter PDB Id</h5>
                     <p class="text-muted mb-0">
-                      Upload <code>.pdb</code> files for processing.
+                      Upload or Select <code>.pdb</code> files for processing.
                     </p>
                   </div>
                 </div>
@@ -530,7 +605,7 @@ style="max-height: 450px; overflow-y: auto;"
     </main>
 
     <!-- Footer Section -->
-    <footer class="bg-dark text-white py-4 mt-5">
+    <footer class="bg-dark text-white py-4 mt-1">
       <div class="container text-center">
         <p class="mb-1">
           &copy; 2024 Dihedral Angle Calculator | All Rights Reserved
