@@ -172,3 +172,10 @@ document.querySelectorAll('input[name="inputOption"]').forEach((radio) => {
 
 // Initialize form visibility based on selected radio option
 handleInputMethodChange();
+
+// Adjust display style for mobile users (if needed)
+if (window.innerWidth <= 768) {
+    document.querySelectorAll('.form-check').forEach((check) => {
+        check.classList.add('d-flex', 'flex-column');
+    });
+}

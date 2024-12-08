@@ -256,7 +256,7 @@ style="position: sticky; top: 0; z-index: 1020; box-shadow: 0 2px 5px rgba(0, 0,
           </div>
 
           <!-- PDB ID Input (hidden by default) -->
-          <div class="mb-4" id="pdbIdInputDiv">
+          <div class="mb-4" id="pdbIdInputDiv" class="d-block">
             <label for="pdbIdInput" class="form-label fw-semibold text-primary">
               <i class="bi bi-file-earmark-earbuds text-primary me-2"></i>Enter Your 4-Digit PDB ID:
             </label>
@@ -274,7 +274,7 @@ style="position: sticky; top: 0; z-index: 1020; box-shadow: 0 2px 5px rgba(0, 0,
                 title="Enter a 4-character PDB ID (e.g., 1ajq)"
               />
             </div>
-            <small class="form-text text-muted mt-1">Enter the 4-character PDB ID (e.g., 1ajq).</small>
+            <small class="form-text text-muted mt-1">Enter the 4-character PDB ID (e.g.,1ajq).</small>
 
             <!-- Error Message -->
             <div id="pdbIdError" class="text-danger mt-2" style="display: none">
@@ -283,7 +283,7 @@ style="position: sticky; top: 0; z-index: 1020; box-shadow: 0 2px 5px rgba(0, 0,
           </div>
 
           <!-- File Input (hidden by default) -->
-          <div class="mb-4" id="fileInputDiv">
+          <div class="mb-4" id="fileInputDiv" class="d-none">
             <label for="fileInput" class="form-label fw-semibold">
               <i class="bi bi-file-earmark-earbuds text-primary me-2"></i>Select Your PDB File:
             </label>
@@ -333,18 +333,24 @@ style="position: sticky; top: 0; z-index: 1020; box-shadow: 0 2px 5px rgba(0, 0,
     const pdbIdInputDiv = document.getElementById('pdbIdInputDiv');
     const fileInputDiv = document.getElementById('fileInputDiv');
     
+    // Toggle classes for visibility (mobile-friendly)
     if (pdbIdOption.checked) {
-      pdbIdInputDiv.style.display = 'block';
-      fileInputDiv.style.display = 'none';
+      pdbIdInputDiv.classList.remove('d-none');
+      pdbIdInputDiv.classList.add('d-block');
+      fileInputDiv.classList.remove('d-block');
+      fileInputDiv.classList.add('d-none');
     } else if (fileOption.checked) {
-      pdbIdInputDiv.style.display = 'none';
-      fileInputDiv.style.display = 'block';
+      pdbIdInputDiv.classList.remove('d-block');
+      pdbIdInputDiv.classList.add('d-none');
+      fileInputDiv.classList.remove('d-none');
+      fileInputDiv.classList.add('d-block');
     }
   }
 
   // Initial call to set the default state
   toggleOptions();
 </script>
+
 
       
 
