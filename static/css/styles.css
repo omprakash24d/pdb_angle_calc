@@ -21,6 +21,110 @@
     padding: 0.6rem 1.8rem; /* Slightly adjust padding for tablets */
   }
 }
+/* General Styling for Share Buttons */
+.btn {
+  font-size: 1.1rem; /* Slightly larger font size for better readability */
+  font-weight: 600; /* Bold font weight for better emphasis */
+  text-align: center;
+  padding: 12px 18px; /* Balanced padding for better touch area */
+  border-radius: 50px; /* Rounded edges for a modern look */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+  border: 2px solid transparent;
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  background-color: transparent; /* Transparent background */
+  color: #333; /* Dark text for readability */
+  font-family: 'Helvetica Neue', sans-serif; /* Modern font family */
+  cursor: pointer;
+}
+
+/* Button Hover Effects */
+.btn:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+  transform: translateY(-4px); /* Slight lift effect */
+  border-color: #007bff; /* Highlight the border color */
+  background-color: rgba(0, 123, 255, 0.1); /* Light background color on hover */
+  color: #007bff; /* Change text color to match the border */
+}
+
+/* Button Active (Pressed) State */
+.btn:active {
+  transform: translateY(2px); /* Slight press effect */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Reduced shadow on click */
+}
+
+/* Icon Styling */
+.btn i {
+  font-size: 1.5rem; /* Slightly larger icon for prominence */
+  margin-right: 8px; /* Space between icon and text */
+  transition: transform 0.3s ease;
+}
+
+/* Button Hover Effects for Icons */
+.btn:hover i {
+  transform: rotate(20deg); /* Rotate icon slightly on hover */
+}
+
+/* Responsive Text Handling */
+span {
+  font-weight: 500;
+}
+
+/* Hide text on mobile screens */
+.d-none.d-md-inline {
+  display: inline-block;
+}
+/* Hover shadow effect */
+.hover-shadow:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  transform: translateY(-3px); /* Slight lift effect */
+  transition: all 0.3s ease;
+}
+
+/* Adjust font size for larger screen */
+.fs-4 {
+  font-size: 1.5rem; /* Adjust font size of icons */
+}
+
+
+/* For Mobile - All icons in a single row */
+@media (max-width: 768px) {
+  /* Adjust button padding for mobile */
+  .btn {
+    padding: 10px 14px; /* Adjust padding for mobile */
+    font-size: 1rem; /* Reduce font size on mobile */
+  }
+
+  /* Align buttons in a single row with scrolling */
+  .row {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: space-between; /* Distribute buttons evenly */
+    overflow-x: auto; /* Allow horizontal scrolling */
+  }
+
+  /* Set each button size to 25% on mobile */
+  .col-3 {
+    flex: 0 0 auto;
+    width: 25%; /* 4 buttons per row */
+  }
+
+  /* Make icons larger for mobile */
+  .fs-3 {
+    font-size: 2rem; /* Adjust icon size for mobile */
+  }
+
+  /* Hide text for mobile versions */
+  .d-none.d-md-inline {
+    display: none;
+  }
+
+  /* Ensure icons are clear and prominent */
+  .btn i {
+    font-size: 2rem; /* Increase icon size for mobile */
+  }
+}
+
+
 /* Accessibility: Adding aria-labels for improved screen reader support */
 #uploadForm button[aria-label="submit"] {
   background-color: var(--primary-color);
