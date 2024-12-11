@@ -1,4 +1,26 @@
+/* Focus Effect */
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* Light blue glow */
+  border-color: #007bff; /* Border color on focus */
+}
 
+/* Hover Effect */
+.form-control:hover {
+  border-color: #0056b3; /* Darker blue border on hover */
+  transition: border-color 0.3s ease;
+}
+@media (max-width: 576px) {
+  .btn {
+    padding: 0.5rem 1.5rem; /* Reduce padding on small screens */
+    font-size: 1rem; /* Adjust font size */
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .btn {
+    padding: 0.6rem 1.8rem; /* Slightly adjust padding for tablets */
+  }
+}
 /* Accessibility: Adding aria-labels for improved screen reader support */
 #uploadForm button[aria-label="submit"] {
   background-color: var(--primary-color);
