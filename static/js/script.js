@@ -9,7 +9,7 @@ const errorDiv = document.getElementById('error');
 const fileErrorDiv = document.getElementById('fileError');
 const pdbIdErrorDiv = document.getElementById('pdbIdError');
 
-let uploadedFilename = '';  // Stores the uploaded file's base name
+let uploadedFilename = ''; // Stores the uploaded file's base name
 
 // Helper to toggle visibility
 function toggleVisibility(elements, isVisible) {
@@ -121,6 +121,23 @@ async function handleFormSubmit(e) {
 
         if (uploadResponse.ok) {
             uploadedFilename = `${uploadResponseBody[0]['PDB Code']}_angles.csv`;
+
+            // Dynamically set the plot URL based on the uploaded pdb code
+            const pdbCode = uploadResponseBody[0]['PDB Code'];
+            const plotUrl = `/generate_plot/${pdbCode}`;
+
+            // Set the image source
+            const plotImg = document.getElementById('ramachandranPlot');
+            plotImg.src = plotUrl;
+
+            // Show the Ramachandran plot section
+            document.getElementById('ramachandran_plot_section').style.display = 'block';
+
+            // Enable the download button and set its link
+            const downloadBtn = document.getElementById('downloadPlotBtn');
+            downloadBtn.href = plotUrl;
+            downloadBtn.style.display = 'inline-block'; // Show the download button
+
             populateResults(uploadResponseBody);
             toggleVisibility([resultsDiv], true);
         } else {
@@ -135,7 +152,7 @@ async function handleFormSubmit(e) {
 
 // Populate results in the table after successful upload
 function populateResults(data) {
-    const rows = data.map(({ 'PDB Code': pdbCode, 'Chain ID': chainID, 'Residue': residue, 'Residue ID': residueID, 'Phi (°)': phi, 'Psi (°)': psi }) => {
+    const rows = data.map(({ 'PDB Code': pdbCode, 'Chain ID': chainID, 'Residue': residue, 'Residue ID': residueID, 'Phi (\u00b0)': phi, 'Psi (\u00b0)': psi }) => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${pdbCode}</td>
@@ -179,5 +196,3 @@ if (window.innerWidth <= 768) {
         check.classList.add('d-flex', 'flex-column');
     });
 }
-
-

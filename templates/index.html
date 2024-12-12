@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include 'metadescription.html' %}
-<!-- Page Title -->
-<title>Dihedral Angle Calculator - Calculate Phi and Psi Angles from PDB Files | Bioinformatics Tool</title>
-{% include 'favicon.html' %}
-{% include 'externalcss.html' %}
+  {% include 'metadescription.html' %}
+  <title>Dihedral Angle Calculator - Calculate Phi and Psi Angles from PDB Files | Bioinformatics Tool</title>
+  {% include 'favicon.html' %}
+  {% include 'externalcss.html' %}
 </head>
 
 <body>
@@ -14,22 +13,22 @@
     {% include 'upload_section.html' %}
     {% include 'toggle.html' %}
     {% include 'loadingindicator.html' %}
-    <!-- Results Section -->
     <section id="results" class="mt-3 w-100" style="display: none">
       {% include 'result_table.html' %}
       {% include 'download_button.html' %}
     </section>
+
+
+</section>
+
     {% include 'error_message.html' %}
     {% include 'features.html' %}
     {% include 'content.html' %}
     {% include 'contact.html' %}
     {% include 'share.html' %}
-
   </main>
 
   {% include 'footer.html' %}
   {% include 'externaljs.html' %}
-
 </body>
-
 </html>
