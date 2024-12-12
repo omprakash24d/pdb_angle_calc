@@ -179,3 +179,5 @@ if (window.innerWidth <= 768) {
         check.classList.add('d-flex', 'flex-column');
     });
 }
+
+

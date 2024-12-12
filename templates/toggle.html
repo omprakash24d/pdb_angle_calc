@@ -1,0 +1,37 @@
+<!-- JavaScript to toggle the visibility -->
+<script>
+  // Function to toggle visibility of input fields based on selected radio button
+  function toggleOptions() {
+    const pdbIdOption = document.getElementById("pdbIdOption");
+    const fileOption = document.getElementById("fileOption");
+
+    const pdbIdInputDiv = document.getElementById("pdbIdInputDiv");
+    const fileInputDiv = document.getElementById("fileInputDiv");
+
+    if (pdbIdOption.checked) {
+      // Show PDB ID input, hide file input
+      pdbIdInputDiv.classList.remove("d-none");
+      pdbIdInputDiv.classList.add("d-block");
+      fileInputDiv.classList.remove("d-block");
+      fileInputDiv.classList.add("d-none");
+
+      // Clear file input when switching to PDB ID
+      document.getElementById("fileInput").value = "";
+    } else if (fileOption.checked) {
+      // Show file input, hide PDB ID input
+      pdbIdInputDiv.classList.remove("d-block");
+      pdbIdInputDiv.classList.add("d-none");
+      fileInputDiv.classList.remove("d-none");
+      fileInputDiv.classList.add("d-block");
+
+      // Clear PDB ID input when switching to file upload
+      document.getElementById("pdbIdInput").value = "";
+    }
+
+    // Forcing a reflow to make sure visibility changes are applied correctly in mobile view
+    document.body.offsetHeight;
+  }
+
+  // Initial call to set the default state
+  toggleOptions();
+</script>

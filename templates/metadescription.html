@@ -1,0 +1,144 @@
+<!-- Google tag (gtag.js) -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-N2C7YCRKN3"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-N2C7YCRKN3");
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- SEO Meta Tags -->
+<meta
+  name="description"
+  content="Instantly calculate Phi and Psi angles from PDB files or its PDB ID with our user-friendly Dihedral Angle Calculator. Download results in CSV, TXT, or PDF formats."
+/>
+<meta name="author" content="Om Prakash, Bioinformatics Developer" />
+<meta name="robots" content="index, follow" />
+<meta
+  name="robots"
+  content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+/>
+
+<!-- Canonical Link -->
+<link rel="canonical" href="{{ request.url }}" />
+
+<!-- Open Graph Meta Tags for Social Media Sharing (Facebook, Instagram) -->
+<meta property="og:type" content="website" />
+<meta
+  property="og:title"
+  content="Dihedral Angle Calculator - Calculate Phi and Psi Angles from PDB Files"
+/>
+<meta
+  property="og:description"
+  content="Easily calculate Phi and Psi angles from your PDB files or its PDB ID. View, analyze, and download the results in CSV, TXT, or PDF formats with our simple and efficient tool."
+/>
+<meta
+  property="og:image"
+  content="{{ url_for('static', filename='images/og-image.png', _external=True) }}"
+/>
+<meta property="og:url" content="{{ request.url }}" />
+<meta property="og:site_name" content="Dihedral Angle Calculator" />
+<meta property="og:locale" content="en_US" />
+<meta
+  property="og:keywords"
+  content="Dihedral angles, Phi angle, Psi angle, PDB files, protein structure analysis, molecular biology tool, PDB file calculator"
+/>
+<meta
+  property="og:image:alt"
+  content="Dihedral Angle Calculator Tool for PDB Files"
+/>
+<!-- Descriptive alt text for image sharing on platforms like Facebook -->
+
+<!-- Open Graph Meta Tags for WhatsApp and Social Sharing -->
+<meta property="og:title" content="Dihedral Angle Calculator" />
+<meta
+  property="og:description"
+  content="Calculate dihedral angles using PDB ID or PDB File in an easy-to-use web tool."
+/>
+<meta
+  property="og:image"
+  content="https://pdb.indhinditech.com/static/images/home.png"
+/>
+<meta property="og:url" content="https://pdb.indhinditech.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta
+  name="twitter:title"
+  content="Dihedral Angle Calculator for PDB Files - Calculate Phi and Psi Angles"
+/>
+<meta
+  name="twitter:description"
+  content="Instantly calculate and analyze Phi and Psi angles from your PDB files or its PDB ID. Download results in CSV, TXT, or PDF formats using our user-friendly tool."
+/>
+<meta
+  name="twitter:image"
+  content="{{ url_for('static', filename='images/og-image.png', _external=True) }}"
+/>
+<meta name="twitter:site" content="@YourTwitterHandle" />
+<meta name="twitter:creator" content="@YourTwitterHandle" />
+
+<!-- WhatsApp Sharing -->
+<meta
+  name="twitter:description"
+  content="Share your Dihedral Angle Calculation results from PDB files or its PDB ID via WhatsApp! Download your results in CSV, TXT, or PDF."
+/>
+<meta
+  name="twitter:image"
+  content="{{ url_for('static', filename='images/og-image.png', _external=True) }}"
+/>
+<!-- Optional: Add your Twitter handle -->
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Dihedral Angle Calculator",
+    "description": "Instantly calculate Phi and Psi angles from PDB files or its PDB ID. View and download results in CSV, TXT, or PDF formats.",
+    "url": "{{ request.url }}",
+    "image": "{{ url_for('static', filename='images/og-image.png', _external=True) }}",
+    "author": {
+      "@type": "Person",
+      "name": "Om Prakash",
+      "url": "https://indhinditech.com/author/omprakash24d/",
+      "sameAs": "https://www.linkedin.com/in/om-prakash"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Om Prakash",
+      "url": "https://indhinditech.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ url_for('static', filename='images/logo.png', _external=True) }}"
+      }
+    },
+    "potentialAction": {
+      "@type": "Action",
+      "name": "Upload and Calculate Dihedral Angles from PDB Files or its PDB ID",
+      "target": "{{ request.url }}?action=upload"
+    },
+    "softwareVersion": "1.0",
+    "screenshot": "{{ url_for('static', filename='images/og-image.png', _external=True) }}",
+    "dateCreated": "2024-11-25",
+    "dateModified": "2024-12-10",
+    "applicationCategory": "Bioinformatics Tool",
+    "operatingSystem": "All",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Support",
+      "areaServed": "Worldwide",
+      "availableLanguage": "English"
+    }
+  }
+</script>

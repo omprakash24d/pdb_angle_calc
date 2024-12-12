@@ -1,0 +1,33 @@
+<!-- Download Options -->
+<div class="text-center mt-5">
+  <h4 class="mb-4 text-secondary fw-bold">Download Results As:</h4>
+  <div class="d-flex flex-wrap justify-content-center gap-3">
+    <button
+      class="btn btn-outline-success rounded-pill px-4 py-3 shadow-sm border-0"
+      style="transition: transform 0.2s ease, box-shadow 0.2s ease"
+      onclick="download('csv')"
+      onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 4px 12px rgba(40, 167, 69, 0.4)';"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 6px rgba(40, 167, 69, 0.2)';"
+    >
+      <i class="bi bi-file-earmark-spreadsheet me-2"></i> CSV
+    </button>
+    <button
+      class="btn btn-outline-warning rounded-pill px-4 py-3 shadow-sm border-0"
+      style="transition: transform 0.2s ease, box-shadow 0.2s ease"
+      onclick="download('txt')"
+      onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 4px 12px rgba(255, 193, 7, 0.4)';"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 6px rgba(255, 193, 7, 0.2)';"
+    >
+      <i class="bi bi-file-earmark-text me-2"></i> TXT
+    </button>
+    <button
+      class="btn btn-outline-danger rounded-pill px-4 py-3 shadow-sm border-0"
+      style="transition: transform 0.2s ease, box-shadow 0.2s ease"
+      onclick="download('pdf')"
+      onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 4px 12px rgba(220, 53, 69, 0.4)';"
+      onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 2px 6px rgba(220, 53, 69, 0.2)';"
+    >
+      <i class="bi bi-file-earmark-pdf me-2"></i> PDF
+    </button>
+  </div>
+</div>
