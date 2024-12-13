@@ -11,8 +11,11 @@
   <div class="container">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-      <a class="navbar-brand fw-bold fs-4" href="https://pdb.indhinditech.com/">
-        <i class="fas fa-dna me-1"></i> Dihedral Angle Calculator
+      <a
+        class="navbar-brand fw-bold fs-4 d-flex align-items-center"
+        href="https://pdb.indhinditech.com/"
+      >
+        <i class="fas fa-dna me-2 animate-icon"></i> Dihedral Angle Calculator
       </a>
       <button
         class="navbar-toggler border-0 p-2"
@@ -22,9 +25,9 @@
         aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation"
-        style="background-color: transparent; transition: transform 0.3s ease"
-        onmouseover="this.style.transform='scale(1.1)';"
-        onmouseout="this.style.transform='scale(1)';"
+        style="transition: transform 0.3s ease"
+        onmouseover="this.style.transform='rotate(90deg)';"
+        onmouseout="this.style.transform='rotate(0deg)';"
       >
         <span
           class="navbar-toggler-icon"
@@ -44,12 +47,12 @@
               class="nav-link text-uppercase px-3 text-white fw-bold"
               href="https://pdb.indhinditech.com/"
               style="
-                transition: color 0.3s ease, transform 0.3s ease;
-                background-color: #007bff;
+                transition: all 0.3s ease;
+                background-color: #8f68c3;
                 border-radius: 5px;
               "
-              onmouseover="this.style.color='#007bff'; this.style.transform='scale(1.1)';"
-              onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
+              onmouseover="this.style.backgroundColor='#0056b3'; this.style.transform='scale(1.1)';"
+              onmouseout="this.style.backgroundColor='#007bff'; this.style.transform='scale(1)';"
             >
               Home
             </a>
@@ -61,7 +64,7 @@
               class="nav-link text-uppercase px-3 text-white fw-bold"
               href="https://www.rcsb.org/"
               target="_blank"
-              style="transition: color 0.3s ease, transform 0.3s ease"
+              style="transition: all 0.3s ease"
               onmouseover="this.style.color='#28a745'; this.style.transform='scale(1.1)';"
               onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
             >
@@ -74,7 +77,7 @@
             <a
               class="nav-link text-uppercase px-3 text-white fw-bold"
               href="#contact"
-              style="transition: color 0.3s ease, transform 0.3s ease"
+              style="transition: all 0.3s ease"
               onmouseover="this.style.color='#ff5722'; this.style.transform='scale(1.1)';"
               onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
             >
@@ -88,7 +91,7 @@
               class="nav-link text-uppercase px-3 text-white fw-bold"
               href="https://github.com/omprakash24d/pdb_angle_calc/blob/main/README.md"
               target="_blank"
-              style="transition: color 0.3s ease, transform 0.3s ease"
+              style="transition: all 0.3s ease"
               onmouseover="this.style.color='#6c63ff'; this.style.transform='scale(1.1)';"
               onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
             >
@@ -100,3 +103,22 @@
     </nav>
   </div>
 </header>
+
+<style>
+  /* Custom Animation for Icon */
+  .animate-icon {
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      color: #ffffff;
+    }
+    50% {
+      transform: scale(1.2);
+      color: #ffc107;
+    }
+  }
+</style>

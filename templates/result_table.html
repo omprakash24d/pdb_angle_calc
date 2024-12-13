@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="container-fluid my-5">
   <div class="card shadow-lg border-0 rounded-4 p-4 bg-light">
     <!-- Section Title -->
     <h2
@@ -44,54 +44,47 @@
       style="max-height: 450px; overflow-y: auto"
     >
       <table class="table table-striped table-hover align-middle">
-        <thead
-          class="table-primary sticky-top"
-          style="
-            background: linear-gradient(90deg, #007bff, #00c6ff);
-            color: white;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-          "
-        >
+        <thead class="table-light">
           <tr>
             <th
               scope="col"
               class="text-center text-uppercase fw-bold py-3"
-              style="border-bottom: 2px solid #007bff"
+              style="border-bottom: 2px solid #ddd"
             >
               PDB Code
             </th>
             <th
               scope="col"
               class="text-center text-uppercase fw-bold py-3"
-              style="border-bottom: 2px solid #007bff"
+              style="border-bottom: 2px solid #ddd"
             >
               Chain ID
             </th>
             <th
               scope="col"
               class="text-center text-uppercase fw-bold py-3"
-              style="border-bottom: 2px solid #007bff"
+              style="border-bottom: 2px solid #ddd"
             >
               Residue
             </th>
             <th
               scope="col"
               class="text-center text-uppercase fw-bold py-3"
-              style="border-bottom: 2px solid #007bff"
+              style="border-bottom: 2px solid #ddd"
             >
               Residue ID
             </th>
             <th
               scope="col"
               class="text-center text-uppercase fw-bold py-3"
-              style="border-bottom: 2px solid #007bff"
+              style="border-bottom: 2px solid #ddd"
             >
               Phi (°)
             </th>
             <th
               scope="col"
               class="text-center text-uppercase fw-bold py-3"
-              style="border-bottom: 2px solid #007bff"
+              style="border-bottom: 2px solid #ddd"
             >
               Psi (°)
             </th>
@@ -104,3 +97,66 @@
     </div>
   </div>
 </div>
+
+<!-- Add custom media queries for better responsiveness -->
+<style>
+  /* Header style */
+  .table th {
+    font-size: 1rem; /* Keep a simple font size */
+    padding: 10px 12px; /* Consistent padding */
+    text-align: center;
+    background-color: #f8f9fa; /* Light background color for simplicity */
+    color: #333; /* Dark text color for readability */
+    border: none;
+  }
+
+  /* Table row design */
+  .table td {
+    font-size: 0.9rem;
+    padding: 8px 12px; /* Adjust padding for better spacing */
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  /* Alternate row colors */
+  .table tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* Light grey for even rows */
+  }
+
+  .table tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* White for odd rows */
+  }
+
+  /* Hover effect for rows */
+  .table tbody tr:hover {
+    background-color: #f1f1f1; /* Subtle hover effect */
+    cursor: pointer;
+  }
+
+  /* Responsive table adjustments */
+  @media (max-width: 767px) {
+    .container-fluid {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    .table th,
+    .table td {
+      font-size: 0.8rem; /* Adjust font size for small screens */
+      padding: 8px 10px;
+    }
+
+    #ramachandranPlot {
+      max-width: 90%;
+      height: auto;
+    }
+
+    .btn {
+      font-size: 14px;
+    }
+  }
+</style>

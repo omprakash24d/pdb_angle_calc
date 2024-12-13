@@ -156,3 +156,64 @@ header .navbar-nav .nav-link[aria-label="home"] {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
 }
 
+/* Footer */
+/* General Footer Styling */
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 2rem 0;
+}
+
+footer .container {
+  text-align: center;
+}
+
+/* Social Icons */
+.social-icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Text styling */
+.footer-text {
+  font-size: 1rem;
+  color: #f8f9fa;
+}
+
+.footer-link {
+  color: #ffc107;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ff5733;
+  transform: scale(1.1);
+}
+
+/* University Info */
+footer p {
+  margin-bottom: 1rem;
+}
+
+/* Social Icons Container */
+.social-icons {
+  margin-top: 1rem;
+}
+
+.social-icons li {
+  list-style: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .social-icons {
+    text-align: center;
+  }
+}
