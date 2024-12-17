@@ -1,63 +1,61 @@
-<section class="about section py-1 bg-white" id="about">
+<section class="about section py-5 bg-white" id="about">
   <div class="container">
-    <div class="row g-5">
-      <!-- Content Section -->
-      <div class="col-lg-12">
+    <div class="row g-4">
+      <!-- Content Section (Left Side) -->
+      <div class="col-lg-8">
         <h3 class="about__subtitle mb-3 text-black fw-bold">
-          What is Dihedral Angle?
+          What is a Dihedral Angle?
         </h3>
         <p class="text-black">
-          A dihedral angle of a protein is the internal angle of the
-          polypeptide backbone at which two adjacent planes meet. The
-          conformation of the backbone can be described by two dihedral
-          angles per residue, because the backbone residing between two
-          juxtaposing Cα atoms are all in a single plane.
+          A dihedral angle of a protein is the internal angle of the polypeptide
+          backbone at which two adjacent planes meet. The conformation of the
+          backbone can be described by two dihedral angles per residue, because
+          the backbone residing between two juxtaposing Cα atoms are all in a
+          single plane.
         </p>
         <p class="text-black">
-          These angles are called φ (phi), which involves the backbone
-          atoms C-N-Cα-C, and ψ (psi), which involves the backbone atoms
-          N-Cα-C-N. The dihedral angles of amino acid residues have
-          restricted values due to steric hindrance between the carbonyl
-          oxygen, the hydrogen of the NH group, the hydrogen on the Cα
-          carbon, and the side chain atoms.
+          These angles are called φ (phi), which involves the backbone atoms
+          C-N-Cα-C, and ψ (psi), which involves the backbone atoms N-Cα-C-N. The
+          dihedral angles of amino acid residues have restricted values due to
+          steric hindrance between the carbonyl oxygen, the hydrogen of the NH
+          group, the hydrogen on the Cα carbon, and the side chain atoms.
         </p>
-        <!-- Image with Caption -->
-        <div class="text-center my-4">
-          <img src="/static/images/dihydral.png" alt="Dihedral angles of amino acid residues"
-            class="img-fluid rounded shadow-lg zoom-effect" />
-          <p class="mt-3 text-black fw-semibold">
-            Dihedral angles of amino acid residues
-          </p>
-        </div>
+        <p class="text-black mt-3">
+          A Ramachandran plot is a way to visualize dihedral angles φ against ψ
+          of amino acid residues in protein structure. It shows the correlation
+          of φ and ψ angles in a real polypeptide. The two main allowed regions
+          in the Ramachandran plot around (-60, -50) and (-120, 120) correspond
+          to the two main types of conformations (α helix and β sheet) in a
+          protein. A small region around (60, 60) corresponds to left-handed α
+          helix.
+        </p>
       </div>
-      <p class="text-black mt-1">
-        A Ramachandran plot is a way to visualize dihedral angles φ
-        against ψ of amino acid residues in protein structure. It shows
-        the correlation of φ and ψ angles in a real polypeptide. The two
-        main allowed regions in the Ramachandran plot around (-60, -50)
-        and (-120, 120) correspond to the two main types of conformations
-        (α helix and β sheet) in a protein. A small region around (60, 60)
-        corresponds to left-handed α helix.
-      </p>
-      <!-- Ramachandran Plot Image with Hover Effect -->
-      <div class="text-center my-4">
-        <img src="/static/images/ramachandran.png" alt="Ramachandran Plot"
-          class="img-fluid rounded shadow-lg zoom-effect" />
-        <p class="mt-3 text-black fw-semibold">Ramachandran Plot</p>
+
+      <!-- Image Section (Right Side) -->
+      <div class="col-lg-4">
+        <div class="text-center my-4">
+          <img
+            src="/static/images/dihydral.png"
+            alt="Dihedral angles of amino acid residues"
+            class="img-fluid rounded shadow-lg zoom-effect mb-3"
+          />
+          <figcaption class="text-black fw-semibold">
+            Dihedral angles of amino acid residues
+          </figcaption>
+        </div>
       </div>
     </div>
 
     <!-- Reference Section -->
-    <div class="mt-1">
-      <h3 class="text-black fw-bold">Reference</h3>
+    <div class="mt-4">
+      <h3 class="text-black fw-bold">References</h3>
       <p class="text-black">
         <strong>
-          Andres Liljas, Lars Liljas, Jure Piskur, Göran Lindblom, Poul
-          Nissen, Morten Kjeldgaard:
+          Andres Liljas, Lars Liljas, Jure Piskur, Göran Lindblom, Poul Nissen,
+          Morten Kjeldgaard:
         </strong>
-        <i>TEXTBOOK OF STRUCTURAL BIOLOGY</i>, World Scientific, 2009.
+        <em>TEXTBOOK OF STRUCTURAL BIOLOGY</em>, World Scientific, 2009.
       </p>
-
     </div>
   </div>
 </section>

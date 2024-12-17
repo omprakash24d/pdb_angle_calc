@@ -1,18 +1,62 @@
 <!-- Overview Section -->
-<section class="py-1" id="overview">
+<section class="py-3" id="overview">
   <div class="container">
-    <div class="row g-5">
+    <!-- Title -->
+    <div class="row text-center mb-3">
       <div class="col-12">
-        <h3 class="mb-4 text-dark fw-bold">About the Tool</h3>
+        <h2 class="fw-bold text-dark">About the Dihedral Angle Calculator</h2>
+        <p class="text-muted fs-4">
+          Your tool for calculating Phi (Φ) and Psi (Ψ) dihedral angles from
+          protein structures.
+        </p>
+      </div>
+    </div>
+
+    <!-- Single Paragraph Description -->
+    <div class="row">
+      <div class="col-12">
         <p class="text-muted">
           The <strong>Dihedral Angle Calculator</strong> is a web-based tool
           designed to calculate <strong>Phi (Φ)</strong> and
           <strong>Psi (Ψ)</strong> dihedral angles for all residues in a protein
-          structure from a <code>.pdb</code> file or its PDB ID also it will generate the Ramachandran Plot from the given PDB file or it's PDB ID. View results in
-          an interactive table or download them in CSV, Excel, PDF, and TXT
-          formats.
+          structure. By providing a <code>.pdb</code> file or a PDB ID, you can
+          calculate these angles and generate a Ramachandran Plot. The results
+          can be viewed in an interactive table or downloaded in CSV, Excel,
+          PDF, and TXT formats. This tool is perfect for researchers, educators,
+          and students involved in protein structure analysis, helping you
+          easily visualize and analyze protein conformations for better
+          scientific insights.
         </p>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Custom Styles -->
+<style>
+  /* Overview Section Styling */
+  #overview {
+    padding: 20px 0; /* Reduced padding for a smaller height */
+  }
+
+  /* Title Styles */
+  #overview h2 {
+    font-size: 2.25rem; /* Slightly smaller title size */
+    font-weight: 700;
+    color: #343a40;
+    margin-bottom: 15px; /* Reduced bottom margin */
+  }
+
+  #overview p {
+    font-size: 1rem; /* Smaller paragraph font size */
+    line-height: 1.6;
+    color: #6c757d;
+  }
+
+  /* Adjust text size for responsiveness */
+  @media (max-width: 768px) {
+    #overview h2 {
+      font-size: 1.8rem; /* Smaller heading size on mobile */
+    }
+  }
+</style>

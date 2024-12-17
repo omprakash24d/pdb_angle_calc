@@ -1,20 +1,12 @@
 <!-- Header Section -->
 <header
   class="header-section bg-dark text-white py-3"
-  style="
-    position: sticky;
-    top: 0;
-    z-index: 1020;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  "
+  style="position: sticky; top: 0; z-index: 1020; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);"
 >
   <div class="container">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-      <a
-        class="navbar-brand fw-bold fs-4 d-flex align-items-center"
-        href="https://pdb.indhinditech.com/"
-      >
+      <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="https://pdb.indhinditech.com/">
         <i class="fas fa-dna me-2 animate-icon"></i> Dihedral Angle Calculator
       </a>
       <button
@@ -25,17 +17,10 @@
         aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation"
-        style="transition: transform 0.3s ease"
-        onmouseover="this.style.transform='rotate(90deg)';"
-        onmouseout="this.style.transform='rotate(0deg)';"
       >
         <span
           class="navbar-toggler-icon"
-          style="
-            background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%27http://www.w3.org/2000/svg%27 viewBox%3D%270 0 30 30%27%3E%3Cpath stroke%3D%27white%27 stroke-width%3D%272%27 d%3D%27M4 7h22M4 15h22M4 23h22%27/%3E%3C/svg%3E');
-            width: 25px;
-            height: 25px;
-          "
+          style="background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%27http://www.w3.org/2000/svg%27 viewBox%3D%270 0 30 30%27%3E%3Cpath stroke%3D%27white%27 stroke-width%3D%272%27 d%3D%27M4 7h22M4 15h22M4 23h22%27/%3E%3C/svg%3E'); width: 25px; height: 25px;"
         ></span>
       </button>
 
@@ -46,13 +31,7 @@
             <a
               class="nav-link text-uppercase px-3 text-white fw-bold"
               href="https://pdb.indhinditech.com/"
-              style="
-                transition: all 0.3s ease;
-                background-color: #8f68c3;
-                border-radius: 5px;
-              "
-              onmouseover="this.style.backgroundColor='#0056b3'; this.style.transform='scale(1.1)';"
-              onmouseout="this.style.backgroundColor='#007bff'; this.style.transform='scale(1)';"
+              style="transition: all 0.3s ease; background-color: #8f68c3; border-radius: 5px;"
             >
               Home
             </a>
@@ -65,8 +44,6 @@
               href="https://www.rcsb.org/"
               target="_blank"
               style="transition: all 0.3s ease"
-              onmouseover="this.style.color='#28a745'; this.style.transform='scale(1.1)';"
-              onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
             >
               Download PDB
             </a>
@@ -78,8 +55,6 @@
               class="nav-link text-uppercase px-3 text-white fw-bold"
               href="#contact"
               style="transition: all 0.3s ease"
-              onmouseover="this.style.color='#ff5722'; this.style.transform='scale(1.1)';"
-              onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
             >
               Contact Us
             </a>
@@ -92,8 +67,6 @@
               href="https://github.com/omprakash24d/pdb_angle_calc/blob/main/README.md"
               target="_blank"
               style="transition: all 0.3s ease"
-              onmouseover="this.style.color='#6c63ff'; this.style.transform='scale(1.1)';"
-              onmouseout="this.style.color='white'; this.style.transform='scale(1)';"
             >
               Documentation
             </a>
@@ -104,6 +77,7 @@
   </div>
 </header>
 
+<!-- Custom Styles -->
 <style>
   /* Custom Animation for Icon */
   .animate-icon {
@@ -120,5 +94,25 @@
       transform: scale(1.2);
       color: #ffc107;
     }
+  }
+
+  /* Smooth Hover Effects on Links */
+  .navbar-nav .nav-link:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: #ffc107;
+    text-decoration: underline;
+  }
+
+  /* Active Link Styling */
+  .navbar-nav .nav-item.active .nav-link {
+    background-color: #0056b3 !important; /* More prominent active state */
+    color: white !important;
+  }
+
+  /* Mobile Toggler Animation Removal */
+  .navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
   }
 </style>

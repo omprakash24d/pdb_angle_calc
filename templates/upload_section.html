@@ -57,13 +57,13 @@
           <div class="mb-3" id="pdbIdInputDiv" class="d-block">
             <label for="pdbIdInput" class="form-label fw-semibold text-primary">
               <i class="bi bi-file-earmark-earbuds text-primary me-2"></i>Enter
-              Your 4-Digit PDB ID:
+              4-Digit PDB ID:
             </label>
             <div class="input-group mb-3">
               <input
                 type="text"
                 name="pdb_id"
-                class="form-control rounded-3 shadow-sm border-0 p-3 fs-5 text-dark"
+                class="form-control minimal-input p-2 fs-5 text-dark bg-transparent border-1 border-gray-300 focus:border-blue-400 focus:outline-none transition-all duration-200"
                 id="pdbIdInput"
                 placeholder="e.g. 1ajq"
                 maxlength="4"
@@ -104,13 +104,24 @@
             </div>
             <small class="form-text text-muted mt-1"
               >Only <code>.pdb</code> files are supported (Max size:
-              10MB).</small
+              50MB).</small
             >
 
             <!-- Error Message -->
             <div id="fileError" class="text-danger mt-2" style="display: none">
-              <small>Invalid file type. Please upload a `.pdb` file.</small>
+              <small
+                >Invalid file type or size. Please upload a `.pdb` file (Max
+                size: 50MB).</small
+              >
             </div>
+          </div>
+
+          <!-- Loading Message (Added for better UX during upload) -->
+          <div id="loadingMessage" class="text-center" style="display: none">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-2">Uploading...</p>
           </div>
 
           <!-- Submit Button -->

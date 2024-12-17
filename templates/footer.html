@@ -1,6 +1,7 @@
 <!-- Footer Section -->
 <footer class="bg-dark text-white py-4 mt-1">
   <div class="container text-center">
+    <!-- Main Footer Text -->
     <p class="mb-1">
       &copy; 2024 Dihedral Angle Calculator | All Rights Reserved
     </p>
@@ -11,7 +12,7 @@
       <a
         href="https://www.instagram.com/omprakash24d/"
         target="_blank"
-        class="footer-link"
+        class="footer-link text-decoration-none"
         aria-label="Om Prakash"
         >Om Prakash</a
       >
@@ -25,36 +26,71 @@
     <!-- Social Media Links -->
     <nav>
       <ul class="list-unstyled d-flex justify-content-center social-icons">
-        <li>
+        <li class="mx-2">
           <a
             href="https://www.instagram.com/omprakash24d/"
             target="_blank"
-            class="text-white mx-3 social-icon"
+            class="text-white social-icon"
             aria-label="Instagram"
             role="link"
-            ><i class="fab fa-instagram"></i
+            ><i class="fab fa-instagram fa-lg"></i
           ></a>
         </li>
-        <li>
+        <li class="mx-2">
           <a
             href="https://www.linkedin.com/in/omprakash24d/"
             target="_blank"
-            class="text-white mx-3 social-icon"
+            class="text-white social-icon"
             aria-label="LinkedIn"
             role="link"
-            ><i class="fab fa-linkedin"></i
+            ><i class="fab fa-linkedin fa-lg"></i
           ></a>
         </li>
-        <li>
+        <li class="mx-2">
           <a
             href="mailto:omprakash24d@gmail.com"
-            class="text-white mx-3 social-icon"
+            class="text-white social-icon"
             aria-label="Email"
             role="link"
-            ><i class="fas fa-envelope"></i
+            ><i class="fas fa-envelope fa-lg"></i
           ></a>
         </li>
       </ul>
     </nav>
   </div>
 </footer>
+
+<!-- Custom Styles -->
+<style>
+  /* Ensure footer links have hover effects */
+  .footer-link:hover {
+    color: #ff9900 !important; /* Highlight link on hover */
+    text-decoration: underline !important;
+  }
+
+  /* Social Icons Hover Effects */
+  .social-icons .social-icon:hover {
+    color: #ff9900 !important; /* Highlight social icons on hover */
+    transform: scale(1.1) !important; /* Slight grow effect */
+    transition: transform 0.3s ease-in-out !important;
+  }
+
+  /* Footer Text Customization */
+  .footer-text span {
+    font-weight: 500 !important;
+    font-size: 1rem !important; /* Slightly smaller size for clarity */
+  }
+
+  .footer-text a {
+    font-weight: 600 !important;
+  }
+
+  .footer-text {
+    font-size: 0.9rem !important; /* Slightly smaller font size for a cleaner look */
+  }
+
+  /* Increase the size of social media icons */
+  .social-icons .social-icon i {
+    font-size: 1.5rem !important; /* Increase icon size */
+  }
+</style>
