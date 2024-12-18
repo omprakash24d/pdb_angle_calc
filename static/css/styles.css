@@ -1,7 +1,7 @@
 html {
-  scroll-behavior: smooth; /* Enables smooth scrolling */
-  -webkit-scroll-behavior: smooth; /* For Safari and Webkit-based browsers */
-  -moz-scroll-behavior: smooth; /* For Firefox */
+  scroll-behavior: smooth; 
+  -webkit-scroll-behavior: smooth; 
+  -moz-scroll-behavior: smooth; 
 }
 
 /* Optional: Add some padding to the top of the section to avoid content being hidden behind the navbar */
@@ -13,7 +13,7 @@ html {
 
 /* Focus Effect */
 .form-control:focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); /* Light blue glow */
+  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5); /* Light blue glow */
   border-color: #007bff; /* Border color on focus */
 }
 
