@@ -16,6 +16,9 @@ RESULT_FOLDER = '/tmp/results'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(RESULT_FOLDER, exist_ok=True)
 
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -42,6 +45,7 @@ def download_file_route(filetype, filename):
 def generate_plot(pdb_code):
     try:
         download = request.args.get('download', default=False, type=bool)
+        logging.debug(f"Request to generate Ramachandran plot for PDB code: {pdb_code}")
         return generate_ramachandran_plot(pdb_code, RESULT_FOLDER, download)
     except Exception as e:
         logging.error(f"Error generating Ramachandran plot: {str(e)}")

@@ -1,6 +1,7 @@
 import os
 import Bio.PDB
 import math
+import logging
 
 def degrees(rad_angle):
     """Converts any angle in radians to degrees."""
@@ -45,6 +46,11 @@ def process_pdb_file(filepath, pdb_code):
                                 "Psi (°)": None,  # Missing value for Psi
                             }
                         results.append(result)
+        
+        # Log results and return to the CSV function
+        logging.debug(f"Processed {len(results)} residues from PDB file {pdb_code}")
     except Exception as e:
+        logging.error(f"Error processing PDB file {pdb_code}: {str(e)}")
         raise ValueError(f"Error processing PDB file: {str(e)}")
+    
     return results

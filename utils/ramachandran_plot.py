@@ -16,7 +16,7 @@ def generate_ramachandran_plot(pdb_code, result_folder, additional_arg):
     try:
         logging.debug(f"Generating Ramachandran plot for PDB code: {pdb_code}")
         
-        # Read the CSV file containing Phi and Psi angles
+        # Use os.path.join for proper path construction
         csv_file = os.path.join(result_folder, f"{pdb_code}_angles.csv")
         logging.debug(f"CSV file path: {csv_file}")
         
@@ -124,6 +124,9 @@ def generate_ramachandran_plot(pdb_code, result_folder, additional_arg):
         plt.close()
         logging.debug("Plot generated successfully")
 
+        # Check if the file is being returned
+        logging.debug(f"Returning the plot to the client")
+        
         # Return the image as a response
         return send_file(img_io, mimetype='image/png')
 
