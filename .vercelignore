@@ -1,0 +1,33 @@
+# Exclude virtual environment
+
+venv/
+
+# Exclude local development files
+
+.vscode/
+.git/
+**pycache**/
+\*.pyc
+
+# Exclude test files and directories
+
+tests/
+_.test._
+_.spec._
+
+# Exclude documentation files
+
+docs/
+\*.md
+
+# Exclude data files
+
+data/
+_.csv
+_.json
+\*.xml
+
+# Exclude temporary files
+
+_.log
+_.tmp
