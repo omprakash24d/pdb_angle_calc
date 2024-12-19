@@ -6,7 +6,7 @@ import seaborn as sns
 import io
 from flask import send_file
 
-def generate_ramachandran_plot(pdb_code, result_folder):
+def generate_ramachandran_plot(pdb_code, result_folder, additional_arg):
     try:
         # Read the CSV file containing Phi and Psi angles
         csv_file = os.path.join(result_folder, f"{pdb_code}_angles.csv")
