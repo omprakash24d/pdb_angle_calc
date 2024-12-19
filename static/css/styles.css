@@ -222,3 +222,29 @@ input.invalid {
   border-color: red;
   box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
 }
+
+ /* Contact Form Control */
+
+ .form-floating .form-control {
+  height: calc(3rem + 2px); /* Ensures enough height for the input and label */
+  padding: 1rem 0.75rem; /* Adds padding for proper spacing */
+}
+
+.form-floating textarea {
+  height: auto; /* Allows textarea to adjust its height dynamically */
+  min-height: 150px; /* Sets a comfortable minimum height */
+}
+
+.form-floating .form-control:focus {
+  border-color: #0d6efd; /* Highlighted border color on focus */
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.5); /* Adds a soft shadow */
+}
+
+.form-floating label {
+  padding: 0 0.5rem; /* Adjusts label padding to avoid overlap */
+  transition: all 0.3s ease; /* Smooth transition for the floating effect */
+}
+
+.form-floating .form-control::placeholder {
+  opacity: 0; /* Hides placeholder to avoid conflicts with floating labels */
+}

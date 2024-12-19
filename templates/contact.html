@@ -1,27 +1,20 @@
-<!-- Contact Us Section -->
 <section id="contact">
-  <div class="container py-3">
+  <div class="container py-1">
     <div class="row justify-content-center">
-      <div class="col-md-8 col-lg-6">
-        <!-- Slightly increased width for larger screens -->
-        <div class="card border-0 shadow-lg rounded-3">
-          <div class="card-body p-5">
-            <!-- Added padding for better spacing -->
+      <div class="col-md-10 col-lg-6">
+        <div class="card border-0 rounded-3">
+          <div class="card-body p-4 p-lg-5">
             <h1 class="card-title text-center text-primary mb-4 fw-bold">
               Contact Us
             </h1>
-
             <p class="text-muted text-center mb-4">
-              We’d love to hear your feedback. If you have any questions,
-              comments, feedback, or suggestions regarding Dihedral Angle
-              Calculator, please feel free to contact us. We value your response
-              and are committed to providing the best possible service to our
-              users.
+              We’d love to hear your feedback! Feel free to reach out with any
+              questions, comments, or suggestions regarding the Dihedral Angle
+              Calculator. We value your input and strive to provide the best
+              service possible.
             </p>
-
             <form id="contactForm">
-              <div class="mb-3">
-                <label for="name" class="form-label fw-bold">Name</label>
+              <div class="form-floating mb-3">
                 <input
                   type="text"
                   class="form-control"
@@ -30,9 +23,9 @@
                   placeholder="Enter your name"
                   required
                 />
+                <label for="name" class="fw-bold">Name</label>
               </div>
-              <div class="mb-3">
-                <label for="email" class="form-label fw-bold">Email</label>
+              <div class="form-floating mb-3">
                 <input
                   type="email"
                   class="form-control"
@@ -41,17 +34,18 @@
                   placeholder="Enter your email"
                   required
                 />
+                <label for="email" class="fw-bold">Email</label>
               </div>
-              <div class="mb-3">
-                <label for="message" class="form-label fw-bold">Message</label>
+              <div class="form-floating mb-3">
                 <textarea
                   class="form-control"
                   name="entry.839337160"
                   id="message"
-                  rows="4"
                   placeholder="Your message"
                   required
+                  style="height: 150px"
                 ></textarea>
+                <label for="message" class="fw-bold">Message</label>
               </div>
               <button
                 type="submit"
@@ -61,7 +55,7 @@
                 Submit
                 <span
                   id="loadingSpinner"
-                  class="spinner-border spinner-border-sm text-light"
+                  class="spinner-border spinner-border-sm text-light ms-2"
                   style="display: none"
                   role="status"
                 >
@@ -76,8 +70,7 @@
               style="display: none"
             >
               Your message has been sent successfully! We will do our best to
-              respond to your inquiry within 24 hours. Please note that we may
-              take longer to respond during weekends, holidays, or busy periods.
+              respond within 24 hours. Thank you!
             </div>
           </div>
         </div>

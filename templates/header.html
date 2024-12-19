@@ -1,16 +1,15 @@
-<!-- Header Section -->
-<header
-  class="header-section bg-dark text-white py-3"
-  style="position: sticky; top: 0; z-index: 1020; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);"
->
+<header class="header-section bg-dark text-white py-3 sticky-top shadow-sm">
   <div class="container">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-      <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="https://pdb.indhinditech.com/">
+      <a
+        class="navbar-brand fw-bold fs-4 d-flex align-items-center"
+        href="https://pdb.indhinditech.com/"
+      >
         <i class="fas fa-dna me-2 animate-icon"></i> Dihedral Angle Calculator
       </a>
       <button
-        class="navbar-toggler border-0 p-2"
+        class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarNav"
@@ -18,58 +17,38 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span
-          class="navbar-toggler-icon"
-          style="background-image: url('data:image/svg+xml,%3Csvg xmlns%3D%27http://www.w3.org/2000/svg%27 viewBox%3D%270 0 30 30%27%3E%3Cpath stroke%3D%27white%27 stroke-width%3D%272%27 d%3D%27M4 7h22M4 15h22M4 23h22%27/%3E%3C/svg%3E'); width: 25px; height: 25px;"
-        ></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav align-items-center">
-          <!-- Home (Active Tab) -->
-          <li class="nav-item active">
-            <a
-              class="nav-link text-uppercase px-3 text-white fw-bold"
-              href="https://pdb.indhinditech.com/"
-              style="transition: all 0.3s ease; background-color: #8f68c3; border-radius: 5px;"
-            >
-              Home
-            </a>
-          </li>
-
-          <!-- Download PDB -->
           <li class="nav-item">
             <a
-              class="nav-link text-uppercase px-3 text-white fw-bold"
+              class="nav-link text-uppercase px-3 fw-bold active"
+              href="https://pdb.indhinditech.com/"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-uppercase px-3 fw-bold"
               href="https://www.rcsb.org/"
               target="_blank"
-              style="transition: all 0.3s ease"
+              >Download PDB</a
             >
-              Download PDB
-            </a>
           </li>
-
-          <!-- Contact Us -->
+          <li class="nav-item">
+            <a class="nav-link text-uppercase px-3 fw-bold" href="#contact"
+              >Contact Us</a
+            >
+          </li>
           <li class="nav-item">
             <a
-              class="nav-link text-uppercase px-3 text-white fw-bold"
-              href="#contact"
-              style="transition: all 0.3s ease"
-            >
-              Contact Us
-            </a>
-          </li>
-
-          <!-- Documentation -->
-          <li class="nav-item">
-            <a
-              class="nav-link text-uppercase px-3 text-white fw-bold"
+              class="nav-link text-uppercase px-3 fw-bold"
               href="https://github.com/omprakash24d/pdb_angle_calc/blob/main/README.md"
               target="_blank"
-              style="transition: all 0.3s ease"
+              >Documentation</a
             >
-              Documentation
-            </a>
           </li>
         </ul>
       </div>
@@ -79,40 +58,47 @@
 
 <!-- Custom Styles -->
 <style>
-  /* Custom Animation for Icon */
-  .animate-icon {
-    animation: pulse 2s infinite;
+  /* Navbar Links */
+  .navbar-nav .nav-link {
+    color: #ffffff !important;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
   }
 
-  @keyframes pulse {
-    0%,
-    100% {
-      transform: scale(1);
-      color: #ffffff;
-    }
-    50% {
-      transform: scale(1.2);
-      color: #ffc107;
-    }
-  }
-
-  /* Smooth Hover Effects on Links */
   .navbar-nav .nav-link:hover {
+    background-color: rgba(255, 193, 7, 0.2);
+    color: #ffc107 !important;
     transform: scale(1.05);
-    transition: transform 0.3s ease, color 0.3s ease;
-    color: #ffc107;
-    text-decoration: underline;
+    text-decoration: none;
   }
 
-  /* Active Link Styling */
-  .navbar-nav .nav-item.active .nav-link {
-    background-color: #0056b3 !important; /* More prominent active state */
-    color: white !important;
+  .navbar-nav .nav-link.active {
+    background-color: #495057;
+    color: #ffc107 !important;
+    font-weight: bold;
   }
 
-  /* Mobile Toggler Animation Removal */
   .navbar-toggler:focus {
-    outline: none !important;
     box-shadow: none !important;
+    outline: none;
   }
 </style>
+
+<!-- JavaScript to Close Navbar When Clicking Outside -->
+<script>
+  document.addEventListener("click", function (event) {
+    const navbarCollapse = document.getElementById("navbarNav");
+    const navbarToggler = document.querySelector(".navbar-toggler");
+
+    // Check if the click is outside the navbar
+    if (
+      !navbarCollapse.contains(event.target) &&
+      !navbarToggler.contains(event.target)
+    ) {
+      const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+        toggle: false,
+      });
+      bsCollapse.hide();
+    }
+  });
+</script>
