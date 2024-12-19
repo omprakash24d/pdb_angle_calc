@@ -1,67 +1,95 @@
-<section id="contact" class="bg-gray-100 py-12">
-  <div class="container mx-auto px-4">
-    <div class="flex justify-center">
-      <div class="w-full md:w-8/12 lg:w-6/12 xl:w-5/12">
-        <div class="bg-white rounded-lg shadow-lg p-6 md:p-10">
-          <h1 class="text-3xl font-bold text-center text-blue-600 mb-6">Contact Us</h1>
-          <p class="text-center text-gray-600 mb-6">
-            We’d love to hear your feedback! Feel free to reach out with any questions, comments, or suggestions regarding the Dihedral Angle Calculator. We value your input and strive to provide the best service possible.
-          </p>
+<section id="contact">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-6">
+        <div
+          class="card border-0 rounded-4 shadow-lg"
+          style="background: #ffffff"
+        >
+          <div class="card-body p-4 p-lg-5">
+            <h1 class="card-title text-center text-primary mb-4 fw-bold">
+              Contact Us
+            </h1>
+            <p class="text-muted text-center mb-4">
+              We’d love to hear your feedback! Feel free to reach out with any
+              questions, comments, or suggestions regarding the Dihedral Angle
+              Calculator. We value your input and strive to provide the best
+              service possible.
+            </p>
+            <form id="contactForm">
+              <!-- Name Input -->
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control rounded-3"
+                  name="entry.2005620554"
+                  id="name"
+                  placeholder="Enter your name"
+                  required
+                  style="border: 1px solid #ddd; padding: 12px"
+                />
+                <label for="name" class="fw-bold">Name</label>
+              </div>
 
-          <form id="contactForm">
-            <div class="mb-5">
-              <label for="name" class="block text-lg font-medium text-gray-700">Name</label>
-              <input 
-                type="text" 
-                class="form-input mt-2 w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                name="entry.2005620554" 
-                id="name" 
-                placeholder="Enter your name" 
-                required 
-              />
+              <!-- Email Input -->
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control rounded-3"
+                  name="entry.1045781291"
+                  id="email"
+                  placeholder="Enter your email"
+                  required
+                  style="border: 1px solid #ddd; padding: 12px"
+                />
+                <label for="email" class="fw-bold">Email</label>
+              </div>
+
+              <!-- Message Input -->
+              <div class="form-floating mb-3">
+                <textarea
+                  class="form-control rounded-3"
+                  name="entry.839337160"
+                  id="message"
+                  placeholder="Your message"
+                  required
+                  style="height: 150px; border: 1px solid #ddd; padding: 12px"
+                ></textarea>
+                <label for="message" class="fw-bold">Message</label>
+              </div>
+
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="btn btn-primary w-100 py-2 fw-bold"
+                id="submitBtn"
+                style="
+                  background: #007bff;
+                  border: none;
+                  transition: all 0.3s ease-in-out;
+                "
+              >
+                Submit
+                <span
+                  id="loadingSpinner"
+                  class="spinner-border spinner-border-sm text-light ms-2"
+                  style="display: none"
+                  role="status"
+                >
+                  <span class="sr-only">Loading...</span>
+                </span>
+              </button>
+            </form>
+
+            <!-- Success Message -->
+            <div
+              id="successMessage"
+              class="alert alert-success mt-3 text-center"
+              style="display: none"
+            >
+              Your message has been sent successfully! We will do our best to
+              respond within 24 hours. Thank you!
             </div>
-
-            <div class="mb-5">
-              <label for="email" class="block text-lg font-medium text-gray-700">Email</label>
-              <input 
-                type="email" 
-                class="form-input mt-2 w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                name="entry.1045781291" 
-                id="email" 
-                placeholder="Enter your email" 
-                required 
-              />
-            </div>
-
-            <div class="mb-5">
-              <label for="message" class="block text-lg font-medium text-gray-700">Message</label>
-              <textarea 
-                class="form-textarea mt-2 w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                name="entry.839337160" 
-                id="message" 
-                placeholder="Your message" 
-                required 
-                style="height: 150px;"></textarea>
-            </div>
-
-            <button 
-              type="submit" 
-              class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out focus:outline-none" 
-              id="submitBtn">
-              Submit
-              <span 
-                id="loadingSpinner" 
-                class="spinner-border spinner-border-sm text-light ml-2 hidden" 
-                role="status">
-                <span class="sr-only">Loading...</span>
-              </span>
-            </button>
-          </form>
-
-          <div 
-            id="successMessage" 
-            class="mt-4 p-3 bg-green-100 text-center text-green-800 rounded-lg hidden">
-            Your message has been sent successfully! We will do our best to respond within 24 hours. Thank you!
           </div>
         </div>
       </div>

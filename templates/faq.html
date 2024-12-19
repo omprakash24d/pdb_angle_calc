@@ -1,0 +1,96 @@
+<section id="faq" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4 fw-bold">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+      <!-- FAQ 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            1. What is the primary purpose of the Dihedral Angle Calculator?
+          </button>
+        </h2>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse show"
+          aria-labelledby="headingOne"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            The tool calculates the phi (Φ) and psi (Ψ) dihedral angles for all
+            residues in a protein structure, visualizes these angles in a
+            Ramachandran plot, and provides downloadable results for further
+            analysis. It is designed for researchers, educators, and students to
+            analyze protein conformations efficiently.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo"
+            aria-expanded="false"
+            aria-controls="collapseTwo"
+          >
+            2. What inputs does the tool accept, and how can users provide them?
+          </button>
+        </h2>
+        <div
+          id="collapseTwo"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingTwo"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            The tool accepts either a 4-character PDB ID (e.g., 1ajq) or a .pdb
+            file upload. Users can input a PDB ID to fetch the structure
+            directly from online repositories or upload a local PDB file for
+            analysis.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            3. What are φ (phi) and ψ (psi) dihedral angles, and how are they
+            calculated?
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingThree"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            Φ (phi) is the rotation around the N-Cα bond (atoms involved:
+            C-N-Cα-C), and Ψ (psi) is the rotation around the Cα-C bond (atoms
+            involved: N-Cα-C-N). The angles are calculated using vector
+            mathematics by determining the angles between planes formed by these
+            atoms in the protein backbone.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
