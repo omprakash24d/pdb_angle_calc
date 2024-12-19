@@ -147,7 +147,7 @@ async function handleFormSubmit(e) {
     clearResults();
     
     // Show loading message while processing
-    toggleVisibility([loadingMessage], true);
+    toggleVisibility([loadingDiv], true);
 
     const formData = new FormData();
     let uploadUrl;
@@ -176,7 +176,7 @@ async function handleFormSubmit(e) {
         const uploadResponseBody = await uploadResponse.json();
 
         // Hide loading message after upload completion
-        toggleVisibility([loadingMessage], false);
+        toggleVisibility([loadingDiv], false);
 
         if (uploadResponse.ok) {
             uploadedFilename = `${uploadResponseBody[0]['PDB Code']}_angles.csv`;
@@ -204,7 +204,7 @@ async function handleFormSubmit(e) {
         }
     } catch (error) {
         // Hide loading message if there's an error
-        toggleVisibility([loadingMessage], false);
+        toggleVisibility([loadingDiv], false);
         errorDiv.textContent = error.message;
         toggleVisibility([errorDiv], true);
     }

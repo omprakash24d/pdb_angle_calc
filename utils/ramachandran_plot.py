@@ -4,13 +4,27 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import io
+import logging
 from flask import send_file
+
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
 
 def generate_ramachandran_plot(pdb_code, result_folder, additional_arg):
     try:
+        logging.debug(f"Generating Ramachandran plot for PDB code: {pdb_code}")
+        
         # Read the CSV file containing Phi and Psi angles
         csv_file = os.path.join(result_folder, f"{pdb_code}_angles.csv")
+        logging.debug(f"CSV file path: {csv_file}")
+        
+        # Check if the file exists
+        if not os.path.exists(csv_file):
+            logging.error(f"File not found: {csv_file}")
+            raise FileNotFoundError(f"File not found: {csv_file}")
+        
         df = pd.read_csv(csv_file)
+        logging.debug("CSV file read successfully")
         
         # Filter out rows where Phi or Psi is missing
         valid_data = df.dropna(subset=['Phi (°)', 'Psi (°)'])
@@ -106,9 +120,17 @@ def generate_ramachandran_plot(pdb_code, result_folder, additional_arg):
         plt.savefig(img_io, format='png', bbox_inches='tight')
         img_io.seek(0)
         plt.close()
+        logging.debug("Plot generated successfully")
 
         # Return the image as a response
         return send_file(img_io, mimetype='image/png')
 
+    except FileNotFoundError as fnf_error:
+        logging.error(f"FileNotFoundError: {str(fnf_error)}")
+        raise ValueError(f"Error generating Ramachandran plot: {str(fnf_error)}")
+    except pd.errors.EmptyDataError:
+        logging.error("EmptyDataError: The CSV file is empty.")
+        raise ValueError("Error generating Ramachandran plot: The CSV file is empty.")
     except Exception as e:
+        logging.error(f"Exception: {str(e)}")
         raise ValueError(f"Error generating Ramachandran plot: {str(e)}")
