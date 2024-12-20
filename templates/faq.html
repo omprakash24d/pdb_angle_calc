@@ -13,7 +13,7 @@
             aria-expanded="true"
             aria-controls="collapseOne"
           >
-            1. What is the primary purpose of the Dihedral Angle Calculator?
+            01. What is the primary purpose of the Dihedral Angle Calculator?
           </button>
         </h2>
         <div
@@ -43,7 +43,8 @@
             aria-expanded="false"
             aria-controls="collapseTwo"
           >
-            2. What inputs does the tool accept, and how can users provide them?
+            02. What inputs does the tool accept, and how can users provide
+            them?
           </button>
         </h2>
         <div
@@ -72,7 +73,7 @@
             aria-expanded="false"
             aria-controls="collapseThree"
           >
-            3. What are φ (phi) and ψ (psi) dihedral angles, and how are they
+            03. What are φ (phi) and ψ (psi) dihedral angles, and how are they
             calculated?
           </button>
         </h2>
@@ -88,6 +89,209 @@
             involved: N-Cα-C-N). The angles are calculated using vector
             mathematics by determining the angles between planes formed by these
             atoms in the protein backbone.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFour">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseFour"
+            aria-expanded="false"
+            aria-controls="collapseFour"
+          >
+            04. How does the Ramachandran plot enhance protein structure
+            validation?
+          </button>
+        </h2>
+        <div
+          id="collapseFour"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingFour"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            The Ramachandran plot visualizes the φ and ψ dihedral angles,
+            identifying allowed and disallowed regions. It validates protein
+            models by ensuring residues fall within sterically allowed regions
+            (e.g., α-helix, β-sheet).
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFive">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseFive"
+            aria-expanded="false"
+            aria-controls="collapseFive"
+          >
+            05. How does the tool handle incomplete PDB files or missing
+            residues?
+          </button>
+        </h2>
+        <div
+          id="collapseFive"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingFive"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            The tool identifies missing residues and marks them as "Missing
+            Residue" in the output. This ensures users are aware of incomplete
+            data without disrupting the calculation process.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSix">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseSix"
+            aria-expanded="false"
+            aria-controls="collapseSix"
+          >
+            06. What features make this tool user-friendly for protein structure
+            analysis?
+          </button>
+        </h2>
+        <div
+          id="collapseSix"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingSix"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            Key features include visualization through Ramachandran plots,
+            interactive sortable tables, multiple download options (CSV, Excel,
+            PDF, TXT), and error handling for invalid inputs.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 7 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSeven">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseSeven"
+            aria-expanded="false"
+            aria-controls="collapseSeven"
+          >
+            07. Why are dihedral angles restricted, and how do they relate to
+            secondary structures?
+          </button>
+        </h2>
+        <div
+          id="collapseSeven"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingSeven"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            Steric hindrance limits φ and ψ angles, creating allowed regions in
+            the Ramachandran plot corresponding to secondary structures like
+            α-helices (-60°, -50°) and β-sheets (-120°, 120°).
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 8 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingEight">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseEight"
+            aria-expanded="false"
+            aria-controls="collapseEight"
+          >
+            08. How does the tool calculate angles and generate a Ramachandran
+            plot?
+          </button>
+        </h2>
+        <div
+          id="collapseEight"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingEight"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            The tool parses PDB files or fetches data using PDB IDs, calculates
+            φ and ψ angles using standard algorithms, and plots the angles on a
+            Ramachandran plot for visualization.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 9 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingNine">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseNine"
+            aria-expanded="false"
+            aria-controls="collapseNine"
+          >
+            09. What makes glycine and proline residues unique on a Ramachandran
+            plot?
+          </button>
+        </h2>
+        <div
+          id="collapseNine"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingNine"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            Glycine is more flexible due to its lack of a side chain, while
+            proline's cyclic structure restricts its φ and ψ angles, creating
+            unique patterns on the plot.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 10 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTen">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseTen"
+            aria-expanded="false"
+            aria-controls="collapseTen"
+          >
+            10. How can the results from this tool be used in further analysis?
+          </button>
+        </h2>
+        <div
+          id="collapseTen"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingTen"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            Results can validate protein structure quality, model folding
+            pathways, analyze flexibility, and provide input for molecular
+            dynamics simulations or secondary structure predictions.
           </div>
         </div>
       </div>
