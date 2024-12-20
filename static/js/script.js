@@ -507,3 +507,42 @@ function lazyLoadContent() {
 
 // Listen for scroll events for lazy loading (optional)
 window.addEventListener('scroll', debounce(lazyLoadContent, 300));
+
+//show more button
+document.addEventListener("DOMContentLoaded", () => {
+    const faqItems = document.querySelectorAll("#faqAccordion .accordion-item");
+    const showMoreBtn = document.getElementById("showMoreBtn");
+    const ITEMS_TO_REVEAL = 3; // Number of FAQs to reveal at a time
+  
+    if (!faqItems.length || !showMoreBtn) return; // Exit if FAQs or button are missing
+  
+    let visibleItems = ITEMS_TO_REVEAL; // Track how many items are currently visible
+  
+    // Initially hide all FAQs beyond the configured number
+    faqItems.forEach((item, index) => {
+      if (index >= visibleItems) {
+        item.style.display = "none";
+      }
+    });
+  
+    // Show more FAQs when the button is clicked
+    showMoreBtn.addEventListener("click", () => {
+      let itemsRevealed = 0;
+  
+      // Reveal hidden items up to the configured number
+      faqItems.forEach((item, index) => {
+        if (index >= visibleItems && itemsRevealed < ITEMS_TO_REVEAL) {
+          item.style.display = "block";
+          itemsRevealed++;
+        }
+      });
+  
+      visibleItems += itemsRevealed; // Update the count of visible items
+  
+      // Hide the button if all items are visible
+      if (visibleItems >= faqItems.length) {
+        showMoreBtn.style.display = "none";
+      }
+    });
+  });
+  

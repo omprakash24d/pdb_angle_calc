@@ -1,144 +1,74 @@
 html {
-  scroll-behavior: smooth; 
-  -webkit-scroll-behavior: smooth; 
-  -moz-scroll-behavior: smooth; 
+  scroll-behavior: smooth;
 }
 
-/* Optional: Add some padding to the top of the section to avoid content being hidden behind the navbar */
 #contact {
-  padding-top: 80px; /* Adjust the padding based on your navbar height */
-  margin-top: -80px; /* Adjust to account for the padding */
+  padding-top: 80px;
+  margin-top: -80px;
 }
 
-
-/* Focus Effect */
 .form-control:focus {
-  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5); /* Light blue glow */
-  border-color: #007bff; /* Border color on focus */
+  box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.5);
+  border-color: #007bff;
 }
 
-/* Hover Effect */
 .form-control:hover {
-  border-color: #0056b3; /* Darker blue border on hover */
+  border-color: #0056b3;
   transition: border-color 0.3s ease;
 }
-@media (max-width: 576px) {
-  .btn {
-    padding: 0.5rem 1.5rem; /* Reduce padding on small screens */
-    font-size: 1rem; /* Adjust font size */
-  }
-}
 
-@media (min-width: 577px) and (max-width: 768px) {
-  .btn {
-    padding: 0.6rem 1.8rem; /* Slightly adjust padding for tablets */
-  }
-}
-/* General Styling for Share Buttons */
 .btn {
-  font-size: 1.1rem; /* Slightly larger font size for better readability */
-  font-weight: 600; /* Bold font weight for better emphasis */
+  font-size: 1.1rem;
+  font-weight: 600;
   text-align: center;
-  padding: 12px 18px; /* Balanced padding for better touch area */
-  border-radius: 50px; /* Rounded edges for a modern look */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+  padding: 12px 18px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   border: 2px solid transparent;
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-  background-color: transparent; /* Transparent background */
-  color: #333; /* Dark text for readability */
-  font-family: 'Helvetica Neue', sans-serif; /* Modern font family */
+  transition: all 0.3s ease;
+  background-color: transparent;
+  color: #333;
+  font-family: 'Helvetica Neue', sans-serif;
   cursor: pointer;
 }
 
-/* Button Hover Effects */
 .btn:hover {
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
-  transform: translateY(-4px); /* Slight lift effect */
-  border-color: #007bff; /* Highlight the border color */
-  background-color: rgba(0, 123, 255, 0.1); /* Light background color on hover */
-  color: #007bff; /* Change text color to match the border */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  border-color: #007bff;
+  background-color: rgba(0, 123, 255, 0.1);
+  color: #007bff;
 }
 
-/* Button Active (Pressed) State */
 .btn:active {
-  transform: translateY(2px); /* Slight press effect */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Reduced shadow on click */
+  transform: translateY(2px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Icon Styling */
 .btn i {
-  font-size: 1.5rem; /* Slightly larger icon for prominence */
-  margin-right: 8px; /* Space between icon and text */
+  font-size: 1.5rem;
+  margin-right: 8px;
   transition: transform 0.3s ease;
 }
 
-/* Button Hover Effects for Icons */
 .btn:hover i {
-  transform: rotate(20deg); /* Rotate icon slightly on hover */
+  transform: rotate(20deg);
 }
 
-/* Responsive Text Handling */
-span {
-  font-weight: 500;
-}
-
-/* Hide text on mobile screens */
 .d-none.d-md-inline {
   display: inline-block;
 }
-/* Hover shadow effect */
+
 .hover-shadow:hover {
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
-  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
   transition: all 0.3s ease;
 }
 
-/* Adjust font size for larger screen */
 .fs-4 {
-  font-size: 1.5rem; /* Adjust font size of icons */
+  font-size: 1.5rem;
 }
 
-
-/* For Mobile - All icons in a single row */
-@media (max-width: 768px) {
-  /* Adjust button padding for mobile */
-  .btn {
-    padding: 10px 14px; /* Adjust padding for mobile */
-    font-size: 1rem; /* Reduce font size on mobile */
-  }
-
-  /* Align buttons in a single row with scrolling */
-  .row {
-    display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    justify-content: space-between; /* Distribute buttons evenly */
-    overflow-x: auto; /* Allow horizontal scrolling */
-  }
-
-  /* Set each button size to 25% on mobile */
-  .col-3 {
-    flex: 0 0 auto;
-    width: 25%; /* 4 buttons per row */
-  }
-
-  /* Make icons larger for mobile */
-  .fs-3 {
-    font-size: 2rem; /* Adjust icon size for mobile */
-  }
-
-  /* Hide text for mobile versions */
-  .d-none.d-md-inline {
-    display: none;
-  }
-
-  /* Ensure icons are clear and prominent */
-  .btn i {
-    font-size: 2rem; /* Increase icon size for mobile */
-  }
-}
-
-
-/* Accessibility: Adding aria-labels for improved screen reader support */
 #uploadForm button[aria-label="submit"] {
   background-color: var(--primary-color);
 }
@@ -152,12 +82,10 @@ header .navbar-nav .nav-link[aria-label="home"] {
 }
 
 .zoom-effect:hover {
-  transform: scale(1.1); /* Slight zoom-in effect */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Footer */
-/* General Footer Styling */
 footer {
   background-color: #343a40;
   color: white;
@@ -168,7 +96,6 @@ footer .container {
   text-align: center;
 }
 
-/* Social Icons */
 .social-icon {
   font-size: 1.5rem;
   transition: transform 0.3s ease;
@@ -179,7 +106,6 @@ footer .container {
   transform: scale(1.2);
 }
 
-/* Text styling */
 .footer-text {
   font-size: 1rem;
   color: #f8f9fa;
@@ -197,54 +123,240 @@ footer .container {
   transform: scale(1.1);
 }
 
-/* University Info */
 footer p {
   margin-bottom: 1rem;
 }
 
-/* Social Icons Container */
-.social-icons {
-  margin-top: 1rem;
-}
 
-.social-icons li {
-  list-style: none;
-}
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .social-icons {
-    text-align: center;
-  }
-}
-/* Style for invalid input field */
 input.invalid {
   border-color: red;
   box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
 }
 
- /* Contact Form Control */
-
- .form-floating .form-control {
-  height: calc(3rem + 2px); /* Ensures enough height for the input and label */
-  padding: 1rem 0.75rem; /* Adds padding for proper spacing */
+.form-floating .form-control {
+  height: calc(3rem + 2px);
+  padding: 1rem 0.75rem;
 }
 
 .form-floating textarea {
-  height: auto; /* Allows textarea to adjust its height dynamically */
-  min-height: 150px; /* Sets a comfortable minimum height */
+  height: auto;
+  min-height: 150px;
 }
 
 .form-floating .form-control:focus {
-  border-color: #0d6efd; /* Highlighted border color on focus */
-  box-shadow: 0 0 5px rgba(13, 110, 253, 0.5); /* Adds a soft shadow */
+  border-color: #0d6efd;
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
 }
 
 .form-floating label {
-  padding: 0 0.5rem; /* Adjusts label padding to avoid overlap */
-  transition: all 0.3s ease; /* Smooth transition for the floating effect */
+  padding: 0 0.5rem;
+  transition: all 0.3s ease;
 }
 
 .form-floating .form-control::placeholder {
-  opacity: 0; /* Hides placeholder to avoid conflicts with floating labels */
+  opacity: 0;
 }
+
+/* Toogle options  */
+.toggle-options {
+  text-align: center;
+}
+
+.option-container {
+  max-width: 180px;
+  flex-grow: 1;
+}
+
+.custom-label {
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #007bff;
+  background-color: #f8f9fa;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.form-check-input:checked + .custom-label {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.form-check-input.visually-hidden {
+  position: absolute;
+  opacity: 0;
+}
+
+.custom-label:hover {
+  background-color: #e2e6ea;
+  color: #0056b3;
+}
+
+#uploadForm {
+  border: 1px solid #ddd;
+}
+
+input[type="text"],
+input[type="file"] {
+  border: 1px solid #ced4da;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0056b3, #004085);
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Contact Form  */
+#contact .form-control {
+  border: 1px solid #ced4da;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+#contact .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #0056b3, #003f7f);
+  box-shadow: 0 8px 20px rgba(0, 91, 187, 0.4);
+}
+
+.rounded-pill {
+  padding: 0.8rem 1.5rem;
+}
+
+/* Author  */
+.rounded-circle {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rounded-circle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+a:hover i {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+/* Navbar  */
+/* Navbar Links */
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  border-radius: 5px;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(255, 193, 7, 0.2);
+  color: #ffc107 !important;
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+.navbar-nav .nav-link.active {
+  background-color: #495057;
+  color: #ffc107 !important;
+  font-weight: bold;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+  outline: none;
+}
+
+/* Animation for the DNA Icon */
+.animate-icon {
+  display: inline-block;
+  animation: zoomColorDNA 2s infinite ease-in-out;
+}
+
+/* Keyframes for zoom-in, zoom-out, and color change effect */
+@keyframes zoomColorDNA {
+  0% {
+    transform: scale(1);
+    color: #ffffff;
+  }
+  50% {
+    transform: scale(1.2);
+    color: #ffc107;
+  }
+  100% {
+    transform: scale(1);
+    color: #ffffff;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 10px 14px;
+    font-size: 1rem;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    overflow-x: auto;
+  }
+
+  .col-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+
+  .fs-3 {
+    font-size: 2rem;
+  }
+
+  .d-none.d-md-inline {
+    display: none;
+  }
+
+  .btn i {
+    font-size: 2rem;
+  }
+
+  .social-icons {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .btn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .btn {
+    padding: 0.6rem 1.8rem;
+  }
+}
+/* Increase text size */
+.larger-text {
+  font-size: 20px; /* Adjust size as needed */
+}
+
