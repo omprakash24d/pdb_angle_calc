@@ -6,151 +6,124 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-md-8 col-lg-6">
-        <form id="uploadForm" class="p-4 rounded-4 bg-white">
+        <form id="uploadForm" class="p-4 rounded-4 bg-white shadow-sm">
           <h4 class="text-center mb-4 text-primary fw-bold">
-            Select Your Option
+            How Would You Like to Begin?
           </h4>
 
           <!-- Toggle Options: PDB ID or File Upload -->
-          <div class="mb-3">
+          <div class="toggle-options mb-4">
             <div
-              class="d-flex flex-row align-items-center justify-content-center"
+              class="d-flex flex-column flex-md-row align-items-center justify-content-center"
             >
               <!-- PDB ID Option -->
-              <div
-                class="form-check d-flex align-items-center mb-3 mb-md-0 me-md-4"
-              >
+              <div class="form-check option-container me-md-3 mb-2 mb-md-0">
                 <input
-                  class="form-check-input custom-radio me-2"
+                  class="form-check-input visually-hidden"
                   type="radio"
                   name="inputOption"
                   id="pdbIdOption"
                   value="pdb_id"
                   checked
                   onchange="toggleOptions()"
-                  aria-labelledby="pdbIdLabel"
                 />
                 <label
-                  class="form-check-label mb-0"
+                  class="form-check-label custom-label d-flex align-items-center justify-content-center p-2"
                   for="pdbIdOption"
-                  id="pdbIdLabel"
                 >
-                  <span class="fw-semibold">Enter PDB ID</span>
+                  <i class="bi bi-file-earmark-text me-2"></i>
+                  <span>PDB ID</span>
                 </label>
               </div>
 
               <!-- File Upload Option -->
-              <div
-                class="form-check d-flex align-items-center mb-3 mb-md-0 me-md-4"
-              >
+              <div class="form-check option-container">
                 <input
-                  class="form-check-input custom-radio me-2"
+                  class="form-check-input visually-hidden"
                   type="radio"
                   name="inputOption"
                   id="fileOption"
                   value="file"
                   onchange="toggleOptions()"
-                  aria-labelledby="fileLabel"
                 />
                 <label
-                  class="form-check-label mb-0"
+                  class="form-check-label custom-label d-flex align-items-center justify-content-center p-2"
                   for="fileOption"
-                  id="fileLabel"
                 >
-                  <span class="fw-semibold">Upload PDB File</span>
+                  <i class="bi bi-upload me-2"></i>
+                  <span>PDB File</span>
                 </label>
               </div>
             </div>
           </div>
 
-          <!-- PDB ID Input (hidden by default) -->
+          <!-- PDB ID Input -->
           <div class="mb-3" id="pdbIdInputDiv">
-            <label for="pdbIdInput" class="form-label fw-semibold text-primary">
-              <i class="bi bi-file-earmark-earbuds text-primary me-2"></i>Enter
-              4-Digit PDB ID:
+            <label for="pdbIdInput" class="form-label text-primary fw-semibold">
+              <i class="bi bi-file-earmark-code me-2"></i>Enter 4-Character PDB
+              ID:
             </label>
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                name="pdb_id"
-                class="form-control minimal-input p-2 fs-5 text-dark bg-transparent border-1 border-gray-300 focus:border-blue-400 focus:outline-none transition-all duration-200"
-                id="pdbIdInput"
-                placeholder="e.g. 1ajq"
-                maxlength="4"
-                pattern="[A-Za-z0-9]{4}"
-                data-bs-toggle="tooltip"
-                data-bs-placement="top"
-                title="Enter a 4-character PDB ID (e.g., 1ajq)"
-              />
-            </div>
-            <small class="form-text text-muted mt-1"
-              >Enter the 4-character PDB ID (e.g.1ajq).</small
-            >
-
-            <!-- Error Message -->
+            <input
+              type="text"
+              name="pdb_id"
+              class="form-control rounded-3 shadow-sm"
+              id="pdbIdInput"
+              placeholder="e.g., 1ajq"
+              maxlength="4"
+              pattern="[A-Za-z0-9]{4}"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="Enter a 4-character PDB ID (e.g., 1ajq)"
+            />
             <div id="pdbIdError" class="text-danger mt-2" style="display: none">
               <small
                 ><i class="bi bi-x-circle me-1"></i>Invalid PDB ID. Please enter
-                a 4-character PDB ID.</small
+                a valid 4-character ID.</small
               >
             </div>
           </div>
 
-          <!-- File Input (hidden by default) -->
+          <!-- File Input -->
           <div class="mb-4" id="fileInputDiv" style="display: none">
-            <label for="fileInput" class="form-label fw-semibold">
-              <i class="bi bi-file-earmark-earbuds text-primary me-2"></i>Select
-              Your PDB File:
-            </label>
-            <div class="input-group">
-              <input
-                type="file"
-                name="file"
-                accept=".pdb"
-                class="form-control custom-file-input rounded-pill"
-                id="fileInput"
-              />
-            </div>
+            <input
+              type="file"
+              name="file"
+              accept=".pdb"
+              class="form-control rounded-3 shadow-sm"
+              id="fileInput"
+            />
             <small class="form-text text-muted mt-1"
-              >Only <code>.pdb</code> files are supported (Max size:
-              50MB).</small
+              >Supported file type: <code>.pdb</code> (Max size: 50MB).</small
             >
-
-            <!-- Error Message -->
             <div id="fileError" class="text-danger mt-2" style="display: none">
               <small
-                >Invalid file type or size. Please upload a `.pdb` file (Max
-                size: 50MB).</small
+                ><i class="bi bi-x-circle me-1"></i>Invalid file. Please upload
+                a valid `.pdb` file (Max size: 50MB).</small
               >
             </div>
           </div>
 
-          <!-- Loading Message (Added for better UX during upload) -->
+          <!-- Loading Message -->
           <div id="loadingMessage" class="text-center" style="display: none">
             <div class="spinner-border text-primary" role="status">
               <span class="visually-hidden">Loading...</span>
             </div>
-            <p class="mt-2">Uploading...</p>
+            <p class="mt-2">Fetching PDB File...</p>
           </div>
 
           <!-- Submit Button -->
           <div class="d-flex justify-content-center mt-4">
             <button
               type="submit"
-              class="btn btn-gradient rounded-pill fs-5 w-100 w-md-auto"
-              style="
-                background: linear-gradient(135deg, #007bff, #0056b3);
-                border: none;
-                color: #fff;
-                padding: 0.75rem 2rem;
-                font-weight: bold;
-                transition: transform 0.3s ease, box-shadow 0.3s ease,
-                  background-color 0.3s ease;
-              "
-              onmouseover="this.style.boxShadow='0 12px 25px rgba(0, 123, 255, 0.5)'; this.style.transform='translateY(-5px)'; this.style.backgroundColor='#0069d9';"
-              onmouseout="this.style.boxShadow='0 6px 15px rgba(0, 123, 255, 0.3)'; this.style.transform='translateY(0)'; this.style.backgroundColor='';"
+              class="btn btn-primary shadow-sm w-100"
+              style="transition: all 0.3s ease"
+              onmouseover="this.style.transform='scale(1.05)';"
+              onmouseout="this.style.transform='scale(1)';"
             >
-              <i class="bi bi-cloud-upload-fill me-2"></i>Start Calculating
+              <i class="bi bi-gear-fill me-2" style="font-size: 20px"></i>
+              <!-- Adjust icon size here -->
+              <span class="larger-text">Start Calculation</span>
+              <!-- Apply class for larger text -->
             </button>
           </div>
         </form>

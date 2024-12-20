@@ -1,91 +1,101 @@
-<section id="contact" class="py-1">
+<!-- Contact Us Section -->
+<section id="contact" class="py-5">
   <div class="container py-5">
     <div class="row justify-content-center">
       <div class="col-md-10 col-lg-6">
-        <div class="card border-0 rounded-4" style="background: #ffffff">
+        <div class="card border-0 shadow rounded-4">
           <div class="card-body p-4 p-lg-5">
             <h1 class="card-title text-center text-primary mb-4 fw-bold">
-              Contact Us
+              Get in Touch
             </h1>
-            <p class="text-muted text-center mb-4">
-              We’d love to hear your feedback! Feel free to reach out with any
-              questions, comments, or suggestions regarding the Dihedral Angle
-              Calculator. We value your input and strive to provide the best
-              service possible.
+            <p class="text-center text-muted mb-4">
+              Got questions or feedback? We’re here to help! Fill out the form
+              below, and we’ll get back to you as soon as possible.
             </p>
             <form id="contactForm">
               <!-- Name Input -->
-              <div class="mb-3">
-                <label for="name" class="form-label fw-bold">Name</label>
+              <div class="form-group mb-4">
+                <label for="name" class="form-label fw-semibold">
+                  <i class="bi bi-person-fill text-primary me-2"></i>Your Name
+                </label>
                 <input
                   type="text"
-                  class="form-control rounded-3"
+                  class="form-control shadow-sm rounded-pill"
                   name="entry.2005620554"
                   id="name"
                   placeholder="Enter your name"
                   required
-                  style="border: 1px solid #ddd; padding: 12px"
                 />
               </div>
 
               <!-- Email Input -->
-              <div class="mb-3">
-                <label for="email" class="form-label fw-bold">Email</label>
+              <div class="form-group mb-4">
+                <label for="email" class="form-label fw-semibold">
+                  <i class="bi bi-envelope-fill text-primary me-2"></i>Email
+                  Address
+                </label>
                 <input
                   type="email"
-                  class="form-control rounded-3"
+                  class="form-control shadow-sm rounded-pill"
                   name="entry.1045781291"
                   id="email"
                   placeholder="Enter your email"
                   required
-                  style="border: 1px solid #ddd; padding: 12px"
                 />
               </div>
 
               <!-- Message Input -->
-              <div class="mb-3">
-                <label for="message" class="form-label fw-bold">Message</label>
+              <div class="form-group mb-4">
+                <label for="message" class="form-label fw-semibold">
+                  <i class="bi bi-chat-left-dots-fill text-primary me-2"></i
+                  >Your Message
+                </label>
                 <textarea
-                  class="form-control rounded-3"
+                  class="form-control shadow-sm rounded-3"
                   name="entry.839337160"
                   id="message"
-                  placeholder="Your message"
+                  placeholder="Write your message here..."
                   required
-                  style="height: 150px; border: 1px solid #ddd; padding: 12px"
+                  style="height: 150px"
                 ></textarea>
               </div>
 
               <!-- Submit Button -->
-              <button
-                type="submit"
-                class="btn btn-primary w-100 py-2 fw-bold"
-                id="submitBtn"
-                style="
-                  background: #007bff;
-                  border: none;
-                  transition: all 0.3s ease-in-out;
-                "
-              >
-                Submit
-                <span
-                  id="loadingSpinner"
-                  class="spinner-border spinner-border-sm text-light ms-2"
-                  style="display: none"
-                  role="status"
+              <div class="d-grid">
+                <button
+                  type="submit"
+                  class="btn btn-gradient btn-lg rounded-pill fw-bold"
+                  id="submitBtn"
+                  style="
+                    background: linear-gradient(135deg, #007bff, #0056b3);
+                    color: #fff;
+                    border: none;
+                    transition: all 0.3s ease-in-out;
+                  "
+                  onmouseover="this.style.transform='scale(1.05)';"
+                  onmouseout="this.style.transform='scale(1)';"
                 >
-                  <span class="sr-only">Loading...</span>
-                </span>
-              </button>
+                  Send Message
+                  <span
+                    id="loadingSpinner"
+                    class="spinner-border spinner-border-sm text-light ms-2"
+                    style="display: none"
+                    role="status"
+                  >
+                    <span class="visually-hidden">Loading...</span>
+                  </span>
+                </button>
+              </div>
             </form>
 
             <!-- Success Message -->
             <div
               id="successMessage"
-              class="alert alert-success mt-3 text-center"
+              class="alert alert-success mt-4 text-center"
               style="display: none"
             >
-              Your message has been sent successfully! We will do our best to
-              respond within 24 hours. Thank you!
+              <i class="bi bi-check-circle-fill me-2"></i>Your message has been
+              sent! We'll respond within 24 hours.
             </div>
           </div>
         </div>
