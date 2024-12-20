@@ -1,11 +1,8 @@
-<section id="contact">
+<section id="contact" class="py-1">
   <div class="container py-5">
     <div class="row justify-content-center">
       <div class="col-md-10 col-lg-6">
-        <div
-          class="card border-0 rounded-4 shadow-lg"
-          style="background: #ffffff"
-        >
+        <div class="card border-0 rounded-4" style="background: #ffffff">
           <div class="card-body p-4 p-lg-5">
             <h1 class="card-title text-center text-primary mb-4 fw-bold">
               Contact Us
@@ -18,7 +15,8 @@
             </p>
             <form id="contactForm">
               <!-- Name Input -->
-              <div class="form-floating mb-3">
+              <div class="mb-3">
+                <label for="name" class="form-label fw-bold">Name</label>
                 <input
                   type="text"
                   class="form-control rounded-3"
@@ -28,11 +26,11 @@
                   required
                   style="border: 1px solid #ddd; padding: 12px"
                 />
-                <label for="name" class="fw-bold">Name</label>
               </div>
 
               <!-- Email Input -->
-              <div class="form-floating mb-3">
+              <div class="mb-3">
+                <label for="email" class="form-label fw-bold">Email</label>
                 <input
                   type="email"
                   class="form-control rounded-3"
@@ -42,11 +40,11 @@
                   required
                   style="border: 1px solid #ddd; padding: 12px"
                 />
-                <label for="email" class="fw-bold">Email</label>
               </div>
 
               <!-- Message Input -->
-              <div class="form-floating mb-3">
+              <div class="mb-3">
+                <label for="message" class="form-label fw-bold">Message</label>
                 <textarea
                   class="form-control rounded-3"
                   name="entry.839337160"
@@ -55,7 +53,6 @@
                   required
                   style="height: 150px; border: 1px solid #ddd; padding: 12px"
                 ></textarea>
-                <label for="message" class="fw-bold">Message</label>
               </div>
 
               <!-- Submit Button -->
