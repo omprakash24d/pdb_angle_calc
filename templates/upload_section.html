@@ -14,7 +14,7 @@
           <!-- Toggle Options: PDB ID or File Upload -->
           <div class="mb-3">
             <div
-              class="d-flex flex-row flex-md-row align-items-center justify-content-center"
+              class="d-flex flex-row align-items-center justify-content-center"
             >
               <!-- PDB ID Option -->
               <div
@@ -28,8 +28,13 @@
                   value="pdb_id"
                   checked
                   onchange="toggleOptions()"
+                  aria-labelledby="pdbIdLabel"
                 />
-                <label class="form-check-label mb-0" for="pdbIdOption">
+                <label
+                  class="form-check-label mb-0"
+                  for="pdbIdOption"
+                  id="pdbIdLabel"
+                >
                   <span class="fw-semibold">Enter PDB ID</span>
                 </label>
               </div>
@@ -45,8 +50,13 @@
                   id="fileOption"
                   value="file"
                   onchange="toggleOptions()"
+                  aria-labelledby="fileLabel"
                 />
-                <label class="form-check-label mb-0" for="fileOption">
+                <label
+                  class="form-check-label mb-0"
+                  for="fileOption"
+                  id="fileLabel"
+                >
                   <span class="fw-semibold">Upload PDB File</span>
                 </label>
               </div>
@@ -54,7 +64,7 @@
           </div>
 
           <!-- PDB ID Input (hidden by default) -->
-          <div class="mb-3" id="pdbIdInputDiv" class="d-block">
+          <div class="mb-3" id="pdbIdInputDiv">
             <label for="pdbIdInput" class="form-label fw-semibold text-primary">
               <i class="bi bi-file-earmark-earbuds text-primary me-2"></i>Enter
               4-Digit PDB ID:
@@ -73,7 +83,6 @@
                 title="Enter a 4-character PDB ID (e.g., 1ajq)"
               />
             </div>
-
             <small class="form-text text-muted mt-1"
               >Enter the 4-character PDB ID (e.g.1ajq).</small
             >
@@ -88,7 +97,7 @@
           </div>
 
           <!-- File Input (hidden by default) -->
-          <div class="mb-4" id="fileInputDiv" class="d-none">
+          <div class="mb-4" id="fileInputDiv" style="display: none">
             <label for="fileInput" class="form-label fw-semibold">
               <i class="bi bi-file-earmark-earbuds text-primary me-2"></i>Select
               Your PDB File:
