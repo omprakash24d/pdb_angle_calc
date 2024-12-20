@@ -69,7 +69,6 @@ function validatePdbId() {
     return true;
 }
 
-
 // Handle input method change (toggle visibility of inputs)
 function handleInputMethodChange() {
     const isPdbIdSelected = document.getElementById('pdbIdOption').checked;
@@ -88,6 +87,14 @@ function handleInputMethodChange() {
         toggleVisibility([document.getElementById('pdbIdInputDiv')], false);
     }
 }
+
+// Initialize form visibility based on selected radio option
+handleInputMethodChange();
+
+// Radio button change event listener to toggle input method
+radioButtons.forEach(radio => {
+    radio.addEventListener('change', handleInputMethodChange);
+});
 
 // Helper function to handle errors
 function handleError(message) {
@@ -438,14 +445,6 @@ fileInput.addEventListener('change', debounce(() => {
 
 // Form submit event listener
 form.addEventListener('submit', handleFormSubmit);
-
-// Radio button change event listener to toggle input method
-radioButtons.forEach(radio => {
-    radio.addEventListener('change', handleInputMethodChange);
-});
-
-// Initialize form visibility based on selected radio option
-handleInputMethodChange();
 
 // Adjust display style for mobile users (using matchMedia for better performance)
 const mediaQuery = window.matchMedia('(max-width: 768px)');
