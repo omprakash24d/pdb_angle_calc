@@ -253,6 +253,16 @@ def convert_to_pdf(df, filepath):
 @app.route('/')
 def index():
     return render_template('index.html')
+@app.route('/privacy-policy')
+def privacy_policy():
+    return render_template('privacy_policy.html')
+@app.route('/terms&condition')
+def TermsandConditions():
+    return render_template('Terms&Conditions.html')
+@app.route('/disclaimers')
+def Disclaimers():
+    return render_template('disclaimer.html')
+
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
